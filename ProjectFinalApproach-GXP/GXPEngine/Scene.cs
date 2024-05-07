@@ -12,6 +12,7 @@ class Scene : GameObject
 {
     TiledLoader loader;
 
+
     public Scene(string filename)
     {
         Console.WriteLine("Creating new scene");
@@ -25,6 +26,7 @@ class Scene : GameObject
         Console.WriteLine("Building scene");
         loader.addColliders = false;
         loader.rootObject = game;
+        
         if (includeImageLayers)
         {
             loader.LoadImageLayers();

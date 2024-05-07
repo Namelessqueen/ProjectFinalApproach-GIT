@@ -34,12 +34,9 @@ public class MyGame : Game {
 		{
 			DestroyAll();
 			AddChild(new Scene(nextScene));
+
 			nextScene = null;
 		}
-	}
-
-	void Update() {
-	
 	}
 
 	static void Main()                          
