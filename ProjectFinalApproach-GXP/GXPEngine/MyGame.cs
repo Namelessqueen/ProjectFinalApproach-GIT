@@ -3,8 +3,9 @@ using GXPEngine;                                // GXPEngine contains the engine
 using System.Drawing;                           // System.Drawing contains drawing tools such as Color definitions
 
 public class MyGame : Game {
-	public MyGame() : base(800, 600, false)     // Create a window that's 800x600 and NOT fullscreen
+	public MyGame() : base(1032, 1366, false)     // Create a window that's 800x600 and NOT fullscreen
 	{
+		Vec2 newVec = new Vec2();
 		// Draw some things on a canvas:
 		EasyDraw canvas = new EasyDraw(800, 600);
 		canvas.Clear(Color.Aqua);

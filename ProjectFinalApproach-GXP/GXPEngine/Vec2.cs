@@ -6,7 +6,7 @@ public struct Vec2
 {
     public float x;
     public float y;
-   
+
 
 
     public Vec2(float pX = 0, float pY = 0)
@@ -27,8 +27,8 @@ public struct Vec2
 
     public static Vec2 GetUnitVectorDeg(float degrees)
     {
-        float newX = Mathf.Cos(Deg2Rad(degrees)) ;
-        float newY = Mathf.Sin(Deg2Rad(degrees)) ;
+        float newX = Mathf.Cos(Deg2Rad(degrees));
+        float newY = Mathf.Sin(Deg2Rad(degrees));
         return new Vec2(newX, newY).Normalized();
     }
 
@@ -71,7 +71,7 @@ public struct Vec2
         SetAngleDegrees(newAngle);
     }
 
-    public void RotateRadians (float radians)
+    public void RotateRadians(float radians)
     {
         float newAngle = GetAngleRadians() + radians;
         SetAngleRadians(newAngle);
@@ -122,7 +122,7 @@ public struct Vec2
         x = pX;
         y = pY;
     }
-    
+
     public float Dot(Vec2 other)
     {
         return (x * other.x + y * other.y);
