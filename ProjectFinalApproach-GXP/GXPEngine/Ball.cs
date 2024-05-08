@@ -54,6 +54,7 @@ internal class Ball : AnimationSprite
         {
             Position.y = game.height;
         }
+        Console.WriteLine(Position);
     }
 
     void Update()

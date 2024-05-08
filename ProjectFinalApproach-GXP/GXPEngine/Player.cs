@@ -26,11 +26,14 @@ internal class Player : AnimationSprite
 
     void Update()
     {
+        x = Position.x;
+        y = Position.y;
+
         _easyDraw.ClearTransparent();
         mousePos = new Vec2(Input.mouseX, Input.mouseY);
         mouseAnlge = mousePos - playerPos;
         _easyDraw.Stroke(255); _easyDraw.StrokeWeight(3);
-        _easyDraw.Line(_easyDraw.width/2, _easyDraw.height/2, _easyDraw.width/2, _easyDraw.height/2);
+        _easyDraw.Line(_easyDraw.width/2, _easyDraw.height/2,Input.mouseX, Input.mouseY);
         BallSpawn();
         //Console.WriteLine("the mousePos is {0}, the position of the player is {1}, {2}", mousePos, x,y);
         Console.WriteLine(playerPos);
@@ -41,7 +44,7 @@ internal class Player : AnimationSprite
     {
         if (Input.GetMouseButtonDown(0))
         {   
-            game.AddChild(new Ball(mousePos));    // Not correctly added! needs fixing
+            //game.AddChild(new Ball(mousePos));    // Not correctly added! needs fixing
         }
     }
 
