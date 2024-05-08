@@ -13,6 +13,7 @@ internal class Gravity : AnimationSprite
     public Vec2 Position;
     public Vec2 Velocity;
     int radius;
+    float gravityStrength = 0.04f;
 
     public Gravity() : base("Force.png", 1, 1, -1, false, false)
     {
@@ -26,17 +27,17 @@ internal class Gravity : AnimationSprite
 
     void Initialize()
     {
-        radius = 64;
+        radius = 125;
         SetOrigin(width / 2, height / 2);
         SetScaleXY(radius * 2, radius * 2);
 
-        Position = new Vec2(game.width - (1.5f * radius), game.height / 2);
+        Position = new Vec2(game.width / 2, game.height / 2);
     }
 
-    Vec2 relativePosition;
+    Vec2 ballDistance;
     Ball ball;
 
-    void PullingGravity()
+    void CheckOverlap()
     {
 
         ball = game.FindObjectOfType<Ball>();
@@ -44,22 +45,94 @@ internal class Gravity : AnimationSprite
 
         if (ball != null)
         {
-            relativePosition = Position - ball.Position;
+            ballDistance = Position - ball.Position;
 
-            if (relativePosition.Length() <= radius + ball.radius)
+            if (ballDistance.Length() <= radius + ball.radius)
             {
-                ball.Velocity.y += 0.3f;
+                AlterCourse();
+            }
+            else
+            {
+                ball.Velocity = ball.Velocity.Normalized() * ball.speed;
             }
         }
     }
+
+    bool moveLeft = false;
+    bool moveRight = false;
+    bool moveUp = false;
+    bool moveDown = false;
+
+    void AlterCourse()
+    {
+        
+        if (ball.Position.x >= Position.x)
+        {
+            moveLeft = true;
+        } else
+        {
+            moveLeft = false;
+        }
+
+        if (ball.Position.x < Position.x)
+        {
+            moveRight = true;
+        } else
+        {
+            moveRight = false;
+        }
+
+        if (ball.Position.y < Position.y)
+        {
+            moveDown = true;
+        }
+        else
+        {
+            moveDown = false;
+        }
+
+        if (ball.Position.y >= Position.y)
+        {
+            moveUp = true;
+        }
+        else
+        {
+            moveUp = false;
+        }
+
+        if (moveLeft)
+        {
+            ball.Velocity.x -= gravityStrength * ball.Velocity.Length();
+
+        }
+
+        if (moveRight)
+        {
+            ball.Velocity.x += gravityStrength * ball.Velocity.Length(); 
+           
+        }
+
+        if (moveUp)
+        {
+            ball.Velocity.y -= gravityStrength * ball.Velocity.Length();
+        }
+
+        if (moveDown)
+        {
+            ball.Velocity.y += gravityStrength * ball.Velocity.Length();
+        }
+
+        ball.Velocity = ball.Velocity.Normalized() * ball.speed;
+    }
+
+
 
     void Update()
     {
         x = Position.x;
         y = Position.y;
 
-        PullingGravity();
-        Console.WriteLine(relativePosition.Length());
+        CheckOverlap();
     }
 }
 

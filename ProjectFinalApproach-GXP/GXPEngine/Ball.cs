@@ -8,9 +8,11 @@ using TiledMapParser;
 
 internal class Ball : AnimationSprite
 {
+    Sound boom = new Sound("Boom.wav");
     public Vec2 Position;
     public Vec2 Velocity;
     public int radius;
+    public int speed = 9;
 
 
     public Ball() : base("Ball.png", 1, 1, -1, false, false)
@@ -31,6 +33,7 @@ internal class Ball : AnimationSprite
 
         Position = new Vec2(100, game.height / 2);
         Velocity = new Vec2(4, 0);
+        Velocity = Velocity.Normalized() * speed;
     }
 
     void BoundaryWrap()
@@ -56,6 +59,27 @@ internal class Ball : AnimationSprite
         }
     }
 
+    Vec2 planetDistance;
+    Planet planet;
+
+    void CheckPlanetCollision()
+    {
+
+        planet = game.FindObjectOfType<Planet>();
+
+
+        if (planet != null)
+        {
+            planetDistance = Position - planet.Position;
+
+            if (planetDistance.Length() <= radius + planet.radius)
+            {
+                Velocity.Reflect(planetDistance);
+                boom.Play().Volume = 0.2f;
+            }
+        }
+    }
+
     void Update()
     {
         x = Position.x;
@@ -64,5 +88,11 @@ internal class Ball : AnimationSprite
         Position += Velocity;
 
         BoundaryWrap();
+        CheckPlanetCollision();
+
+        if (Input.GetKeyDown(Key.SPACE))
+        {
+            Velocity = Velocity * -1;
+        }
     }
 }
