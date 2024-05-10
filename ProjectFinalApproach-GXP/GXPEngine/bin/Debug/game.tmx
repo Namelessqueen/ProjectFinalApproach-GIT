@@ -35,6 +35,6 @@
   <image source="BackgroundTester.jpg" width="625" height="400"/>
  </imagelayer>
  <objectgroup id="4" name="Objectlaag 1" class="B">
-  <object id="32" type="Player" gid="1" x="247.167" y="254.5" width="32" height="32"/>
+  <object id="32" type="Player" gid="1" x="106" y="172" width="32" height="32"/>
  </objectgroup>
 </map>

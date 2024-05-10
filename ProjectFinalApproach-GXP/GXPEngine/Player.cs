@@ -16,27 +16,27 @@ internal class Player : AnimationSprite
     public Player(string imageFile, int cols, int rows, TiledObject obj = null) : base(imageFile, cols, rows)
     {
         SetOrigin(width/2,height/2);
-        SetXY(300,300);
-        _easyDraw = new EasyDraw(game.width*2 + width, game.height*2 + height, false);
-        playerPos = new Vec2(this.x,this.y);
-        _easyDraw.SetOrigin(_easyDraw.width / 2, _easyDraw.height / 2);
-        _easyDraw.SetXY(playerPos.x, playerPos.y);
+        playerPos = new Vec2(x,y);
+        _easyDraw = new EasyDraw(game.width, game.height, false);
+        _easyDraw.SetOrigin(0, 0);
+      
         AddChild(_easyDraw);
     }
 
     void Update()
     {
-        x = Position.x;
-        y = Position.y;
+        playerPos.x = x;
+        playerPos.y = y;
+        _easyDraw.SetXY(-playerPos.x, -playerPos.y);
 
         _easyDraw.ClearTransparent();
+        //_easyDraw.Clear(255,0,0); _easyDraw.alpha = 0.5f;
+
         mousePos = new Vec2(Input.mouseX, Input.mouseY);
-        mouseAnlge = mousePos - playerPos;
+        mouseAnlge = playerPos - mousePos;
         _easyDraw.Stroke(255); _easyDraw.StrokeWeight(3);
-        _easyDraw.Line(_easyDraw.width/2, _easyDraw.height/2,Input.mouseX, Input.mouseY);
+        _easyDraw.Line(x, y, mousePos.x, mousePos.y);
         BallSpawn();
-        //Console.WriteLine("the mousePos is {0}, the position of the player is {1}, {2}", mousePos, x,y);
-        Console.WriteLine(playerPos);
 
     }
 
@@ -44,7 +44,7 @@ internal class Player : AnimationSprite
     {
         if (Input.GetMouseButtonDown(0))
         {   
-            //game.AddChild(new Ball(mousePos));    // Not correctly added! needs fixing
+            game.AddChild(new Ball(mouseAnlge.GetAngleDegrees(), playerPos));    // Not correctly added! needs fixing
         }
     }
 

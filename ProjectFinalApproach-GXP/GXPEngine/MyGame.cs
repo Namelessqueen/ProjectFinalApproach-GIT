@@ -11,7 +11,7 @@ public class MyGame : Game {
 	public MyGame() : base(800, 608, false)    
 	{
 	    OnAfterStep += CheckLoadScene;
-		LoadScene("ballTest.tmx");
+		LoadScene("game.tmx");
 	}
 	
 	void DestroyAll()

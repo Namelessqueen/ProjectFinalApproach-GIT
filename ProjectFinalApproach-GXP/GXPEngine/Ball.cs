@@ -11,11 +11,16 @@ internal class Ball : AnimationSprite
     public Vec2 Position;
     public Vec2 Velocity;
     public int radius;
+    Vec2 PlayerPos;
+    float Angle;
 
 
-    public Ball() : base("Ball.png", 1, 1, -1, false, false)
+    public Ball(float pAngle, Vec2 pPlayerPos) : base("Ball.png", 1, 1, -1, false, false)
     {
-        Initialize();
+        Angle = pAngle;
+        PlayerPos = pPlayerPos;
+        InitializeSheep();
+
     }
 
     public Ball(string imageFile, int cols, int rows, TiledObject obj = null) : base(imageFile, cols, rows)
@@ -33,6 +38,15 @@ internal class Ball : AnimationSprite
         Velocity = new Vec2(4, 0);
     }
 
+    void InitializeSheep()
+    {
+        SetOrigin(width / 2, height / 2);
+        SetColor(255,0,0);
+
+        Position = PlayerPos;
+        Velocity = new Vec2(0, -1);
+        Velocity.SetAngleDegrees(Angle);
+    }
     void BoundaryWrap()
     {
         if (Position.x - radius > game.width)
@@ -61,7 +75,6 @@ internal class Ball : AnimationSprite
     {
         x = Position.x;
         y = Position.y;
-
         Position += Velocity;
 
         BoundaryWrap();
