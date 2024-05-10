@@ -8,12 +8,16 @@ using TiledMapParser;
 
 internal class Ball : AnimationSprite
 {
+    Sound boom = new Sound("Boom.wav");
     public Vec2 Position;
     public Vec2 Velocity;
     public int radius;
     Vec2 PlayerPos;
     float Angle;
+    bool DestroyObject = true;
 
+    //tweak the speed of the ball here!!
+    public int speed = 5;
 
     public Ball(float pAngle, Vec2 pPlayerPos) : base("Ball.png", 1, 1, -1, false, false)
     {
@@ -36,6 +40,7 @@ internal class Ball : AnimationSprite
 
         Position = new Vec2(100, game.height / 2);
         Velocity = new Vec2(4, 0);
+        Velocity = Velocity.Normalized() * speed;
     }
 
     void InitializeSheep() // 
@@ -44,31 +49,61 @@ internal class Ball : AnimationSprite
         SetColor(255,0,0);
         //scale = 0.5f;
         Position = PlayerPos;
-        Velocity = new Vec2(0, -1);
+        Velocity = new Vec2(0, -3);
         Velocity.SetAngleDegrees(Mathf.Clamp(Angle,-135,-45));
     }
+    //Method to keep the projectile inside the game scene
     void BoundaryWrap()
     {
         if (Position.x - radius > game.width)
         {
+            if (DestroyObject) LateDestroy();
             Position.x = 0;
         }
 
         if (Position.y - radius > game.height)
         {
+            if (DestroyObject) LateDestroy();
             Position.y = 0;
         }
 
         if (Position.x + radius < 0)
         {
+            if (DestroyObject) LateDestroy();
             Position.x = game.width;
         }
 
         if (Position.y + radius < 0)
         {
-            Position.y = game.height;
+            if (DestroyObject) LateDestroy();
+            else Position.y = game.height;
         }
-        Console.WriteLine(Position);
+        //Console.WriteLine(Position);
+    }
+
+    Vec2 planetDistance;
+    Planet planet;
+
+    void CheckPlanetCollision()
+    {
+
+        //find planet GameObject
+        planet = game.FindObjectOfType<Planet>();
+
+        //if there is a planet in the scene....
+        if (planet != null)
+        {
+            //get the distance between the planet and the ball
+            planetDistance = Position - planet.Position;
+
+            //if that distance is less than the radius sum (collision)
+            if (planetDistance.Length() <= radius + planet.radius)
+            {
+                //reflect the velocity in the planetDistance vector (which is also the normal)
+                Velocity.Reflect(planetDistance);
+                boom.Play().Volume = 0.2f;
+            }
+        }
     }
 
     void Update()
@@ -77,7 +112,15 @@ internal class Ball : AnimationSprite
         y = Position.y;
 
         Position += Velocity;
-        //alpha -= 0.01f;
-        //BoundaryWrap();
+
+        BoundaryWrap();
+        CheckPlanetCollision();
+
+        //hold down space to invert the velocity, sending the ball backwards
+
+        if (Input.GetKeyDown(Key.SPACE))
+        {
+            Velocity = Velocity * -1;
+        }
     }
 }

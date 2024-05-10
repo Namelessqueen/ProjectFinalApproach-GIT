@@ -12,7 +12,6 @@ class Scene : GameObject
 {
     TiledLoader loader;
 
-
     public Scene(string filename)
     {
         Console.WriteLine("Creating new scene");
