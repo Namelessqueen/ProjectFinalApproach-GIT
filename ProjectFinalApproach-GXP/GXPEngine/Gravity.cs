@@ -13,6 +13,8 @@ internal class Gravity : AnimationSprite
     public Vec2 Position;
     public Vec2 Velocity;
     int radius;
+
+    //tweak the strength of the gravity field here!!
     float gravityStrength = 0.04f;
 
     public Gravity() : base("Force.png", 1, 1, -1, false, false)
@@ -39,20 +41,24 @@ internal class Gravity : AnimationSprite
 
     void CheckOverlap()
     {
-
+        //check for ball gameobjects
         ball = game.FindObjectOfType<Ball>();
 
-
+        //if there is a ball in the game scene...
         if (ball != null)
         {
+            //get the distance between the gravity field and the ball
             ballDistance = Position - ball.Position;
 
+            //if the ball overlaps with the field...
             if (ballDistance.Length() <= radius + ball.radius)
             {
+                //alter the velocity accordingly
                 AlterCourse();
             }
             else
             {
+                //make sure the speed of the ball remains the same after leaving the gravity field
                 ball.Velocity = ball.Velocity.Normalized() * ball.speed;
             }
         }
@@ -65,7 +71,8 @@ internal class Gravity : AnimationSprite
 
     void AlterCourse()
     {
-        
+        //Probably not the most efficient way to do it, but this is where the ball's velocity gets altered depending on from where it enters the field
+
         if (ball.Position.x >= Position.x)
         {
             moveLeft = true;

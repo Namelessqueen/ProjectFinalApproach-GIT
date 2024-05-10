@@ -12,7 +12,9 @@ internal class Ball : AnimationSprite
     public Vec2 Position;
     public Vec2 Velocity;
     public int radius;
-    public int speed = 9;
+
+    //tweak the speed of the ball here!!
+    public int speed = 5;
 
 
     public Ball() : base("Ball.png", 1, 1, -1, false, false)
@@ -36,6 +38,7 @@ internal class Ball : AnimationSprite
         Velocity = Velocity.Normalized() * speed;
     }
 
+    //Method to keep the projectile inside the game scene
     void BoundaryWrap()
     {
         if (Position.x - radius > game.width)
@@ -65,15 +68,19 @@ internal class Ball : AnimationSprite
     void CheckPlanetCollision()
     {
 
+        //find planet GameObject
         planet = game.FindObjectOfType<Planet>();
 
-
+        //if there is a planet in the scene....
         if (planet != null)
         {
+            //get the distance between the planet and the ball
             planetDistance = Position - planet.Position;
 
+            //if that distance is less than the radius sum (collision)
             if (planetDistance.Length() <= radius + planet.radius)
             {
+                //reflect the velocity in the planetDistance vector (which is also the normal)
                 Velocity.Reflect(planetDistance);
                 boom.Play().Volume = 0.2f;
             }
@@ -89,6 +96,8 @@ internal class Ball : AnimationSprite
 
         BoundaryWrap();
         CheckPlanetCollision();
+
+        //hold down space to invert the velocity, sending the ball backwards
 
         if (Input.GetKeyDown(Key.SPACE))
         {
