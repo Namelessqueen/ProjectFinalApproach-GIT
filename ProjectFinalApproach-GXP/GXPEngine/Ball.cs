@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,14 +12,19 @@ internal class Ball : AnimationSprite
     public Vec2 Position;
     public Vec2 Velocity;
     public int radius;
+    Vec2 PlayerPos;
+    float Angle;
+    bool DestroyObject = true;
 
     //tweak the speed of the ball here!!
     public int speed = 5;
 
-
-    public Ball() : base("Ball.png", 1, 1, -1, false, false)
+    public Ball(float pAngle, Vec2 pPlayerPos) : base("Ball.png", 1, 1, -1, false, false)
     {
-        Initialize();
+        Angle = pAngle;
+        PlayerPos = pPlayerPos;
+        InitializeSheep(); //I made a different Initialize funtion because this ones position and Velocity angle is determent by the player. the normal initialize method still works the same
+
     }
 
     public Ball(string imageFile, int cols, int rows, TiledObject obj = null) : base(imageFile, cols, rows)
@@ -38,28 +43,42 @@ internal class Ball : AnimationSprite
         Velocity = Velocity.Normalized() * speed;
     }
 
+    void InitializeSheep() // 
+    {
+        SetOrigin(width / 2, height / 2);
+        SetColor(255,0,0);
+        //scale = 0.5f;
+        Position = PlayerPos;
+        Velocity = new Vec2(0, -3);
+        Velocity.SetAngleDegrees(Mathf.Clamp(Angle,-135,-45));
+    }
     //Method to keep the projectile inside the game scene
     void BoundaryWrap()
     {
         if (Position.x - radius > game.width)
         {
+            if (DestroyObject) LateDestroy();
             Position.x = 0;
         }
 
         if (Position.y - radius > game.height)
         {
+            if (DestroyObject) LateDestroy();
             Position.y = 0;
         }
 
         if (Position.x + radius < 0)
         {
+            if (DestroyObject) LateDestroy();
             Position.x = game.width;
         }
 
         if (Position.y + radius < 0)
         {
-            Position.y = game.height;
+            if (DestroyObject) LateDestroy();
+            else Position.y = game.height;
         }
+        Console.WriteLine(Position);
     }
 
     Vec2 planetDistance;
