@@ -62,7 +62,7 @@ internal class Gravity : AnimationSprite
     {
         mousePos = new Vec2(Input.mouseX, Input.mouseY);
 
-        Vec2 rotationPoint = new Vec2(game.width / 2, 3 * game.height / 4);
+        Vec2 rotationPoint = new Vec2(game.width / 2,game.height / 4);
         Vec2 rotationMouse =rotationPoint - mousePos;
         Vec2 dist = Position - mousePos;
 
