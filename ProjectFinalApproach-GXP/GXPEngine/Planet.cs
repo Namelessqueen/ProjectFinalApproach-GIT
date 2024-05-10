@@ -11,6 +11,7 @@ internal class Planet : AnimationSprite
 {
     public Vec2 Position;
     public int radius;
+    List<Gravity> gravityObjects;
 
     public Planet() : base("Planet.png", 1, 1, -1, false, false)
     {
@@ -24,14 +25,30 @@ internal class Planet : AnimationSprite
 
     void Initialize()
     {
-        Position = new Vec2(game.width/2 + 5, game.height/2 + 5);
+        Position = new Vec2(0,0);
         radius = 32;
     }
 
     void Update()
     {
+        PlanetAlingment();
+
         x = Position.x;
         y = Position.y;
+    }
+
+    void PlanetAlingment()
+    {
+        gravityObjects = game.FindObjectsOfType<Gravity>().ToList();
+
+        for (int i = 0; i < gravityObjects.Count; i++)
+        {
+            Vec2 dist = gravityObjects[i].Position - Position; 
+            if (dist.Length() > 0)
+            {
+                Position = gravityObjects[i].Position;
+            }
+        }
     }
 }
 

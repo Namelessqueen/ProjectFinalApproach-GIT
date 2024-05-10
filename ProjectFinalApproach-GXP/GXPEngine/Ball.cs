@@ -78,7 +78,7 @@ internal class Ball : AnimationSprite
             if (DestroyObject) LateDestroy();
             else Position.y = game.height;
         }
-        Console.WriteLine(Position);
+        //Console.WriteLine(Position);
     }
 
     Vec2 planetDistance;

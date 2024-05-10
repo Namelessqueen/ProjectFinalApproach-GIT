@@ -14,7 +14,6 @@ internal class Gravity : AnimationSprite
     public Vec2 Velocity;
     Vec2 mousePos;
     int radius;
-    List<Ball> ballObjects;
 
     //tweak the strength of the gravity field here!!
     float gravityStrength = 0.04f;
@@ -39,43 +38,48 @@ internal class Gravity : AnimationSprite
     }
 
     Vec2 ballDistance;
-    Ball ball;
+    List<Ball> ballObjects;
+
 
     void CheckOverlap()
     {
         //check for ball gameobjects
-        ball = game.FindObjectOfType<Ball>();
+        ballObjects = game.FindObjectsOfType<Ball>().ToList();
 
-        //if there is a ball in the game scene...
-        if (ball != null)
+        for (int i = 0; i < ballObjects.Count; i++)
         {
-            //get the distance between the gravity field and the ball
-            ballDistance = Position - ball.Position;
+            //if there is a ball in the game scene...
+            if (ballObjects[i] != null)
+            {
+                //get the distance between the gravity field and the ball
+                ballDistance = Position - ballObjects[i].Position;
 
-            //if the ball overlaps with the field...
-            if (ballDistance.Length() <= radius + ball.radius)
-            {
-                //alter the velocity accordingly
-                AlterCourse();
-            }
-            else
-            {
-                //make sure the speed of the ball remains the same after leaving the gravity field
-                ball.Velocity = ball.Velocity.Normalized() * ball.speed;
+                //if the ball overlaps with the field...
+                if (ballDistance.Length() <= radius + ballObjects[i].radius)
+                {
+                    //alter the velocity accordingly
+                    AlterCourse(i);
+                }
+                else
+                {
+                    //make sure the speed of the ball remains the same after leaving the gravity field
+                    ballObjects[i].Velocity = ballObjects[i].Velocity.Normalized() * ballObjects[i].speed;
+                }
             }
         }
     }
-    eyyo
+    
+
     bool moveLeft = false;
     bool moveRight = false;
     bool moveUp = false;
     bool moveDown = false;
 
-    void AlterCourse()
+    void AlterCourse(int i)
     {
         //Probably not the most efficient way to do it, but this is where the ball's velocity gets altered depending on from where it enters the field
-
-        if (ball.Position.x >= Position.x)
+        int I = i;
+        if (ballObjects[I].Position.x >= Position.x)
         {
             moveLeft = true;
         } else
@@ -83,7 +87,7 @@ internal class Gravity : AnimationSprite
             moveLeft = false;
         }
 
-        if (ball.Position.x < Position.x)
+        if (ballObjects[I].Position.x < Position.x)
         {
             moveRight = true;
         } else
@@ -91,7 +95,7 @@ internal class Gravity : AnimationSprite
             moveRight = false;
         }
 
-        if (ball.Position.y < Position.y)
+        if (ballObjects[I].Position.y < Position.y)
         {
             moveDown = true;
         }
@@ -100,7 +104,7 @@ internal class Gravity : AnimationSprite
             moveDown = false;
         }
 
-        if (ball.Position.y >= Position.y)
+        if (ballObjects[I].Position.y >= Position.y)
         {
             moveUp = true;
         }
@@ -111,36 +115,35 @@ internal class Gravity : AnimationSprite
 
         if (moveLeft)
         {
-            ball.Velocity.x -= gravityStrength * ball.Velocity.Length();
+            ballObjects[I].Velocity.x -= gravityStrength * ballObjects[I].Velocity.Length();
 
         }
 
         if (moveRight)
         {
-            ball.Velocity.x += gravityStrength * ball.Velocity.Length(); 
+            ballObjects[I].Velocity.x += gravityStrength * ballObjects[I].Velocity.Length(); 
            
         }
 
         if (moveUp)
         {
-            ball.Velocity.y -= gravityStrength * ball.Velocity.Length();
+            ballObjects[I].Velocity.y -= gravityStrength * ballObjects[I].Velocity.Length();
         }
 
         if (moveDown)
         {
-            ball.Velocity.y += gravityStrength * ball.Velocity.Length();
+            ballObjects[I].Velocity.y += gravityStrength * ballObjects[I].Velocity.Length();
         }
 
-        ball.Velocity = ball.Velocity.Normalized() * ball.speed;
+        ballObjects[I].Velocity = ballObjects[I].Velocity.Normalized() * ballObjects[I].speed;
     }
-
 
 
     void MovingPlanet()
     {
         mousePos = new Vec2(Input.mouseX, Input.mouseY);
 
-        Vec2 rotationPoint = new Vec2(game.width / 2,game.height / 4);
+        Vec2 rotationPoint = new Vec2(game.width / 2, 3*game.height / 4);
         Vec2 rotationMouse =rotationPoint - mousePos;
         Vec2 dist = Position - mousePos;
 
