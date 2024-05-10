@@ -13,6 +13,7 @@ internal class Gravity : AnimationSprite
     public Vec2 Position;
     public Vec2 Velocity;
     int radius;
+    List<Ball> ballObjects;
 
     public Gravity() : base("Force.png", 1, 1, -1, false, false)
     {
@@ -39,27 +40,39 @@ internal class Gravity : AnimationSprite
     void PullingGravity()
     {
 
-        ball = game.FindObjectOfType<Ball>();
+        ballObjects = game.FindObjectsOfType<Ball>().ToList();
 
-
-        if (ball != null)
+        for (int i = 0; i < ballObjects.Count; i++)
         {
-            relativePosition = Position - ball.Position;
-
-            if (relativePosition.Length() <= radius + ball.radius)
+            if (ballObjects != null)
             {
-                ball.Velocity.y += 0.3f;
+                relativePosition = Position - ballObjects[i].Position;
+
+                if (relativePosition.Length() <= radius + ballObjects[i].radius)
+                {
+                    ballObjects[i].Velocity.y += 0.3f;
+                }
             }
+        }
+    }
+
+    void MovingPlanet()
+    {
+        if (Input.GetMouseButton(1))
+        {
+
         }
     }
 
     void Update()
     {
+        MovingPlanet();
+
         x = Position.x;
         y = Position.y;
-
+        
         PullingGravity();
-        Console.WriteLine(relativePosition.Length());
+        //Console.WriteLine(relativePosition.Length());
     }
 }
 

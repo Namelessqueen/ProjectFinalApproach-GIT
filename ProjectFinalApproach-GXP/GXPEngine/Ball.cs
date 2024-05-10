@@ -13,6 +13,7 @@ internal class Ball : AnimationSprite
     public int radius;
     Vec2 PlayerPos;
     float Angle;
+    bool DestroyObject = true;
 
 
     public Ball(float pAngle, Vec2 pPlayerPos) : base("Ball.png", 1, 1, -1, false, false)
@@ -44,29 +45,33 @@ internal class Ball : AnimationSprite
         SetColor(255,0,0);
         //scale = 0.5f;
         Position = PlayerPos;
-        Velocity = new Vec2(0, -1);
+        Velocity = new Vec2(0, -3);
         Velocity.SetAngleDegrees(Mathf.Clamp(Angle,-135,-45));
     }
     void BoundaryWrap()
     {
         if (Position.x - radius > game.width)
         {
+            if (DestroyObject) LateDestroy();
             Position.x = 0;
         }
 
         if (Position.y - radius > game.height)
         {
+            if (DestroyObject) LateDestroy();
             Position.y = 0;
         }
 
         if (Position.x + radius < 0)
         {
+            if (DestroyObject) LateDestroy();
             Position.x = game.width;
         }
 
         if (Position.y + radius < 0)
         {
-            Position.y = game.height;
+            if (DestroyObject) LateDestroy();
+            else Position.y = game.height;
         }
         Console.WriteLine(Position);
     }
@@ -77,7 +82,6 @@ internal class Ball : AnimationSprite
         y = Position.y;
 
         Position += Velocity;
-        //alpha -= 0.01f;
         //BoundaryWrap();
     }
 }
