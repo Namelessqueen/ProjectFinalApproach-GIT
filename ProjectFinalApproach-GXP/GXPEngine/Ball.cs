@@ -15,15 +15,19 @@ internal class Ball : AnimationSprite
     Vec2 PlayerPos;
     float Angle;
     bool DestroyObject = true;
+    bool tester;
 
     //tweak the speed of the ball here!!
     public int speed = 5;
 
-    public Ball(float pAngle, Vec2 pPlayerPos) : base("Ball.png", 1, 1, -1, false, false)
+    public Ball(float pAngle, Vec2 pPlayerPos, bool pTester = false) : base("Ball.png", 1, 1, -1, false, false)
     {
+        tester = pTester;
         Angle = pAngle;
         PlayerPos = pPlayerPos;
-        InitializeSheep(); //I made a different Initialize funtion because this ones position and Velocity angle is determent by the player. the normal initialize method still works the same
+        if(!tester) InitializeNormal();
+        else InitializeTester();
+        //I made a different Initialize funtion because this ones position and Velocity angle is determent by the player. the normal initialize method still works the same
 
     }
 
@@ -43,7 +47,7 @@ internal class Ball : AnimationSprite
         Velocity = Velocity.Normalized() * speed;
     }
 
-    void InitializeSheep() // 
+    void InitializeNormal() // 
     {
         SetOrigin(width / 2, height / 2);
         SetColor(255,0,0);
@@ -51,6 +55,15 @@ internal class Ball : AnimationSprite
         Position = PlayerPos;
         Velocity = new Vec2(0, -3);
         Velocity.SetAngleDegrees(Mathf.Clamp(Angle,-135,-45));
+    }
+    void InitializeTester() // 
+    {
+        SetOrigin(width / 2, height / 2);
+        SetColor(255, 255, 0);
+        scale = 0.75f;
+        Position = PlayerPos;
+        Velocity = new Vec2(0, -5);
+        Velocity.SetAngleDegrees(Mathf.Clamp(Angle, -135, -45));
     }
     //Method to keep the projectile inside the game scene
     void BoundaryWrap()
@@ -101,7 +114,7 @@ internal class Ball : AnimationSprite
             {
                 //reflect the velocity in the planetDistance vector (which is also the normal)
                 Velocity.Reflect(planetDistance);
-                boom.Play().Volume = 0.2f;
+                if(!tester)boom.Play().Volume = 0.2f;
             }
         }
     }
@@ -116,6 +129,8 @@ internal class Ball : AnimationSprite
         BoundaryWrap();
         CheckPlanetCollision();
 
+        if (tester) alpha -= 0.015f;
+        Console.WriteLine(alpha);
         //hold down space to invert the velocity, sending the ball backwards
 
         if (Input.GetKeyDown(Key.SPACE))
