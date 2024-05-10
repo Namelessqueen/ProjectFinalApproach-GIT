@@ -12,6 +12,7 @@ internal class Gravity : AnimationSprite
 {
     public Vec2 Position;
     public Vec2 Velocity;
+    Vec2 mousePos;
     int radius;
     List<Ball> ballObjects;
 
@@ -31,7 +32,7 @@ internal class Gravity : AnimationSprite
         SetOrigin(width / 2, height / 2);
         SetScaleXY(radius * 2, radius * 2);
 
-        Position = new Vec2(game.width - (1.5f * radius), game.height / 2);
+        Position = new Vec2(game.width/2, game.height / 4);
     }
 
     Vec2 relativePosition;
@@ -39,6 +40,7 @@ internal class Gravity : AnimationSprite
 
     void PullingGravity()
     {
+      
 
         ballObjects = game.FindObjectsOfType<Ball>().ToList();
 
@@ -58,9 +60,15 @@ internal class Gravity : AnimationSprite
 
     void MovingPlanet()
     {
-        if (Input.GetMouseButton(1))
-        {
+        mousePos = new Vec2(Input.mouseX, Input.mouseY);
 
+        Vec2 rotationPoint = new Vec2(game.width / 2, 3 * game.height / 4);
+        Vec2 rotationMouse =rotationPoint - mousePos;
+        Vec2 dist = Position - mousePos;
+
+        if (Input.GetMouseButton(1) && dist.Length() < radius)
+        { 
+            Position.RotateAroundSetDegrees(rotationPoint, rotationMouse.GetAngleDegrees());
         }
     }
 
