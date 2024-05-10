@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="24" height="24" tilewidth="16" tileheight="16" infinite="0" nextlayerid="3" nextobjectid="1">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="24" height="24" tilewidth="16" tileheight="16" infinite="0" nextlayerid="5" nextobjectid="47">
+ <tileset firstgid="1" name="Ball" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+  <image source="Ball.png" width="32" height="32"/>
+ </tileset>
  <layer id="1" name="Tile Layer 1" width="24" height="24">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -31,4 +34,7 @@
  <imagelayer id="2" name="Image Layer 1" offsetx="-71" offsety="-5">
   <image source="BackgroundTester.jpg" width="625" height="400"/>
  </imagelayer>
+ <objectgroup id="4" name="Objectlaag 1" class="B">
+  <object id="32" type="Player" gid="1" x="400" y="600" width="32" height="32"/>
+ </objectgroup>
 </map>

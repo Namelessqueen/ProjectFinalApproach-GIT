@@ -8,7 +8,7 @@ public class MyGame : Game {
 
 	string nextScene = null;
 
-	public MyGame() : base(800, 600, false)    
+	public MyGame() : base(800, 608, false)    
 	{
 	    OnAfterStep += CheckLoadScene;
 		LoadScene("game.tmx");
@@ -34,12 +34,9 @@ public class MyGame : Game {
 		{
 			DestroyAll();
 			AddChild(new Scene(nextScene));
+
 			nextScene = null;
 		}
-	}
-
-	void Update() {
-	
 	}
 
 	static void Main()                          
