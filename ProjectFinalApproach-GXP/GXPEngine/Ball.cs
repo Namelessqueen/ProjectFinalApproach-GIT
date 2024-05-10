@@ -19,7 +19,7 @@ internal class Ball : AnimationSprite
     {
         Angle = pAngle;
         PlayerPos = pPlayerPos;
-        InitializeSheep();
+        InitializeSheep(); //I made a different Initialize funtion because this ones position and Velocity angle is determent by the player. the normal initialize method still works the same
 
     }
 
@@ -38,14 +38,14 @@ internal class Ball : AnimationSprite
         Velocity = new Vec2(4, 0);
     }
 
-    void InitializeSheep()
+    void InitializeSheep() // 
     {
         SetOrigin(width / 2, height / 2);
         SetColor(255,0,0);
-
+        //scale = 0.5f;
         Position = PlayerPos;
         Velocity = new Vec2(0, -1);
-        Velocity.SetAngleDegrees(Angle);
+        Velocity.SetAngleDegrees(Mathf.Clamp(Angle,-135,-45));
     }
     void BoundaryWrap()
     {
@@ -75,8 +75,9 @@ internal class Ball : AnimationSprite
     {
         x = Position.x;
         y = Position.y;
-        Position += Velocity;
 
-        BoundaryWrap();
+        Position += Velocity;
+        //alpha -= 0.01f;
+        //BoundaryWrap();
     }
 }
