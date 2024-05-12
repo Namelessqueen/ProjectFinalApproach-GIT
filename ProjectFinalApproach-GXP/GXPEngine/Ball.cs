@@ -115,7 +115,7 @@ internal class Ball : AnimationSprite
                 {
                     //reflect the velocity in the planetDistance vector (which is also the normal)
                     Velocity.Reflect(planetDistance);
-                    if (!tester) boom.Play().Volume = 0.2f;
+                    //if (!tester) boom.Play().Volume = 0.2f;
                 }
             }
         }

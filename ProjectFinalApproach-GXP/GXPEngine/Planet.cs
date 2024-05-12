@@ -26,17 +26,20 @@ internal class Planet : AnimationSprite
     void Initialize()
     {
         SetOrigin(width/2, height/2);
-        
+        SetCycle(0,14);
         radius = 32;
+       
     }
 
     void Update()
     {
         Position = new Vec2(x, y);
         PlanetAlingment();
+        Animation();
 
         x = Position.x;
         y = Position.y;
+        
     }
 
     void PlanetAlingment()
@@ -52,6 +55,12 @@ internal class Planet : AnimationSprite
                 Position = gravityObjects[i].Position;
             }
         }
+    }
+
+    void Animation()
+    {
+        SetCycle(0, 14);
+        Animate();
     }
 }
 

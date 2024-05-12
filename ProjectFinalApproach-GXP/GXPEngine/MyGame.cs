@@ -8,10 +8,10 @@ public class MyGame : Game {
 
 	string nextScene = null;
 
-	public MyGame() : base(1024,1366, false)    
+	public MyGame() : base(1024, 1024, false)    
 	{
 	    OnAfterStep += CheckLoadScene;
-		LoadScene("game.tmx");
+		LoadScene("Level_1.tmx");
 	}
 	
 	void DestroyAll()

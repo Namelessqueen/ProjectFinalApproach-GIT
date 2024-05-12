@@ -9,9 +9,6 @@
  <tileset firstgid="3" name="Planet" tilewidth="128" tileheight="128" tilecount="1" columns="1">
   <image source="Planet.png" width="128" height="128"/>
  </tileset>
- <tileset firstgid="4" name="TestBall" tilewidth="32" tileheight="32" tilecount="1" columns="1">
-  <image source="Ball.png" width="32" height="32"/>
- </tileset>
  <layer id="1" name="Tile Layer 1" width="24" height="24">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -40,8 +37,8 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <imagelayer id="2" name="Image Layer 1">
-  <image source="BackgroundTester.jpg" width="625" height="400"/>
+ <imagelayer id="2" name="Image Layer 1" offsetx="336.364" offsety="393.939" repeaty="1">
+  <image source="BackgroundTester.jpg" trans="ff0000" width="625" height="400"/>
  </imagelayer>
  <objectgroup id="4" name="Objectlaag 1" class="B">
   <object id="32" name="Ball" type="Player" gid="1" x="400" y="600" width="32" height="32"/>
