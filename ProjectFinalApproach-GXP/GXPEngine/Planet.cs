@@ -25,12 +25,14 @@ internal class Planet : AnimationSprite
 
     void Initialize()
     {
-        Position = new Vec2(0,0);
+        SetOrigin(width/2, height/2);
+        
         radius = 32;
     }
 
     void Update()
     {
+        Position = new Vec2(x, y);
         PlanetAlingment();
 
         x = Position.x;
@@ -43,8 +45,9 @@ internal class Planet : AnimationSprite
 
         for (int i = 0; i < gravityObjects.Count; i++)
         {
-            Vec2 dist = gravityObjects[i].Position - Position; 
-            if (dist.Length() > 0)
+            Vec2 dist = gravityObjects[i].Position - Position;
+
+            if (dist.Length() < 125)
             {
                 Position = gravityObjects[i].Position;
             }

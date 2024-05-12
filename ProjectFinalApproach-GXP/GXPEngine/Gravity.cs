@@ -34,7 +34,9 @@ internal class Gravity : AnimationSprite
         SetOrigin(width / 2, height / 2);
         SetScaleXY(radius * 2, radius * 2);
 
-        Position = new Vec2(game.width/2, game.height / 4);
+        Console.WriteLine("the X:{0} the Y:{1} and the posistion{2}", x, y, Position);
+
+        //Position = new Vec2(game.width/2, game.height / 4);
     }
 
     Vec2 ballDistance;
@@ -155,6 +157,8 @@ internal class Gravity : AnimationSprite
 
     void Update()
     {
+        //Console.WriteLine("the X:{0} the Y:{1} and the posistion{2}", x, y, Position);
+        Position = new Vec2(x, y);
         MovingPlanet();
 
         x = Position.x;
@@ -163,4 +167,14 @@ internal class Gravity : AnimationSprite
         CheckOverlap();
     }
 }
+internal class TestClass : AnimationSprite
+{
+    public TestClass(string imageFile, int cols, int rows, TiledObject obj = null) : base(imageFile, cols, rows)
+    {
+       
+    }
+
+}
+
+
 

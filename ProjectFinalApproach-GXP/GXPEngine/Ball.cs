@@ -95,26 +95,28 @@ internal class Ball : AnimationSprite
     }
 
     Vec2 planetDistance;
-    Planet planet;
+    List<Planet> planetObjects;
 
     void CheckPlanetCollision()
     {
 
-        //find planet GameObject
-        planet = game.FindObjectOfType<Planet>();
-
-        //if there is a planet in the scene....
-        if (planet != null)
+        //find planet GameObjects
+        planetObjects = game.FindObjectsOfType<Planet>().ToList();
+        for (int i = 0; i < planetObjects.Count; i++)
         {
-            //get the distance between the planet and the ball
-            planetDistance = Position - planet.Position;
-
-            //if that distance is less than the radius sum (collision)
-            if (planetDistance.Length() <= radius + planet.radius)
+            //if there is a planet in the scene....
+            if (planetObjects.Count != 0)
             {
-                //reflect the velocity in the planetDistance vector (which is also the normal)
-                Velocity.Reflect(planetDistance);
-                if(!tester)boom.Play().Volume = 0.2f;
+                //get the distance between the planet and the ball
+                planetDistance = Position - planetObjects[i].Position;
+
+                //if that distance is less than the radius sum (collision)
+                if (planetDistance.Length() <= radius + planetObjects[i].radius)
+                {
+                    //reflect the velocity in the planetDistance vector (which is also the normal)
+                    Velocity.Reflect(planetDistance);
+                    if (!tester) boom.Play().Volume = 0.2f;
+                }
             }
         }
     }

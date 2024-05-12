@@ -8,7 +8,7 @@ public class MyGame : Game {
 
 	string nextScene = null;
 
-	public MyGame() : base(800, 608, false)    
+	public MyGame() : base(1024,1366, false)    
 	{
 	    OnAfterStep += CheckLoadScene;
 		LoadScene("game.tmx");

@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="32" height="42" tilewidth="32" tileheight="32" infinite="0" nextlayerid="3" nextobjectid="13">
+ <tileset firstgid="1" name="planet1" tilewidth="130" tileheight="130" tilecount="21" columns="7">
+  <image source="planet1.png" width="910" height="390"/>
+  <tile id="0">
+   <animation>
+    <frame tileid="0" duration="40"/>
+    <frame tileid="0" duration="40"/>
+    <frame tileid="1" duration="40"/>
+    <frame tileid="2" duration="40"/>
+    <frame tileid="3" duration="40"/>
+    <frame tileid="4" duration="40"/>
+    <frame tileid="5" duration="40"/>
+    <frame tileid="6" duration="40"/>
+    <frame tileid="7" duration="40"/>
+    <frame tileid="8" duration="40"/>
+    <frame tileid="9" duration="40"/>
+    <frame tileid="10" duration="40"/>
+    <frame tileid="11" duration="40"/>
+    <frame tileid="12" duration="40"/>
+    <frame tileid="13" duration="40"/>
+    <frame tileid="14" duration="40"/>
+    <frame tileid="15" duration="40"/>
+    <frame tileid="16" duration="40"/>
+    <frame tileid="17" duration="40"/>
+    <frame tileid="18" duration="40"/>
+    <frame tileid="19" duration="40"/>
+    <frame tileid="20" duration="40"/>
+    <frame tileid="0" duration="30"/>
+    <frame tileid="1" duration="30"/>
+    <frame tileid="2" duration="30"/>
+    <frame tileid="3" duration="30"/>
+    <frame tileid="4" duration="30"/>
+    <frame tileid="5" duration="30"/>
+    <frame tileid="6" duration="30"/>
+    <frame tileid="7" duration="30"/>
+    <frame tileid="8" duration="30"/>
+    <frame tileid="9" duration="30"/>
+    <frame tileid="10" duration="30"/>
+    <frame tileid="11" duration="30"/>
+    <frame tileid="12" duration="30"/>
+    <frame tileid="13" duration="30"/>
+    <frame tileid="14" duration="30"/>
+    <frame tileid="15" duration="30"/>
+    <frame tileid="16" duration="30"/>
+    <frame tileid="17" duration="30"/>
+    <frame tileid="18" duration="30"/>
+    <frame tileid="19" duration="30"/>
+    <frame tileid="20" duration="30"/>
+    <frame tileid="0" duration="50"/>
+    <frame tileid="1" duration="50"/>
+    <frame tileid="2" duration="50"/>
+    <frame tileid="3" duration="50"/>
+    <frame tileid="4" duration="50"/>
+    <frame tileid="5" duration="50"/>
+    <frame tileid="6" duration="50"/>
+    <frame tileid="7" duration="50"/>
+    <frame tileid="8" duration="50"/>
+    <frame tileid="9" duration="50"/>
+    <frame tileid="10" duration="50"/>
+    <frame tileid="11" duration="50"/>
+    <frame tileid="12" duration="50"/>
+    <frame tileid="13" duration="50"/>
+    <frame tileid="14" duration="50"/>
+    <frame tileid="15" duration="50"/>
+    <frame tileid="16" duration="50"/>
+    <frame tileid="17" duration="50"/>
+    <frame tileid="18" duration="50"/>
+    <frame tileid="19" duration="50"/>
+    <frame tileid="20" duration="50"/>
+    <frame tileid="1" duration="40"/>
+    <frame tileid="2" duration="40"/>
+    <frame tileid="3" duration="40"/>
+    <frame tileid="4" duration="40"/>
+    <frame tileid="5" duration="40"/>
+    <frame tileid="6" duration="40"/>
+    <frame tileid="7" duration="40"/>
+    <frame tileid="8" duration="40"/>
+    <frame tileid="9" duration="40"/>
+    <frame tileid="10" duration="40"/>
+    <frame tileid="11" duration="40"/>
+    <frame tileid="12" duration="40"/>
+    <frame tileid="13" duration="40"/>
+    <frame tileid="14" duration="40"/>
+    <frame tileid="15" duration="40"/>
+    <frame tileid="16" duration="40"/>
+    <frame tileid="17" duration="40"/>
+    <frame tileid="18" duration="40"/>
+    <frame tileid="19" duration="40"/>
+    <frame tileid="20" duration="40"/>
+   </animation>
+  </tile>
+ </tileset>
+ <tileset firstgid="22" name="planet2" tilewidth="100" tileheight="100" tilecount="16" columns="4">
+  <image source="planet2.png" width="400" height="400"/>
+  <tile id="0">
+   <animation>
+    <frame tileid="0" duration="40"/>
+    <frame tileid="1" duration="40"/>
+    <frame tileid="2" duration="40"/>
+    <frame tileid="3" duration="40"/>
+    <frame tileid="4" duration="40"/>
+    <frame tileid="5" duration="40"/>
+    <frame tileid="6" duration="40"/>
+    <frame tileid="7" duration="40"/>
+    <frame tileid="8" duration="40"/>
+    <frame tileid="9" duration="40"/>
+    <frame tileid="10" duration="40"/>
+    <frame tileid="11" duration="40"/>
+    <frame tileid="12" duration="40"/>
+    <frame tileid="13" duration="40"/>
+    <frame tileid="14" duration="40"/>
+    <frame tileid="15" duration="40"/>
+   </animation>
+  </tile>
+ </tileset>
+ <tileset firstgid="38" name="planet3" tilewidth="145" tileheight="145" tilecount="24" columns="6">
+  <image source="planet3.png" width="870" height="580"/>
+  <tile id="0">
+   <animation>
+    <frame tileid="0" duration="40"/>
+    <frame tileid="1" duration="40"/>
+    <frame tileid="2" duration="40"/>
+    <frame tileid="3" duration="40"/>
+    <frame tileid="4" duration="40"/>
+    <frame tileid="5" duration="40"/>
+    <frame tileid="6" duration="40"/>
+    <frame tileid="7" duration="40"/>
+    <frame tileid="8" duration="40"/>
+    <frame tileid="9" duration="40"/>
+    <frame tileid="10" duration="40"/>
+    <frame tileid="11" duration="40"/>
+    <frame tileid="12" duration="40"/>
+    <frame tileid="13" duration="40"/>
+    <frame tileid="14" duration="40"/>
+    <frame tileid="15" duration="40"/>
+    <frame tileid="16" duration="40"/>
+    <frame tileid="17" duration="40"/>
+    <frame tileid="18" duration="40"/>
+    <frame tileid="19" duration="40"/>
+    <frame tileid="20" duration="40"/>
+    <frame tileid="21" duration="40"/>
+    <frame tileid="22" duration="40"/>
+   </animation>
+  </tile>
+ </tileset>
+ <tileset firstgid="62" name="planet4" tilewidth="90" tileheight="90" tilecount="16" columns="4">
+  <image source="planet4t.png" width="360" height="360"/>
+  <tile id="0">
+   <animation>
+    <frame tileid="0" duration="40"/>
+    <frame tileid="1" duration="40"/>
+    <frame tileid="2" duration="40"/>
+    <frame tileid="3" duration="40"/>
+    <frame tileid="4" duration="40"/>
+    <frame tileid="5" duration="40"/>
+    <frame tileid="6" duration="40"/>
+    <frame tileid="7" duration="40"/>
+    <frame tileid="8" duration="40"/>
+    <frame tileid="9" duration="40"/>
+    <frame tileid="10" duration="40"/>
+    <frame tileid="11" duration="40"/>
+    <frame tileid="12" duration="40"/>
+    <frame tileid="13" duration="40"/>
+   </animation>
+  </tile>
+ </tileset>
+ <layer id="1" name="Tilelaag 1" width="32" height="42">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <objectgroup id="2" name="Objectlaag 1">
+  <object id="1" gid="1" x="462.273" y="713.485" width="130" height="130"/>
+  <object id="6" gid="22" x="314" y="662" width="100" height="100"/>
+  <object id="8" gid="62" x="352" y="800" width="90" height="90"/>
+  <object id="12" gid="38" x="152" y="822.333" width="145" height="145"/>
+ </objectgroup>
+</map>

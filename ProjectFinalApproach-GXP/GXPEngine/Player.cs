@@ -30,7 +30,7 @@ internal class Player : AnimationSprite
         _easyDraw.SetXY(-playerPos.x, -playerPos.y);
 
         _easyDraw.ClearTransparent();
-        //_easyDraw.alpha = 0;
+        _easyDraw.alpha = 0;
         mousePos = new Vec2(Input.mouseX, Input.mouseY);
         mouseAnlge = playerPos - mousePos;
         _easyDraw.Stroke(255); _easyDraw.StrokeWeight(3);
