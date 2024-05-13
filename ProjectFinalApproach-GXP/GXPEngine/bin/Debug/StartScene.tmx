@@ -43,6 +43,10 @@
   <image source="BackgroundTester.jpg" width="625" height="400"/>
  </imagelayer>
  <objectgroup id="5" name="Button">
-  <object id="3" type="Button" gid="1" x="448" y="416" width="150" height="65"/>
+  <object id="3" type="Button" gid="1" x="448" y="416" width="150" height="65">
+   <properties>
+    <property name="action" value="Start"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>
