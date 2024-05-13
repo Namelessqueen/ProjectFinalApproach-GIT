@@ -10,6 +10,7 @@ public class MyGame : Game {
 
 	//how many attempts the player gets:
 	public int deathCount = 3;
+	int stars = 0;
 
 	public MyGame() : base(1024, 1024, false)    
 	{
@@ -39,6 +40,11 @@ public class MyGame : Game {
 
 			nextScene = null;
 		}
+	}
+
+	void Stars()
+	{
+
 	}
 
 	void Update()
