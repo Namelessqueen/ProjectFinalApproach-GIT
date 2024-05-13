@@ -10,25 +10,27 @@ internal class God : AnimationSprite
 {
     Vec2 Position;
     List<Ball> BallObjects;
-    public God() : base("Square.png", 1, 1, -1, false, false)
+    String nextLevel;
+    public God(TiledObject obj = null) : base("Square.png", 1, 1, -1, false, false)
     {
-        Initialize();
+        Initialize(obj);
     }
     public God(string imageFile, int cols, int rows, TiledObject obj = null) : base(imageFile, cols, rows)
     {
-        Initialize();
+        Initialize(obj);
     }
 
-    void Initialize()
+    void Initialize(TiledObject obj)
     {
         SetOrigin(width / 2, height / 2);
+        nextLevel = obj.GetStringProperty("nextLevel", "StartScene");
     }
 
     void Update()
     {
         Position = new Vec2(x,y);
         CheckBallCollision();
-
+        
     }
 
     void CheckBallCollision()
@@ -45,6 +47,7 @@ internal class God : AnimationSprite
             if (distX < BallObjects[i].radius + width / 2 && distY < BallObjects[i].radius + width / 2)
             {
                 Console.WriteLine("ENTER"); //put a method here to change the scene
+                ((MyGame)game).LoadScene(nextLevel+".tmx");
             }
         }
     }

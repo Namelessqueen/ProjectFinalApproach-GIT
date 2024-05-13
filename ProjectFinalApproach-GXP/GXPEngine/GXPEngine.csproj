@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Ball.cs" />
+    <Compile Include="Button.cs" />
     <Compile Include="God.cs" />
     <Compile Include="Gravity.cs" />
     <Compile Include="GXPEngine\AddOns\Gizmos.cs" />
