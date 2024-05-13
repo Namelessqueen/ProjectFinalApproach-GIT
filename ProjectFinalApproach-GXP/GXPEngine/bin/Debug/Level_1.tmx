@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="32" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="10" nextobjectid="61">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="32" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="11" nextobjectid="70">
  <tileset firstgid="1" name="planet1" tilewidth="130" tileheight="130" tilecount="21" columns="7">
   <image source="planet1.png" width="910" height="390"/>
  </tileset>
@@ -35,12 +35,7 @@
  </tileset>
  <tileset firstgid="93" name="Square2" tilewidth="64" tileheight="64" tilecount="1" columns="1">
   <image source="Square2.png" width="64" height="64"/>
-  <tile id="0" type="ColSquare"/>
  </tileset>
- <objectgroup id="9" name="Objectlaag 4">
-  <object id="59" gid="93" x="194" y="688" width="64" height="64"/>
-  <object id="60" type="ColSquare" gid="93" x="132" y="370" width="64" height="64"/>
- </objectgroup>
  <imagelayer id="4" name="Afbeelding Laag 1">
   <image source="BackgroundTester.jpg" width="625" height="400"/>
  </imagelayer>
@@ -73,5 +68,11 @@
     <property name="action" value="Retry"/>
    </properties>
   </object>
+ </objectgroup>
+ <objectgroup id="9" name="Wall">
+  <object id="64" type="ColSquare" gid="93" x="96" y="576" width="64" height="64"/>
+  <object id="67" type="ColSquare" gid="93" x="160" y="576" width="64" height="64"/>
+  <object id="68" type="ColSquare" gid="93" x="224" y="512" width="64" height="64"/>
+  <object id="69" type="ColSquare" gid="93" x="288" y="512" width="64" height="64"/>
  </objectgroup>
 </map>

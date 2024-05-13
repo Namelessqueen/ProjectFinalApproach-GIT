@@ -27,7 +27,6 @@ internal class ColSquare : AnimationSprite
 
     void Update()
     {
-        Console.WriteLine("SQUAAAAAAAAAAARE");
         Position = new Vec2(x, y);
         CheckBallCollision();
     }
@@ -45,7 +44,10 @@ internal class ColSquare : AnimationSprite
             //checks when that distance is less than the radius of the ball and the size of the wall square
             if (distX < BallObjects[i].radius + width / 2 && distY < BallObjects[i].radius + width / 2)
             {
-                Console.WriteLine("HIT WALL"); 
+                BallObjects[i]. Destroy();
+                ((MyGame)game).deathCount--;
+
+                Console.WriteLine("Attempts left: {0}", ((MyGame)game).deathCount); 
             }
         }
     }
