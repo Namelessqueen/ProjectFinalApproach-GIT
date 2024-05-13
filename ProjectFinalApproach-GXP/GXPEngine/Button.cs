@@ -9,19 +9,52 @@ using TiledMapParser;
 
 internal class Button : AnimationSprite
 {
-    public Button() : base("Square.png", 1, 1, -1)
+    string action;
+    Vec2 Position;
+    public Button(TiledObject obj = null) : base("Square.png", 1, 1, -1)
     {
-
+        Initialize(obj);
     }
     public Button(string imageFile, int cols, int rows, TiledObject obj = null) : base(imageFile, cols, rows)
     {
+        Initialize(obj);
+    }
 
+    void Initialize(TiledObject obj)
+    {
+        SetOrigin(width / 2, height / 2);
+        action = obj.GetStringProperty("action", "Start"); //gets the strring named action from tiled
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(Key.SPACE))
-            ((MyGame)game).LoadScene("Level_1.tmx");
+        Position = new Vec2(x,y);
+        ButtonCollision();
+    }
+
+    void ButtonCollision() // Checks for collision with the mouse inside the button sprite
+    {
+        float distX = Mathf.Abs(Position.x - Input.mouseX);
+        float distY = Mathf.Abs(Position.y - Input.mouseY);
+
+        
+        if (distX < width / 2 && distY < height / 2)
+        {
+            SetFrame(1); //animates the sprite when you mouse hovers over it
+            ActivateButton();
+        }
+        else SetFrame(0);
+    }
+
+    void ActivateButton() //Checks if the left mouse button is clicked and than preforms an action. here you can add actions when needed for different buttons
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (action == "Start")
+            {
+                ((MyGame)game).LoadScene("Level_1.tmx");
+            }
+        }
     }
 }
 
