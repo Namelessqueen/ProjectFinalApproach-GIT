@@ -16,31 +16,35 @@ internal class Player : AnimationSprite
     public Player(string imageFile, int cols, int rows, TiledObject obj = null) : base(imageFile, cols, rows)
     {
         SetOrigin(width/2,height/2);
-        playerPos = new Vec2(x,y);
         _easyDraw = new EasyDraw(game.width, game.height, false);
         _easyDraw.SetOrigin(0, 0);
-      
         AddChild(_easyDraw);
     }
 
     void Update()
     {
+
         playerPos.x = x;
         playerPos.y = y;
         _easyDraw.SetXY(-playerPos.x, -playerPos.y);
 
         _easyDraw.ClearTransparent();
+
+        //Makes line transparant
         _easyDraw.alpha = 0;
         mousePos = new Vec2(Input.mouseX, Input.mouseY);
         mouseAnlge = playerPos - mousePos;
+        //drawing aiming line(eventhough it is transparant)
         _easyDraw.Stroke(255); _easyDraw.StrokeWeight(3);
         _easyDraw.Line(x, y, mousePos.x, mousePos.y);
+
         BallSpawn();
 
     }
 
     void BallSpawn()
     {
+        //Add balls the the game by pressing left mouse (normal ball) and T (test ball)
         if (Input.GetMouseButtonDown(0))
         {   
             game.AddChild(new Ball(mouseAnlge.GetAngleDegrees(), playerPos));    // Not correctly added! needs fixing

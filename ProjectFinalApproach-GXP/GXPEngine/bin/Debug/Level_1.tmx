@@ -59,11 +59,11 @@
  </layer>
  <objectgroup id="6" name="Force">
   <object id="23" name="Force" type="Gravity" gid="78" x="416" y="640" width="160" height="160"/>
-  <object id="26" name="Force" type="Gravity" gid="78" x="448" y="352" width="160" height="160"/>
+  <object id="26" name="Force" type="Gravity" gid="78" x="430" y="284" width="160" height="160"/>
  </objectgroup>
  <objectgroup id="3" name="planet">
   <object id="14" name="Planet" type="Planet" gid="1" x="480" y="576" width="32" height="32"/>
   <object id="22" name="Ball" type="Player" gid="79" x="513.333" y="996" width="32" height="32"/>
-  <object id="28" name="Planet" type="Planet" gid="1" x="512" y="288" width="32" height="32"/>
+  <object id="28" name="Planet" type="Planet" gid="1" x="494" y="220" width="32" height="32"/>
  </objectgroup>
 </map>

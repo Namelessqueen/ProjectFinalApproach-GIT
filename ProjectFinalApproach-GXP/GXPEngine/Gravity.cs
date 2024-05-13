@@ -34,9 +34,7 @@ internal class Gravity : AnimationSprite
         SetOrigin(width / 2, height / 2);
         SetScaleXY(radius * 2, radius * 2);
 
-        Console.WriteLine("the X:{0} the Y:{1} and the posistion{2}", x, y, Position);
-
-        //Position = new Vec2(game.width/2, game.height / 4);
+        //Console.WriteLine("the X:{0} the Y:{1} and the posistion{2}", x, y, Position);
     }
 
     Vec2 ballDistance;
@@ -143,21 +141,24 @@ internal class Gravity : AnimationSprite
 
     void MovingPlanet()
     {
+        //track mouse movement
         mousePos = new Vec2(Input.mouseX, Input.mouseY);
 
         Vec2 rotationPoint = new Vec2(game.width / 2, Position.y + 400);
         Vec2 rotationMouse =rotationPoint - mousePos;
         Vec2 dist = Position - mousePos;
 
+        //Pressing the right mouse button to change the gravitiy position
         if (Input.GetMouseButton(1) && dist.Length() < radius)
-        { 
+        {
+            //RotateAroundSetDegrees is a new Vec2 void that rotates around a point to a set angle. Using this to match the gravity angle with the one of the mouse
             Position.RotateAroundSetDegrees(rotationPoint, rotationMouse.GetAngleDegrees());
         }
     }
 
     void Update()
     {
-        //Console.WriteLine("the X:{0} the Y:{1} and the posistion{2}", x, y, Position);
+        //first make sure that the start position is the same as the one in Tiled, since the Initialize void is not updated before 
         Position = new Vec2(x, y);
         MovingPlanet();
 
@@ -166,14 +167,6 @@ internal class Gravity : AnimationSprite
 
         CheckOverlap();
     }
-}
-internal class TestClass : AnimationSprite
-{
-    public TestClass(string imageFile, int cols, int rows, TiledObject obj = null) : base(imageFile, cols, rows)
-    {
-       
-    }
-
 }
 
 

@@ -83,12 +83,6 @@ public struct Vec2
         RotateDegrees(degrees);
         this += p;
     }
-    public void RotateAroundSetDegrees(Vec2 p, float degrees)
-    {
-        this -= p;
-        SetAngleDegrees(degrees);
-        this += p;
-    }
 
     public void RotateAroundRadians(Vec2 p, float radians)
     {
@@ -97,6 +91,13 @@ public struct Vec2
         this += p;
     }
 
+    //RotateAroundSetDegrees is a new Vec2 void that rotates around a point to a set angle.
+    public void RotateAroundSetDegrees(Vec2 p, float degrees)
+    {
+        this -= p;
+        SetAngleDegrees(degrees);
+        this += p;
+    }
     public float Length()
     {
         return Mathf.Sqrt(x * x + y * y);
