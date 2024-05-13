@@ -23,7 +23,7 @@ internal class God : AnimationSprite
     void Initialize(TiledObject obj)
     {
         SetOrigin(width / 2, height / 2);
-        nextLevel = obj.GetStringProperty("nextLevel");
+        nextLevel = obj.GetStringProperty("nextLevel", "StartScene");
     }
 
     void Update()

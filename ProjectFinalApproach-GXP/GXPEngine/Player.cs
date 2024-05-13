@@ -38,9 +38,8 @@ internal class Player : AnimationSprite
         _easyDraw.Stroke(255); _easyDraw.StrokeWeight(3);
         _easyDraw.Line(x, y, mousePos.x, mousePos.y);
 
-        BallSpawn();
         Reloader();
-
+        BallSpawn();
     }
 
     List<Reload> goats;

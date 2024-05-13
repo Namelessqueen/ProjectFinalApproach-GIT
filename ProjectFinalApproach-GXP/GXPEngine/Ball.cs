@@ -111,6 +111,7 @@ internal class Ball : AnimationSprite
 
         //find planet GameObjects
         planetObjects = game.FindObjectsOfType<Planet>().ToList();
+
         for (int i = 0; i < planetObjects.Count; i++)
         {
             //if there is a planet in the scene....
