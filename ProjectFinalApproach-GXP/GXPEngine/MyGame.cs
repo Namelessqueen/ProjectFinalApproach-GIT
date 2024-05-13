@@ -14,9 +14,8 @@ public class MyGame : Game {
 	public MyGame() : base(1024, 1024, false)    
 	{
 	    OnAfterStep += CheckLoadScene;
-		LoadScene("Level_1.tmx");
+		LoadScene("StartScene.tmx");
 	}
-	
 	void DestroyAll()
 	{
 		List<GameObject> children = GetChildren();
