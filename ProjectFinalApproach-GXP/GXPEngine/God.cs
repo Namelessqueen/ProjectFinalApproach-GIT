@@ -11,6 +11,11 @@ namespace GXPEngine
     {
         public God(string imageFile, int cols, int rows, TiledObject obj = null) : base(imageFile, cols, rows)
         {
+            Initialize();
+        }
+
+        void Initialize()
+        {
 
         }
     }
