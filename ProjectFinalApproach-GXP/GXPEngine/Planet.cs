@@ -12,7 +12,6 @@ internal class Planet : AnimationSprite
     public Vec2 Position;
     public int radius;
     List<Gravity> gravityObjects;
-    int _col, _row;
     public Planet() : base("Planet.png", 1, 1, -1, false, false)
     {
         Initialize();
@@ -67,7 +66,7 @@ internal class Planet : AnimationSprite
     void Animation()
     {
         //Animate the planets with different ammout of frames
-        SetCycle(0, _col * _row, 4);
+        SetCycle(0, _cols * _rows, 4);
         Animate();
     }
 }
