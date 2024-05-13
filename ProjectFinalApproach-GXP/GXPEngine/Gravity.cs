@@ -34,7 +34,7 @@ internal class Gravity : AnimationSprite
         SetOrigin(width / 2, height / 2);
         SetScaleXY(radius * 2, radius * 2);
 
-        //Console.WriteLine("the X:{0} the Y:{1} and the posistion{2}", x, y, Position);
+        //Console.WriteLine("the X:{0} the Y:{1} and the position{2}", x, y, Position);
     }
 
     Vec2 ballDistance;
@@ -148,7 +148,7 @@ internal class Gravity : AnimationSprite
         Vec2 rotationMouse =rotationPoint - mousePos;
         Vec2 dist = Position - mousePos;
 
-        //Pressing the right mouse button to change the gravitiy position
+        //Pressing the right mouse button to change the gravity position
         if (Input.GetMouseButton(1) && dist.Length() < radius)
         {
             //RotateAroundSetDegrees is a new Vec2 void that rotates around a point to a set angle. Using this to match the gravity angle with the one of the mouse

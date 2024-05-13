@@ -113,9 +113,12 @@ internal class Ball : AnimationSprite
                 //if that distance is less than the radius sum (collision)
                 if (planetDistance.Length() <= radius + planetObjects[i].radius)
                 {
-                    //reflect the velocity in the planetDistance vector (which is also the normal)
-                    Velocity.Reflect(planetDistance);
-                    //if (!tester) boom.Play().Volume = 0.2f;
+                    //The attempt has been used up
+                    Destroy();
+                    ((MyGame)game).deathCount--;
+
+                    Console.WriteLine("Attempts left: {0}",((MyGame)game).deathCount); 
+                    
                 }
             }
         }
