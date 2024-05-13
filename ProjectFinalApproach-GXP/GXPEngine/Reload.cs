@@ -26,9 +26,12 @@ internal class Reload : AnimationSprite
         Animate();
     }
 
+    public int pickedSprite;
+
     void Randomize()
     {
-        int pickedSprite = Utils.Random(0, _cols);
+        //pick a random sprite out of 4 to display as the emblem
+        pickedSprite = Utils.Random(0, _cols);
         SetCycle(pickedSprite);
         Console.WriteLine("Frame picked: {0}", pickedSprite);
        

@@ -44,6 +44,7 @@ public class MyGame : Game {
 
 	void Update()
 	{
+		//reset the level when all attempts are used up
 		if (deathCount == 0)
 		{
 			LoadScene("Level_1.tmx");
