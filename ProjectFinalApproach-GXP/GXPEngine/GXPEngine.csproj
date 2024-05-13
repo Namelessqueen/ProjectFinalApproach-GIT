@@ -88,6 +88,7 @@
     <Compile Include="GXPEngine\SoLoud\SoloudSoundSystem.cs" />
     <Compile Include="Planet.cs" />
     <Compile Include="Player.cs" />
+    <Compile Include="Reload.cs" />
     <Compile Include="Scene.cs" />
     <Compile Include="Vec2.cs" />
   </ItemGroup>

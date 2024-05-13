@@ -8,6 +8,9 @@ public class MyGame : Game {
 
 	string nextScene = null;
 
+	//how many attempts the player gets:
+	public int deathCount = 3;
+
 	public MyGame() : base(1024, 1024, false)    
 	{
 	    OnAfterStep += CheckLoadScene;
@@ -35,6 +38,15 @@ public class MyGame : Game {
 			AddChild(new Scene(nextScene));
 
 			nextScene = null;
+		}
+	}
+
+	void Update()
+	{
+		if (deathCount == 0)
+		{
+			LoadScene("Level_1.tmx");
+			deathCount = 3;
 		}
 	}
 

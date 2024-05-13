@@ -34,7 +34,7 @@ internal class Planet : AnimationSprite
     {
         //first make sure that the start position is the same as the one in Tiled, since the Initialize void is not updated before
         Position = new Vec2(x, y);
-        PlanetAlingment();
+        PlanetAlignment();
         Animation();
 
         x = Position.x;
@@ -42,7 +42,7 @@ internal class Planet : AnimationSprite
         
     }
 
-    void PlanetAlingment()
+    void PlanetAlignment()
     {
         //search for all the gravity objects
         gravityObjects = game.FindObjectsOfType<Gravity>().ToList();
