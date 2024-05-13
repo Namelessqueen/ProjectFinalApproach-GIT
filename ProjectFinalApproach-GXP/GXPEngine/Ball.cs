@@ -131,8 +131,8 @@ internal class Ball : AnimationSprite
         BoundaryWrap();
         CheckPlanetCollision();
 
-        if (tester) alpha -= 0.015f;
-        Console.WriteLine(alpha);
+        if (tester) alpha -= 0.01f;
+        if (alpha <= 0) alpha = 0;
         //hold down space to invert the velocity, sending the ball backwards
 
         if (Input.GetKeyDown(Key.SPACE))

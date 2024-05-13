@@ -26,7 +26,7 @@ internal class Planet : AnimationSprite
     void Initialize()
     {
         SetOrigin(width/2, height/2);
-        SetCycle(0,14);
+       
         radius = 32;
        
     }
@@ -59,7 +59,7 @@ internal class Planet : AnimationSprite
 
     void Animation()
     {
-        SetCycle(0, 14);
+        SetCycle(0, 21, 4);
         Animate();
     }
 }
