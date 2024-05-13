@@ -10,6 +10,7 @@ using TiledMapParser;
 internal class Button : AnimationSprite
 {
     string action;
+    string CurrentScene;
     Vec2 Position;
     public Button(TiledObject obj = null) : base("Square.png", 1, 1, -1)
     {
@@ -23,7 +24,8 @@ internal class Button : AnimationSprite
     void Initialize(TiledObject obj)
     {
         SetOrigin(width / 2, height / 2);
-        action = obj.GetStringProperty("action", "Start"); //gets the strring named action from tiled
+        action = obj.GetStringProperty("action", "Start");
+        CurrentScene = obj.GetStringProperty("CurrentScene", "Level_1");//gets the strring named action from tiled
     }
 
     void Update()
@@ -53,6 +55,10 @@ internal class Button : AnimationSprite
             if (action == "Start")
             {
                 ((MyGame)game).LoadScene("Level_1.tmx");
+            }
+            if (action == "Retry")
+            {
+                ((MyGame)game).LoadScene(CurrentScene+".tmx");
             }
         }
     }
