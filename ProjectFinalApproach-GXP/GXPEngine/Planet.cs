@@ -19,8 +19,6 @@ internal class Planet : AnimationSprite
 
     public Planet(string imageFile, int cols, int rows, TiledObject obj = null) : base(imageFile, cols, rows)
     {
-        _cols = cols;
-        _rows = rows;
         Initialize();
     }
 
