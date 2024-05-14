@@ -19,7 +19,7 @@ internal class Gravity : AnimationSprite
     float RotClampMin, RotClampMax;
 
     //tweak the strength of the gravity field here!!
-    float gravityStrength = 0.04f;
+    float gravityStrength;
 
     public Gravity(TiledObject obj = null) : base("Force.png", 1, 1, -1, false, false)
     {
@@ -41,6 +41,7 @@ internal class Gravity : AnimationSprite
         float PivitY = obj.GetFloatProperty("PivitY", 0);
         RotClampMin = obj.GetFloatProperty("RotClampMin", 0);
         RotClampMax = obj.GetFloatProperty("RotClampMax", 0);
+        gravityStrength = obj.GetFloatProperty("gravityStrength", 0.025f);
         PivitPoint = new Vec2(PivitX, PivitY);
 
 
