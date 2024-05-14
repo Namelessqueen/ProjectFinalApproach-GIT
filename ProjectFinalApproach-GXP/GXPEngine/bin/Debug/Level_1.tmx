@@ -55,7 +55,7 @@
  <tileset firstgid="101" name="Cannon" tilewidth="172" tileheight="71" tilecount="1" columns="1">
   <image source="Cannon.png" width="172" height="71"/>
  </tileset>
- <imagelayer id="12" name="Afbeelding Laag 1" offsetx="240" offsety="1260">
+ <imagelayer id="12" name="Afbeelding Laag 1">
   <image source="bg_1.png" width="1024" height="1366"/>
  </imagelayer>
  <objectgroup id="6" name="Force">
