@@ -47,6 +47,7 @@ internal class God : AnimationSprite
             if (distX < BallObjects[i].radius + width / 2 && distY < BallObjects[i].radius + width / 2)
             {
                 Console.WriteLine("ENTER"); //put a method here to change the scene
+                Console.WriteLine("Stars given: {0}", ((MyGame)game).deathCount);
                 ((MyGame)game).LoadScene(nextLevel+".tmx");
             }
         }

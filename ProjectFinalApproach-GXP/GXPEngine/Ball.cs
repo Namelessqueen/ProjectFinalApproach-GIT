@@ -73,32 +73,44 @@ internal class Ball : AnimationSprite
         {
             if (DestroyObject) LateDestroy();
             Position.x = 0;
-            ((MyGame)game).deathCount--;
-            Console.WriteLine("Attempts left: {0}", ((MyGame)game).deathCount);
+            if (!tester)
+            {
+                ((MyGame)game).deathCount--;
+                Console.WriteLine("Attempts left: {0}", ((MyGame)game).deathCount);
+            }
         }
 
         if (Position.y - radius > game.height)
         {
             if (DestroyObject) LateDestroy();
             Position.y = 0;
-            ((MyGame)game).deathCount--;
-            Console.WriteLine("Attempts left: {0}", ((MyGame)game).deathCount);
+            if (!tester)
+            {
+                ((MyGame)game).deathCount--;
+                Console.WriteLine("Attempts left: {0}", ((MyGame)game).deathCount);
+            }
         }
 
         if (Position.x + radius < 0)
         {
             if (DestroyObject) LateDestroy();
             Position.x = game.width;
-            ((MyGame)game).deathCount--;
-            Console.WriteLine("Attempts left: {0}", ((MyGame)game).deathCount);
+            if (!tester)
+            {
+                ((MyGame)game).deathCount--;
+                Console.WriteLine("Attempts left: {0}", ((MyGame)game).deathCount);
+            }
         }
 
         if (Position.y + radius < 0)
         {
             if (DestroyObject) LateDestroy();
             else Position.y = game.height;
-            ((MyGame)game).deathCount--;
-            Console.WriteLine("Attempts left: {0}", ((MyGame)game).deathCount);
+            if (!tester)
+            {
+                ((MyGame)game).deathCount--;
+                Console.WriteLine("Attempts left: {0}", ((MyGame)game).deathCount);
+            }
         }
         //Console.WriteLine(Position);
     }
@@ -125,10 +137,11 @@ internal class Ball : AnimationSprite
                 {
                     //The attempt has been used up
                     Destroy();
-                    ((MyGame)game).deathCount--;
-
-                    Console.WriteLine("Attempts left: {0}",((MyGame)game).deathCount); 
-                    
+                    if (!tester)
+                    {
+                        ((MyGame)game).deathCount--;
+                        Console.WriteLine("Attempts left: {0}", ((MyGame)game).deathCount);
+                    }
                 }
             }
         }
