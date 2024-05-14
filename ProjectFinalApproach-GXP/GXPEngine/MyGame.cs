@@ -38,6 +38,7 @@ public class MyGame : Game {
 			DestroyAll();
 			AddChild(new Scene(nextScene));
 
+
 			nextScene = null;
 		}
 	}
@@ -53,7 +54,7 @@ public class MyGame : Game {
 		if (deathCount == 0)
 		{
 			LoadScene("Level_1.tmx");
-			deathCount = 3;
+            deathCount = 3;
 		}
 	}
 

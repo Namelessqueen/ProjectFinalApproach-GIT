@@ -19,7 +19,7 @@ internal class Gravity : AnimationSprite
     float RotClampMin, RotClampMax;
 
     //tweak the strength of the gravity field here!!
-    float gravityStrength = 0.04f;
+    float gravityStrength;
 
     public Gravity(TiledObject obj = null) : base("Force.png", 1, 1, -1, false, false)
     {
@@ -41,6 +41,7 @@ internal class Gravity : AnimationSprite
         float PivitY = obj.GetFloatProperty("PivitY", 0);
         RotClampMin = obj.GetFloatProperty("RotClampMin", 0);
         RotClampMax = obj.GetFloatProperty("RotClampMax", 0);
+        gravityStrength = obj.GetFloatProperty("gravityStrength", 0.025f);
         PivitPoint = new Vec2(PivitX, PivitY);
 
 
@@ -157,6 +158,9 @@ internal class Gravity : AnimationSprite
         Vec2 rotationMouse = PivitPoint - mousePos;
         float rotation = Mathf.Clamp(rotationMouse.GetAngleDegrees(), RotClampMin, RotClampMax);
         Vec2 dist = Position - mousePos;
+
+        if (Input.GetKeyDown(Key.P)) Console.WriteLine(rotation);
+
 
         //Pressing the right mouse button to change the gravity position
         if (Input.GetMouseButton(1) && dist.Length() < radius)

@@ -12,7 +12,7 @@ internal class Button : AnimationSprite
     string action;
     string CurrentScene;
     Vec2 Position;
-    public Button(TiledObject obj = null) : base("Square.png", 1, 1, -1)
+    public Button(string imageFile = "Square.png", TiledObject obj = null) : base(imageFile,1, 1, -1)
     {
         Initialize(obj);
     }
