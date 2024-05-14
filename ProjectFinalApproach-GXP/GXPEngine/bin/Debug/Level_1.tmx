@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="32" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="11" nextobjectid="70">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="24" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="11" nextobjectid="76">
  <tileset firstgid="1" name="planet1" tilewidth="130" tileheight="130" tilecount="21" columns="7">
   <image source="planet1.png" width="910" height="390"/>
  </tileset>
@@ -36,19 +36,22 @@
  <tileset firstgid="93" name="Square2" tilewidth="64" tileheight="64" tilecount="1" columns="1">
   <image source="Square2.png" width="64" height="64"/>
  </tileset>
+ <tileset firstgid="94" name="spr_goat1" tilewidth="170" tileheight="170" tilecount="9" columns="3">
+  <image source="spr_goat1.png" width="510" height="510"/>
+ </tileset>
  <imagelayer id="4" name="Afbeelding Laag 1">
   <image source="BackgroundTester.jpg" width="625" height="400"/>
  </imagelayer>
  <objectgroup id="6" name="Force">
   <object id="23" name="Force" type="Gravity" gid="78" x="416" y="640" width="160" height="160"/>
   <object id="26" name="Force" type="Gravity" gid="78" x="430" y="284" width="160" height="160"/>
-  <object id="30" name="emblem" type="Reload" gid="83" x="651" y="800" width="88" height="76.3333"/>
-  <object id="31" name="emblem" type="Reload" gid="83" x="726" y="800" width="88" height="76.3333"/>
-  <object id="32" name="emblem" type="Reload" gid="83" x="799" y="800" width="88" height="76.3333"/>
+  <object id="30" name="emblem" type="Reload" gid="83" x="544" y="1024" width="88" height="76.3333"/>
+  <object id="31" name="emblem" type="Reload" gid="83" x="619" y="1024" width="88" height="76.3333"/>
+  <object id="32" name="emblem" type="Reload" gid="83" x="692" y="1024" width="88" height="76.3333"/>
  </objectgroup>
  <objectgroup id="3" name="planet">
   <object id="14" name="Planet" type="Planet" gid="1" x="480" y="576" width="32" height="32"/>
-  <object id="22" name="Ball" type="Player" gid="79" x="513.333" y="996" width="32" height="32"/>
+  <object id="22" name="Ball" type="Player" gid="79" x="384" y="992" width="32" height="32"/>
   <object id="28" name="Planet" type="Planet" gid="1" x="494" y="220" width="32" height="32"/>
   <object id="38" name="god" type="God" gid="80" x="192" y="96" width="64" height="64">
    <properties>
@@ -62,7 +65,7 @@
   </object>
  </objectgroup>
  <objectgroup id="7" name="Hud">
-  <object id="36" type="Button" gid="81" x="928" y="96" width="64" height="64">
+  <object id="36" type="Button" gid="81" x="672" y="96" width="64" height="64">
    <properties>
     <property name="CurrentScene" value="Level_1"/>
     <property name="action" value="Retry"/>

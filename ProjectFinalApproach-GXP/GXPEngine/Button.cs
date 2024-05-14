@@ -32,6 +32,7 @@ internal class Button : AnimationSprite
     {
         Position = new Vec2(x,y);
         ButtonCollision();
+        
     }
 
     void ButtonCollision() // Checks for collision with the mouse inside the button sprite
@@ -40,17 +41,17 @@ internal class Button : AnimationSprite
         float distY = Mathf.Abs(Position.y - Input.mouseY);
 
         
-        if (distX < width / 2 && distY < height / 2)
+        if (distX < width / 2 && distY < height / 2 && ( Input.GetMouseButton(0) || Input.GetMouseButtonUp(0)))
         {
-            SetFrame(1); //animates the sprite when you mouse hovers over it
             ActivateButton();
+            SetFrame(1); //animates the sprite when you mouse hovers over it
         }
         else SetFrame(0);
     }
 
     void ActivateButton() //Checks if the left mouse button is clicked and than preforms an action. here you can add actions when needed for different buttons
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonUp(0))
         {
             if (action == "Start")
             {
