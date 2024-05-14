@@ -20,7 +20,7 @@ internal class Ball : AnimationSprite
     //tweak the speed of the ball here!!
     public int speed = 5;
 
-    public Ball(float pAngle, Vec2 pPlayerPos, bool pTester = false) : base("Ball.png", 1, 1, -1, false, false)
+    public Ball(float pAngle, Vec2 pPlayerPos, bool pTester = false) : base("spr_goat1.png", 3, 3, -1, false, false)
     {
         tester = pTester;
         Angle = pAngle;
@@ -50,8 +50,7 @@ internal class Ball : AnimationSprite
     void InitializeNormal() // 
     {
         SetOrigin(width / 2, height / 2);
-        SetColor(255,0,0);
-        //scale = 0.5f;
+        scale = 0.75f;
         Position = PlayerPos;
         Velocity = new Vec2(0, -3);
         Velocity.SetAngleDegrees(Mathf.Clamp(Angle,-135,-45));
