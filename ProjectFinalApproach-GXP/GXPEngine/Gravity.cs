@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using TiledMapParser;
 using GXPEngine;
 using System.Runtime.CompilerServices;
+using System.IO.Ports;
 
 
 internal class Gravity : AnimationSprite
@@ -13,26 +14,35 @@ internal class Gravity : AnimationSprite
     public Vec2 Position;
     public Vec2 Velocity;
     Vec2 mousePos;
+    Vec2 PivitPoint;
     int radius;
+    float RotClampMin, RotClampMax;
 
     //tweak the strength of the gravity field here!!
     float gravityStrength = 0.04f;
 
-    public Gravity() : base("Force.png", 1, 1, -1, false, false)
+    public Gravity(TiledObject obj = null) : base("Force.png", 1, 1, -1, false, false)
     {
-        Initialize();
+        Initialize(obj);
     }
 
     public Gravity(string imageFile, int cols, int rows, TiledObject obj = null) : base(imageFile, cols, rows)
     {
-        Initialize();
+        Initialize(obj);
+       
     }
 
-    void Initialize()
+    void Initialize(TiledObject obj)
     {
         radius = 125;
         SetOrigin(width / 2, height / 2);
         SetScaleXY(radius * 2, radius * 2);
+        float PivitX = obj.GetFloatProperty("PivitX", 0);
+        float PivitY = obj.GetFloatProperty("PivitY", 0);
+        RotClampMin = obj.GetFloatProperty("RotClampMin", 0);
+        RotClampMax = obj.GetFloatProperty("RotClampMax", 0);
+        PivitPoint = new Vec2(PivitX, PivitY);
+
 
         //Console.WriteLine("the X:{0} the Y:{1} and the position{2}", x, y, Position);
     }
@@ -144,15 +154,15 @@ internal class Gravity : AnimationSprite
         //track mouse movement
         mousePos = new Vec2(Input.mouseX, Input.mouseY);
 
-        Vec2 rotationPoint = new Vec2(game.width / 2, Position.y + 400);
-        Vec2 rotationMouse =rotationPoint - mousePos;
+        Vec2 rotationMouse = PivitPoint - mousePos;
+        float rotation = Mathf.Clamp(rotationMouse.GetAngleDegrees(), RotClampMin, RotClampMax);
         Vec2 dist = Position - mousePos;
 
         //Pressing the right mouse button to change the gravity position
         if (Input.GetMouseButton(1) && dist.Length() < radius)
         {
             //RotateAroundSetDegrees is a new Vec2 void that rotates around a point to a set angle. Using this to match the gravity angle with the one of the mouse
-            Position.RotateAroundSetDegrees(rotationPoint, rotationMouse.GetAngleDegrees());
+            Position.RotateAroundSetDegrees(PivitPoint, rotation);
         }
     }
 
@@ -166,6 +176,7 @@ internal class Gravity : AnimationSprite
         y = Position.y;
 
         CheckOverlap();
+       
     }
 }
 
