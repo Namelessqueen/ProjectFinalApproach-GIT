@@ -22,9 +22,9 @@ internal class Player : AnimationSprite
 
     void Update()
     {
-        SetOrigin(20, height/2);
         playerPos.x = x;
         playerPos.y = y;
+        SetOrigin(20, height / 2);
 
         Rotation();
 
@@ -76,14 +76,14 @@ internal class Player : AnimationSprite
             if(goats.Count != 0)
             {
                //destroy the most left emblem (also depleting one attempt)
-               if(Input.GetMouseButtonDown(0))
+               if(Input.GetKeyDown(Key.SPACE))
                 {
                     goats[0].Destroy();
                 }
             }
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(Key.SPACE))
         {
             if (goats.Count != 0)
             {

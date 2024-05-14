@@ -19,7 +19,7 @@ internal class Ball : AnimationSprite
     int ballRad = 45; //This is because the goat sprite uses a lot of free space around the sphere. for calc use this as raduis
 
     //tweak the speed of the ball here!!
-    public int speed = 3;
+    public int speed = 10;
 
     public Ball(float pAngle, Vec2 pPlayerPos, bool pTester = false) : base("spr_goat1.png", 3, 3, -1, false, false)
     {
@@ -123,7 +123,7 @@ internal class Ball : AnimationSprite
 
         //find planet GameObjects
         planetObjects = game.FindObjectsOfType<Planet>().ToList();
-
+        Console.WriteLine(planetObjects.Count());
         for (int i = 0; i < planetObjects.Count; i++)
         {
             //if there is a planet in the scene....
@@ -131,7 +131,7 @@ internal class Ball : AnimationSprite
             {
                 //get the distance between the planet and the ball
                 planetDistance = Position - planetObjects[i].Position;
-
+                //Console.WriteLine(planetDistance.Length());
 
                 //if that distance is less than the radius sum (collision)
                 if (planetDistance.Length() <= radius + planetObjects[i].radius)

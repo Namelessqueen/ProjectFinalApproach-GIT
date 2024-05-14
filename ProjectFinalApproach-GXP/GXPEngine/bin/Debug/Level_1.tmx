@@ -55,7 +55,7 @@
  <tileset firstgid="101" name="Cannon" tilewidth="172" tileheight="71" tilecount="1" columns="1">
   <image source="Cannon.png" width="172" height="71"/>
  </tileset>
- <imagelayer id="12" name="Afbeelding Laag 1">
+ <imagelayer id="12" name="Afbeelding Laag 1" offsetx="-2" offsety="1100">
   <image source="bg_1.png" width="1024" height="1366"/>
  </imagelayer>
  <objectgroup id="6" name="Force">
@@ -89,7 +89,7 @@
   <object id="89" name="Planet" type="Planet" gid="1" x="448" y="608" width="32" height="32"/>
   <object id="93" name="Planet" type="Planet" gid="63" x="285.5" y="225.5" width="80" height="80"/>
   <object id="94" name="Planet" type="Planet" gid="87" x="189" y="653" width="90" height="90"/>
-  <object id="98" name="Cannon" type="Player" gid="101" x="448" y="1024" width="172" height="71" rotation="-90"/>
+  <object id="98" name="Cannon" type="Player" gid="101" x="416" y="1056" width="172" height="71" rotation="-90"/>
  </objectgroup>
  <objectgroup id="7" name="Hud">
   <object id="36" type="Button" gid="41" x="672" y="96" width="64" height="64">
