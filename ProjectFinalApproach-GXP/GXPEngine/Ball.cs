@@ -64,12 +64,6 @@ internal class Ball : AnimationSprite
         //Change the transparity off the test ball object
         if (tester) alpha -= 0.01f;
         if (alpha <= 0) alpha = 0;
-
-        //hold down space to invert the velocity, sending the ball backwards
-        if (Input.GetKeyDown(Key.SPACE))
-        {
-            Velocity = Velocity * -1;
-        }
     }
 
     //Method to keep the projectile inside the game scene
