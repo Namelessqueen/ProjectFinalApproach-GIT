@@ -15,7 +15,7 @@ internal class Ball : AnimationSprite
     Vec2 PlayerPos;
     float Angle;
     bool DestroyObject = true;
-    bool tester;
+    public  bool tester;
     int ballRad = 45; //This is because the goat sprite uses a lot of free space around the sphere. for calc use this as raduis
 
     //tweak the speed of the ball here!!
@@ -39,7 +39,7 @@ internal class Ball : AnimationSprite
         radius = ballRad;
         Position = PlayerPos;
         Velocity = new Vec2(0, -speed);
-        Velocity.SetAngleDegrees(Mathf.Clamp(Angle,-135,-45));
+        Velocity.SetAngleDegrees(Angle);
     }
     void InitializeTester() // 
     {
@@ -48,7 +48,7 @@ internal class Ball : AnimationSprite
         scale = 0.75f;
         Position = PlayerPos;
         Velocity = new Vec2(0, -speed*1.5f);
-        Velocity.SetAngleDegrees(Mathf.Clamp(Angle, -135, -45));
+        Velocity.SetAngleDegrees(Angle);
     }
 
 
@@ -58,7 +58,6 @@ internal class Ball : AnimationSprite
         y = Position.y;
 
         Position += Velocity;
-        Console.WriteLine(Velocity);
         BoundaryWrap();
         CheckPlanetCollision();
 

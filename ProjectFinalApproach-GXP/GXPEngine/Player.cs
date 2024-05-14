@@ -17,28 +17,16 @@ internal class Player : AnimationSprite
 
     public Player(string imageFile, int cols, int rows, TiledObject obj = null) : base(imageFile, cols, rows)
     {
-        SetOrigin(width/2,height/2);
-        _easyDraw = new EasyDraw(game.width, game.height, false);
-        _easyDraw.SetOrigin(0, 0);
-        AddChild(_easyDraw);
+        
     }
 
     void Update()
     {
-
+        SetOrigin(20, height/2);
         playerPos.x = x;
         playerPos.y = y;
-        _easyDraw.SetXY(-playerPos.x, -playerPos.y);
 
-        _easyDraw.ClearTransparent();
-
-        //Makes line transparant
-        _easyDraw.alpha = 0;
-        mousePos = new Vec2(Input.mouseX, Input.mouseY);
-        mouseAnlge = playerPos - mousePos;
-        //drawing aiming line(eventhough it is transparant)
-        _easyDraw.Stroke(255); _easyDraw.StrokeWeight(3);
-        _easyDraw.Line(x, y, mousePos.x, mousePos.y);
+        Rotation();
 
         if (hud == null)
         {
@@ -47,6 +35,30 @@ internal class Player : AnimationSprite
 
         Reloader();
         BallSpawn();
+    }
+
+    void Rotation()
+    {
+        float dx = Input.mouseX - playerPos.x;
+        float dy = Input.mouseY - playerPos.y;
+
+        // Get angle to mouse, convert from radians to degrees:
+        float targetAngle = Mathf.Atan2(dy, dx) * 180 / Mathf.PI;
+        if (targetAngle > rotation + 0.5f)
+        {
+            rotation += 0.5f;
+        }
+        else if (targetAngle < rotation - 0.5f)
+        {
+            rotation -= 0.5f;
+        }
+        //rotation = 0;
+        //rotation = Mathf.Clamp(rotation -= 0.5f,-45,-115);
+        Console.WriteLine(rotation);
+
+        mousePos = new Vec2(Input.mouseX, Input.mouseY);
+        mouseAnlge = playerPos - mousePos;
+        //drawing aiming line(eventhough it is transparant)
     }
 
     List<Reload> goats;

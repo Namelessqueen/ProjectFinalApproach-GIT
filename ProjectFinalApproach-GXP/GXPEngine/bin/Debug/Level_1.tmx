@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="24" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="13" nextobjectid="95">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="24" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="13" nextobjectid="100">
  <tileset firstgid="1" name="planet1" tilewidth="130" tileheight="130" tilecount="21" columns="7">
   <image source="planet1.png" width="910" height="390"/>
  </tileset>
@@ -52,7 +52,10 @@
  <tileset firstgid="87" name="planet4" tilewidth="90" tileheight="90" tilecount="14" columns="7">
   <image source="planet4.png" width="630" height="180"/>
  </tileset>
- <imagelayer id="12" name="Afbeelding Laag 1">
+ <tileset firstgid="101" name="Cannon" tilewidth="172" tileheight="71" tilecount="1" columns="1">
+  <image source="Cannon.png" width="172" height="71"/>
+ </tileset>
+ <imagelayer id="12" name="Afbeelding Laag 1" offsetx="240" offsety="1260">
   <image source="bg_1.png" width="1024" height="1366"/>
  </imagelayer>
  <objectgroup id="6" name="Force">
@@ -61,7 +64,7 @@
     <property name="PivitX" type="float" value="880"/>
     <property name="PivitY" type="float" value="-300"/>
     <property name="RotClampMax" type="float" value="145"/>
-    <property name="RotClampMin" type="float" value="110"/>
+    <property name="RotClampMin" type="float" value="130"/>
     <property name="gravityStrength" type="float" value="0.038"/>
    </properties>
   </object>
@@ -78,7 +81,6 @@
   </object>
  </objectgroup>
  <objectgroup id="3" name="planet+ other objects">
-  <object id="22" name="Ball" type="Player" gid="39" x="384" y="992" width="32" height="32"/>
   <object id="38" name="god" type="God" gid="40" x="544" y="96" width="64" height="64">
    <properties>
     <property name="nextLevel" value="Level_2"/>
@@ -87,6 +89,7 @@
   <object id="89" name="Planet" type="Planet" gid="1" x="448" y="608" width="32" height="32"/>
   <object id="93" name="Planet" type="Planet" gid="63" x="285.5" y="225.5" width="80" height="80"/>
   <object id="94" name="Planet" type="Planet" gid="87" x="189" y="653" width="90" height="90"/>
+  <object id="98" name="Cannon" type="Player" gid="101" x="448" y="1024" width="172" height="71" rotation="-90"/>
  </objectgroup>
  <objectgroup id="7" name="Hud">
   <object id="36" type="Button" gid="41" x="672" y="96" width="64" height="64">
