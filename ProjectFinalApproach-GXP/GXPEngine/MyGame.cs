@@ -10,6 +10,7 @@ public class MyGame : Game {
 
 	//how many attempts the player gets:
 	public int deathCount = 3;
+	public int currentLevel = 0;
 	int stars = 0;
 
 	public MyGame() : base(768, 1024, false)    
@@ -37,7 +38,8 @@ public class MyGame : Game {
 		{
 			DestroyAll();
 			AddChild(new Scene(nextScene));
-
+			AddChild(new HUD());
+			deathCount = 3;
 			nextScene = null;
 		}
 	}
@@ -50,11 +52,7 @@ public class MyGame : Game {
 	void Update()
 	{
 		//reset the level when all attempts are used up
-		if (deathCount == 0)
-		{
-			LoadScene("Level_1.tmx");
-			deathCount = 3;
-		}
+		
 	}
 
 	static void Main()                          

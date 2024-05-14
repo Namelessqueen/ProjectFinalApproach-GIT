@@ -45,7 +45,10 @@ internal class ColSquare : AnimationSprite
             if (distX < BallObjects[i].radius + width / 2 && distY < BallObjects[i].radius + width / 2)
             {
                 BallObjects[i]. Destroy();
-                ((MyGame)game).deathCount--;
+                if (!BallObjects[i].tester)
+                {
+                    ((MyGame)game).deathCount--;
+                }
 
                 Console.WriteLine("Attempts left: {0}", ((MyGame)game).deathCount); 
             }

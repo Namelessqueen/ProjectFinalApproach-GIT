@@ -15,7 +15,7 @@ internal class Ball : AnimationSprite
     Vec2 PlayerPos;
     float Angle;
     bool DestroyObject = true;
-    bool tester;
+    public bool tester;
 
     //tweak the speed of the ball here!!
     public int speed = 8;
