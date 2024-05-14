@@ -11,34 +11,22 @@ using TiledMapParser;
 
 internal class Player : AnimationSprite
 {
-    Vec2 mousePos, playerPos, mouseAnlge;
-    EasyDraw _easyDraw;
+    Vec2 playerPos;
     HUD hud = null;
+    Vec2 target = new Vec2(0, -1);
 
     public Player(string imageFile, int cols, int rows, TiledObject obj = null) : base(imageFile, cols, rows)
     {
-        SetOrigin(width/2,height/2);
-        _easyDraw = new EasyDraw(game.width, game.height, false);
-        _easyDraw.SetOrigin(0, 0);
-        AddChild(_easyDraw);
+        target = new Vec2(0, -1);
     }
 
     void Update()
     {
-
+        SetOrigin(20, height/2);
         playerPos.x = x;
         playerPos.y = y;
-        _easyDraw.SetXY(-playerPos.x, -playerPos.y);
 
-        _easyDraw.ClearTransparent();
-
-        //Makes line transparant
-        _easyDraw.alpha = 0;
-        mousePos = new Vec2(Input.mouseX, Input.mouseY);
-        mouseAnlge = playerPos - mousePos;
-        //drawing aiming line(eventhough it is transparant)
-        _easyDraw.Stroke(255); _easyDraw.StrokeWeight(3);
-        _easyDraw.Line(x, y, mousePos.x, mousePos.y);
+        Rotation();
 
         if (hud == null)
         {
@@ -48,18 +36,33 @@ internal class Player : AnimationSprite
         Reloader();
         BallSpawn();
     }
+   
+    void Rotation()
+    {
+        if (Input.GetMouseButtonDown(0)) target = new Vec2(Input.mouseX - playerPos.x, Input.mouseY - playerPos.y);
+        float targetAngle = Mathf.Clamp(target.GetAngleDegrees(), -135, -45);
+
+        if (targetAngle > rotation + 0.5f)
+        {
+            rotation += 0.5f;
+        }
+        else if (targetAngle < rotation - 0.5f)
+        {
+            rotation -= 0.5f;
+        }
+    }
 
     List<Reload> goats;
     void BallSpawn()
     {
         //Add balls the the game by pressing left mouse (normal ball) and T (test ball)
-        if (Input.GetMouseButtonDown(0) && goats.Count != 0)
+        if (Input.GetKeyDown(Key.SPACE) && goats.Count != 0)
         {   
-            game.AddChild(new Ball(mouseAnlge.GetAngleDegrees(), playerPos));    // Not correctly added! needs fixing
+            game.AddChild(new Ball(rotation, playerPos));    // Not correctly added! needs fixing
         }
         if (Input.GetKeyDown(Key.T))
         {
-            game.AddChild(new Ball(mouseAnlge.GetAngleDegrees(), playerPos, true));    // Not correctly added! needs fixing
+            game.AddChild(new Ball(rotation, playerPos, true));    // Not correctly added! needs fixing
         }
     }
 
