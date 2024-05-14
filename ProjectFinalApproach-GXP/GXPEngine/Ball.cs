@@ -16,9 +16,10 @@ internal class Ball : AnimationSprite
     float Angle;
     bool DestroyObject = true;
     bool tester;
+    int ballRad = 45; //This is because the goat sprite uses a lot of free space around the sphere. for calc use this as raduis
 
     //tweak the speed of the ball here!!
-    public int speed = 5;
+    public int speed = 3;
 
     public Ball(float pAngle, Vec2 pPlayerPos, bool pTester = false) : base("spr_goat1.png", 3, 3, -1, false, false)
     {
@@ -31,28 +32,13 @@ internal class Ball : AnimationSprite
 
     }
 
-    public Ball(string imageFile, int cols, int rows, TiledObject obj = null) : base(imageFile, cols, rows)
-    {
-        Initialize();
-    }
-
-    void Initialize()
-    {
-        radius = 16;
-        SetOrigin(width / 2, height / 2);
-        SetScaleXY(radius * 2, radius * 2);
-
-        Position = new Vec2(100, game.height / 2);
-        Velocity = new Vec2(4, 0);
-        Velocity = Velocity.Normalized() * speed;
-    }
-
     void InitializeNormal() // 
     {
         SetOrigin(width / 2, height / 2);
         scale = 0.75f;
+        radius = ballRad;
         Position = PlayerPos;
-        Velocity = new Vec2(0, -3);
+        Velocity = new Vec2(0, -speed);
         Velocity.SetAngleDegrees(Mathf.Clamp(Angle,-135,-45));
     }
     void InitializeTester() // 
@@ -61,8 +47,30 @@ internal class Ball : AnimationSprite
         SetColor(255, 255, 0);
         scale = 0.75f;
         Position = PlayerPos;
-        Velocity = new Vec2(0, -5);
+        Velocity = new Vec2(0, -speed*1.5f);
         Velocity.SetAngleDegrees(Mathf.Clamp(Angle, -135, -45));
+    }
+
+
+    void Update()
+    {
+        x = Position.x;
+        y = Position.y;
+
+        Position += Velocity;
+        Console.WriteLine(Velocity);
+        BoundaryWrap();
+        CheckPlanetCollision();
+
+        //Change the transparity off the test ball object
+        if (tester) alpha -= 0.01f;
+        if (alpha <= 0) alpha = 0;
+
+        //hold down space to invert the velocity, sending the ball backwards
+        if (Input.GetKeyDown(Key.SPACE))
+        {
+            Velocity = Velocity * -1;
+        }
     }
 
     //Method to keep the projectile inside the game scene
@@ -131,6 +139,7 @@ internal class Ball : AnimationSprite
                 //get the distance between the planet and the ball
                 planetDistance = Position - planetObjects[i].Position;
 
+
                 //if that distance is less than the radius sum (collision)
                 if (planetDistance.Length() <= radius + planetObjects[i].radius)
                 {
@@ -146,24 +155,4 @@ internal class Ball : AnimationSprite
         }
     }
 
-    void Update()
-    {
-        x = Position.x;
-        y = Position.y;
-
-        Position += Velocity;
-
-        BoundaryWrap();
-        CheckPlanetCollision();
-
-        //Change the transparity off the test ball object
-        if (tester) alpha -= 0.01f;
-        if (alpha <= 0) alpha = 0;
-
-        //hold down space to invert the velocity, sending the ball backwards
-        if (Input.GetKeyDown(Key.SPACE))
-        {
-            Velocity = Velocity * -1;
-        }
-    }
 }

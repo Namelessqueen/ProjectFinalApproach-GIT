@@ -12,34 +12,34 @@ internal class Planet : AnimationSprite
     public Vec2 Position;
     public int radius;
     List<Gravity> gravityObjects;
-    public Planet() : base("Planet.png", 1, 1, -1, false, false)
+
+    public Planet(TiledObject obj = null) : base("Planet.png", 1, 1, -1, false, false)
     {
-        Initialize();
+        Initialize(obj);
     }
 
     public Planet(string imageFile, int cols, int rows, TiledObject obj = null) : base(imageFile, cols, rows)
     {
-        Initialize();
+        Initialize(obj);
     }
 
-    void Initialize()
+    void Initialize(TiledObject obj)
     {
         SetOrigin(width/2, height/2);
-       
-        radius = 32;
-       
     }
 
     void Update()
-    {
+    { 
+        radius = width / 2;
         //first make sure that the start position is the same as the one in Tiled, since the Initialize void is not updated before
         Position = new Vec2(x, y);
         PlanetAlignment();
         Animation();
-
+        
         x = Position.x;
         y = Position.y;
-        
+        //Console.WriteLine(radius);
+
     }
 
     void PlanetAlignment()

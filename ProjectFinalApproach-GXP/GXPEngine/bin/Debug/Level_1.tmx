@@ -1,18 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="24" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="12" nextobjectid="90">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="24" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="12" nextobjectid="95">
  <tileset firstgid="1" name="planet1" tilewidth="130" tileheight="130" tilecount="21" columns="7">
   <image source="planet1.png" width="910" height="390"/>
  </tileset>
  <tileset firstgid="22" name="planet2" tilewidth="100" tileheight="100" tilecount="16" columns="4">
   <image source="planet2.png" width="400" height="400"/>
  </tileset>
- <tileset firstgid="38" name="planet3" tilewidth="145" tileheight="145" tilecount="24" columns="6">
-  <image source="planet3.png" width="870" height="580"/>
- </tileset>
- <tileset firstgid="62" name="planet4" tilewidth="90" tileheight="90" tilecount="16" columns="4">
-  <image source="planet4t.png" width="360" height="360"/>
- </tileset>
- <tileset firstgid="78" name="Force" tilewidth="128" tileheight="128" tilecount="1" columns="1">
+ <tileset firstgid="38" name="Force" tilewidth="128" tileheight="128" tilecount="1" columns="1">
   <properties>
    <property name="PivitX" type="float" value="0"/>
    <property name="PivitY" type="float" value="0"/>
@@ -28,44 +22,50 @@
    </properties>
   </tile>
  </tileset>
- <tileset firstgid="79" name="Ball" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+ <tileset firstgid="39" name="Ball" tilewidth="32" tileheight="32" tilecount="1" columns="1">
   <image source="Ball.png" width="32" height="32"/>
  </tileset>
- <tileset firstgid="80" name="God" tilewidth="64" tileheight="64" tilecount="1" columns="1">
+ <tileset firstgid="40" name="God" tilewidth="64" tileheight="64" tilecount="1" columns="1">
   <image source="Square.png" width="64" height="64"/>
  </tileset>
- <tileset firstgid="81" name="button_retry" tilewidth="115" tileheight="115" tilecount="2" columns="2">
+ <tileset firstgid="41" name="button_retry" tilewidth="115" tileheight="115" tilecount="2" columns="2">
   <image source="button_retry.png" width="230" height="115"/>
  </tileset>
- <tileset firstgid="83" name="ReloadTest" tilewidth="32" tileheight="32" tilecount="4" columns="4">
+ <tileset firstgid="43" name="ReloadTest" tilewidth="32" tileheight="32" tilecount="4" columns="4">
   <image source="ReloadTest.png" width="128" height="32"/>
  </tileset>
- <tileset firstgid="87" name="ReloadTest" tilewidth="32" tileheight="32" tilecount="4" columns="4">
+ <tileset firstgid="47" name="ReloadTest" tilewidth="32" tileheight="32" tilecount="4" columns="4">
   <image source="ReloadTest.png" width="128" height="32"/>
  </tileset>
- <tileset firstgid="91" name="button_pause" tilewidth="65" tileheight="65" tilecount="2" columns="2">
+ <tileset firstgid="51" name="button_pause" tilewidth="65" tileheight="65" tilecount="2" columns="2">
   <image source="button_pause.png" width="130" height="65"/>
  </tileset>
- <tileset firstgid="93" name="Square2" tilewidth="64" tileheight="64" tilecount="1" columns="1">
+ <tileset firstgid="53" name="Square2" tilewidth="64" tileheight="64" tilecount="1" columns="1">
   <image source="Square2.png" width="64" height="64"/>
  </tileset>
- <tileset firstgid="94" name="spr_goat1" tilewidth="170" tileheight="170" tilecount="9" columns="3">
+ <tileset firstgid="54" name="spr_goat1" tilewidth="170" tileheight="170" tilecount="9" columns="3">
   <image source="spr_goat1.png" width="510" height="510"/>
  </tileset>
+ <tileset firstgid="63" name="planet3" tilewidth="145" tileheight="145" tilecount="24" columns="6">
+  <image source="planet3.png" width="870" height="580"/>
+ </tileset>
+ <tileset firstgid="87" name="planet4" tilewidth="90" tileheight="90" tilecount="14" columns="7">
+  <image source="planet4.png" width="630" height="180"/>
+ </tileset>
  <objectgroup id="6" name="Force">
-  <object id="23" name="Force" type="Gravity" gid="78" x="250" y="276" width="160" height="160">
+  <object id="23" name="Force" type="Gravity" gid="38" x="222" y="284" width="200" height="200">
    <properties>
     <property name="PivitX" type="float" value="880"/>
     <property name="PivitY" type="float" value="-300"/>
     <property name="RotClampMax" type="float" value="145"/>
     <property name="RotClampMin" type="float" value="110"/>
-    <property name="gravityStrength" type="float" value="0.045"/>
+    <property name="gravityStrength" type="float" value="0.038"/>
    </properties>
   </object>
-  <object id="30" name="emblem" type="Reload" gid="83" x="544" y="1024" width="88" height="76.3333"/>
-  <object id="31" name="emblem" type="Reload" gid="83" x="619" y="1024" width="88" height="76.3333"/>
-  <object id="32" name="emblem" type="Reload" gid="83" x="692" y="1024" width="88" height="76.3333"/>
-  <object id="80" name="Force" type="Gravity" gid="78" x="384" y="672" width="160" height="160">
+  <object id="30" name="emblem" type="Reload" gid="43" x="544" y="1024" width="88" height="76.3333"/>
+  <object id="31" name="emblem" type="Reload" gid="43" x="619" y="1024" width="88" height="76.3333"/>
+  <object id="32" name="emblem" type="Reload" gid="43" x="692" y="1024" width="88" height="76.3333"/>
+  <object id="80" name="Force" type="Gravity" gid="38" x="384" y="672" width="160" height="160">
    <properties>
     <property name="PivitX" type="float" value="-550"/>
     <property name="PivitY" type="float" value="-550"/>
@@ -75,34 +75,35 @@
   </object>
  </objectgroup>
  <objectgroup id="3" name="planet+ other objects">
-  <object id="22" name="Ball" type="Player" gid="79" x="384" y="992" width="32" height="32"/>
-  <object id="38" name="god" type="God" gid="80" x="544" y="96" width="64" height="64">
+  <object id="22" name="Ball" type="Player" gid="39" x="384" y="992" width="32" height="32"/>
+  <object id="38" name="god" type="God" gid="40" x="544" y="96" width="64" height="64">
    <properties>
     <property name="nextLevel" value="Level_2"/>
    </properties>
   </object>
-  <object id="88" name="Planet" type="Planet" gid="38" x="301.333" y="226.667" width="65" height="65"/>
   <object id="89" name="Planet" type="Planet" gid="1" x="448" y="608" width="32" height="32"/>
+  <object id="93" name="Planet" type="Planet" gid="63" x="285.5" y="225.5" width="80" height="80"/>
+  <object id="94" name="Planet" type="Planet" gid="87" x="189" y="653" width="90" height="90"/>
  </objectgroup>
  <objectgroup id="7" name="Hud">
-  <object id="36" type="Button" gid="81" x="672" y="96" width="64" height="64">
+  <object id="36" type="Button" gid="41" x="672" y="96" width="64" height="64">
    <properties>
     <property name="CurrentScene" value="Level_1"/>
     <property name="action" value="Retry"/>
    </properties>
   </object>
-  <object id="83" name="button" type="Button" gid="91" x="46" y="110" width="64" height="64">
+  <object id="83" name="button" type="Button" gid="51" x="32" y="96" width="64" height="64">
    <properties>
     <property name="action" value="pauze"/>
    </properties>
   </object>
  </objectgroup>
  <objectgroup id="9" name="Wall">
-  <object id="64" type="ColSquare" gid="93" x="192" y="416" width="64" height="64"/>
-  <object id="67" type="ColSquare" gid="93" x="32" y="224" width="64" height="64"/>
-  <object id="68" type="ColSquare" gid="93" x="96" y="320" width="64" height="64"/>
-  <object id="85" type="ColSquare" gid="93" x="544" y="256" width="64" height="64"/>
-  <object id="86" type="ColSquare" gid="93" x="640" y="224" width="64" height="64"/>
-  <object id="87" type="ColSquare" gid="93" x="453.333" y="250" width="64" height="64"/>
+  <object id="64" type="ColSquare" gid="53" x="192" y="416" width="64" height="64"/>
+  <object id="67" type="ColSquare" gid="53" x="32" y="224" width="64" height="64"/>
+  <object id="68" type="ColSquare" gid="53" x="96" y="320" width="64" height="64"/>
+  <object id="85" type="ColSquare" gid="53" x="544" y="256" width="64" height="64"/>
+  <object id="86" type="ColSquare" gid="53" x="640" y="224" width="64" height="64"/>
+  <object id="87" type="ColSquare" gid="53" x="453.333" y="250" width="64" height="64"/>
  </objectgroup>
 </map>

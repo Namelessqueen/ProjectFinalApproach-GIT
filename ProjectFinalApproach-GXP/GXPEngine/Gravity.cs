@@ -159,6 +159,9 @@ internal class Gravity : AnimationSprite
         float rotation = Mathf.Clamp(rotationMouse.GetAngleDegrees(), RotClampMin, RotClampMax);
         Vec2 dist = Position - mousePos;
 
+        if (Input.GetKeyDown(Key.P)) Console.WriteLine(rotation);
+
+
         //Pressing the right mouse button to change the gravity position
         if (Input.GetMouseButton(1) && dist.Length() < radius)
         {
