@@ -45,7 +45,7 @@ internal class Button : AnimationSprite
         ButtonCollision();
         FailButtons();
 
-        if (((MyGame)game).deathCount == 0 && action != "FailRetry" && action != "Menu")
+        if (((MyGame)game).deathCount == 0 && action != "FailRetry" && action != "Menu" && action != "Continue" || ((MyGame)game).success == true && action != "FailRetry" && action != "Menu" && action != "Continue") 
         {
             Destroy();
         }
@@ -56,7 +56,7 @@ internal class Button : AnimationSprite
     {
         if (action == "FailRetry" || action == "Menu")
         {
-            if (((MyGame)game).deathCount == 0)
+            if (((MyGame)game).deathCount == 0 || ((MyGame)game).success)
             {
                 alpha = 1;
             } else
@@ -64,6 +64,18 @@ internal class Button : AnimationSprite
                 alpha = 0;
             }
         }
+
+        if (action == "Continue")
+        {
+            if (((MyGame)game).success)
+            {
+                alpha = 1;
+            }
+            else
+            {
+                alpha = 0;
+            }
+        }       
     }
     
 
@@ -92,18 +104,29 @@ internal class Button : AnimationSprite
                 ((MyGame)game).currentLevel = 1;
                 CurrentScene = "Level_1";
             }
+
             if (action == "Retry")
             {
                 ((MyGame)game).LoadScene(CurrentScene + ".tmx");
             }
-            if (action == "FailRetry" && ((MyGame)game).deathCount == 0)
+
+            if (action == "FailRetry" && ((MyGame)game).deathCount == 0 || action == "FailRetry" && ((MyGame)game).success)
             {
-                ((MyGame)game).LoadScene(CurrentScene + ".tmx");
+                ((MyGame)game).success = false;
+                ((MyGame)game).LoadScene("Level_" + ((MyGame)game).currentLevel + ".tmx");
             }
 
-            if (action == "Menu" && ((MyGame)game).deathCount == 0)
+            if (action == "Menu" && ((MyGame)game).deathCount == 0 || action == "Menu" && ((MyGame)game).success)
             {
+                ((MyGame)game).success = false;
                 ((MyGame)game).LoadScene("StartScene.tmx");
+            }
+
+            if (action == "Continue" && ((MyGame)game).success)
+            {
+                ((MyGame)game).success = false;
+                ((MyGame)game).currentLevel++;
+                ((MyGame)game).LoadScene("Level_" + ((MyGame)game).currentLevel + ".tmx");
             }
         }
 

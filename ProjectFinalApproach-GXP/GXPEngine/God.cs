@@ -48,7 +48,7 @@ internal class God : AnimationSprite
             {
                 Console.WriteLine("ENTER"); //put a method here to change the scene
                 Console.WriteLine("Stars given: {0}", ((MyGame)game).deathCount);
-                ((MyGame)game).LoadScene(nextLevel+".tmx");
+                ((MyGame)game).PassLevel();
             }
         }
     }

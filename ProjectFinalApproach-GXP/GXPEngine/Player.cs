@@ -53,11 +53,11 @@ internal class Player : AnimationSprite
     void BallSpawn()
     {
         //Add balls the the game by pressing left mouse (normal ball) and T (test ball)
-        if (Input.GetMouseButtonDown(0) && goats.Count != 0)
+        if (Input.GetMouseButtonDown(0) && goats.Count != 0 && ((MyGame)game).success == false)
         {   
             game.AddChild(new Ball(mouseAnlge.GetAngleDegrees(), playerPos));    // Not correctly added! needs fixing
         }
-        if (Input.GetKeyDown(Key.T))
+        if (Input.GetKeyDown(Key.T) && ((MyGame)game).success == false)
         {
             game.AddChild(new Ball(mouseAnlge.GetAngleDegrees(), playerPos, true));    // Not correctly added! needs fixing
         }
@@ -65,28 +65,32 @@ internal class Player : AnimationSprite
 
     void Reloader()
     {
-       goats = game.FindObjectsOfType<Reload>().ToList();
-
-        for(int i = 0; i < goats.Count; i++)
+        if (!((MyGame)game).success)
         {
-            //if there are attempts left...
-            if(goats.Count != 0)
+            goats = game.FindObjectsOfType<Reload>().ToList();
+
+            for (int i = 0; i < goats.Count; i++)
             {
-               //destroy the most left emblem (also depleting one attempt)
-               if(Input.GetMouseButtonDown(0))
+                //if there are attempts left...
+                if (goats.Count != 0)
                 {
-                    goats[0].Destroy();
+                    //destroy the most left emblem (also depleting one attempt)
+                    if (Input.GetMouseButtonDown(0))
+                    {
+                        goats[0].Destroy();
+                    }
+                }
+            }
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (goats.Count != 0)
+                {
+                    Console.WriteLine("Type of goat: {0}", goats[0].pickedSprite);
                 }
             }
         }
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (goats.Count != 0)
-            {
-                Console.WriteLine("Type of goat: {0}", goats[0].pickedSprite);
-            }
-        }
     }
 
 }
