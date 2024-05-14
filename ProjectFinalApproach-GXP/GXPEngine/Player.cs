@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -12,6 +13,7 @@ internal class Player : AnimationSprite
 {
     Vec2 mousePos, playerPos, mouseAnlge;
     EasyDraw _easyDraw;
+    HUD hud = null;
 
     public Player(string imageFile, int cols, int rows, TiledObject obj = null) : base(imageFile, cols, rows)
     {
@@ -37,6 +39,11 @@ internal class Player : AnimationSprite
         //drawing aiming line(eventhough it is transparant)
         _easyDraw.Stroke(255); _easyDraw.StrokeWeight(3);
         _easyDraw.Line(x, y, mousePos.x, mousePos.y);
+
+        if (hud == null)
+        {
+            hud = game.FindObjectOfType<HUD>();
+        }
 
         Reloader();
         BallSpawn();
