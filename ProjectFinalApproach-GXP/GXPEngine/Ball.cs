@@ -18,7 +18,7 @@ internal class Ball : AnimationSprite
     bool tester;
 
     //tweak the speed of the ball here!!
-    public int speed = 5;
+    public int speed = 8;
 
     public Ball(float pAngle, Vec2 pPlayerPos, bool pTester = false) : base("Ball.png", 1, 1, -1, false, false)
     {
