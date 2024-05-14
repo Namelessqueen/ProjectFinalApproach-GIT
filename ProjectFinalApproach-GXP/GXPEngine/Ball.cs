@@ -39,7 +39,7 @@ internal class Ball : AnimationSprite
         radius = ballRad;
         Position = PlayerPos;
         Velocity = new Vec2(0, -speed);
-        Velocity.SetAngleDegrees(Mathf.Clamp(Angle,-135,-45));
+        Velocity.SetAngleDegrees(Angle);
     }
     void InitializeTester() // 
     {
@@ -48,7 +48,7 @@ internal class Ball : AnimationSprite
         scale = 0.75f;
         Position = PlayerPos;
         Velocity = new Vec2(0, -speed*1.5f);
-        Velocity.SetAngleDegrees(Mathf.Clamp(Angle, -135, -45));
+        Velocity.SetAngleDegrees(Angle);
     }
 
 
@@ -58,7 +58,6 @@ internal class Ball : AnimationSprite
         y = Position.y;
 
         Position += Velocity;
-       // Console.WriteLine(Velocity);
         BoundaryWrap();
         CheckPlanetCollision();
 
@@ -129,7 +128,7 @@ internal class Ball : AnimationSprite
 
         //find planet GameObjects
         planetObjects = game.FindObjectsOfType<Planet>().ToList();
-
+        Console.WriteLine(planetObjects.Count());
         for (int i = 0; i < planetObjects.Count; i++)
         {
             //if there is a planet in the scene....
@@ -137,7 +136,7 @@ internal class Ball : AnimationSprite
             {
                 //get the distance between the planet and the ball
                 planetDistance = Position - planetObjects[i].Position;
-
+                //Console.WriteLine(planetDistance.Length());
 
                 //if that distance is less than the radius sum (collision)
                 if (planetDistance.Length() <= radius + planetObjects[i].radius)
