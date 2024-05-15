@@ -55,8 +55,8 @@
  <tileset firstgid="101" name="Cannon" tilewidth="172" tileheight="71" tilecount="1" columns="1">
   <image source="Cannon.png" width="172" height="71"/>
  </tileset>
- <imagelayer id="12" name="Afbeelding Laag 1" offsetx="-2" offsety="1100">
-  <image source="bg_1.png" width="1024" height="1366"/>
+ <imagelayer id="12" name="Afbeelding Laag 1" offsetx="2.33333" offsety="2.66667">
+  <image source="bg_1.png" width="768" height="1024"/>
  </imagelayer>
  <objectgroup id="6" name="Force">
   <object id="23" name="Force" type="Gravity" gid="38" x="222" y="284" width="200" height="200">
@@ -81,7 +81,7 @@
   </object>
  </objectgroup>
  <objectgroup id="3" name="planet+ other objects">
-  <object id="38" name="god" type="God" gid="40" x="544" y="96" width="64" height="64">
+  <object id="38" name="god" type="God" gid="40" x="570.666" y="120" width="64" height="64">
    <properties>
     <property name="nextLevel" value="Level_2"/>
    </properties>
@@ -100,7 +100,7 @@
   </object>
   <object id="83" name="button" type="Button" gid="51" x="32" y="96" width="64" height="64">
    <properties>
-    <property name="action" value="pauze"/>
+    <property name="action" value="Pause"/>
    </properties>
   </object>
  </objectgroup>

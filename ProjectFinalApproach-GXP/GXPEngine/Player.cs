@@ -56,7 +56,7 @@ internal class Player : AnimationSprite
     void BallSpawn()
     {
         //Add balls the the game by pressing left mouse (normal ball) and T (test ball)
-        if (Input.GetMouseButtonDown(0) && goats.Count != 0 && ((MyGame)game).success == false)
+        if (Input.GetKeyDown(Key.SPACE) && goats.Count != 0 && ((MyGame)game).success == false)
         {   
             game.AddChild(new Ball(rotation, playerPos));    // Not correctly added! needs fixing
         }
@@ -74,24 +74,25 @@ internal class Player : AnimationSprite
 
             for (int i = 0; i < goats.Count; i++)
             {
-               //destroy the most left emblem (also depleting one attempt)
-               if(Input.GetKeyDown(Key.SPACE))
+                //destroy the most left emblem (also depleting one attempt)
+                if (Input.GetKeyDown(Key.SPACE))
                 {
                     //destroy the most left emblem (also depleting one attempt)
-                    if (Input.GetMouseButtonDown(0))
+                    if (Input.GetKeyDown(Key.SPACE))
                     {
                         goats[0].Destroy();
                     }
                 }
             }
 
-        if (Input.GetKeyDown(Key.SPACE))
-        {
-            if (goats.Count != 0)
+            if (Input.GetKeyDown(Key.SPACE))
             {
                 if (goats.Count != 0)
                 {
-                    Console.WriteLine("Type of goat: {0}", goats[0].pickedSprite);
+                    if (goats.Count != 0)
+                    {
+                        Console.WriteLine("Type of goat: {0}", goats[0].pickedSprite);
+                    }
                 }
             }
         }
