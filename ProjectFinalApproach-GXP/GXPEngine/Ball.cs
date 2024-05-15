@@ -19,7 +19,7 @@ internal class Ball : AnimationSprite
     int ballRad = 20; //This is because the goat sprite uses a lot of free space around the sphere. for calc use this as raduis
 
     //tweak the speed of the ball here!!
-    public int speed = 10;
+    public int speed = 12;
 
     public Ball(float pAngle, Vec2 pPlayerPos, bool pTester = false) : base("spr_goat1.png", 3, 3, -1, false, false)
     {

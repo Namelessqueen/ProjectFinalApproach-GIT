@@ -39,11 +39,11 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <imagelayer id="3" name="Afbeelding Laag 1" class="Button" offsetx="-2.12164" offsety="433.152">
-  <image source="BackgroundTester.jpg" width="625" height="400"/>
+ <imagelayer id="3" name="Afbeelding Laag 1" class="Button" offsetx="0.87836" offsety="0.152">
+  <image source="level_start.png" width="768" height="1024"/>
  </imagelayer>
  <objectgroup id="5" name="Button">
-  <object id="3" type="Button" gid="1" x="320" y="416" width="150" height="65">
+  <object id="3" type="Button" gid="1" x="271" y="895" width="205" height="68">
    <properties>
     <property name="action" value="Start"/>
    </properties>
