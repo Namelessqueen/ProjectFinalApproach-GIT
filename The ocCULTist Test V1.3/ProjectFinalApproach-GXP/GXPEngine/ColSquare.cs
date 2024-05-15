@@ -44,13 +44,11 @@ internal class ColSquare : AnimationSprite
             //checks when that distance is less than the radius of the ball and the size of the wall square
             if (distX < BallObjects[i].radius + width / 2 && distY < BallObjects[i].radius + width / 2)
             {
-                BallObjects[i]. Destroy();
                 if (!BallObjects[i].tester)
                 {
-                    ((MyGame)game).deathCount--;
+                    BallObjects[i].Crash();
                 }
 
-                Console.WriteLine("Attempts left: {0}", ((MyGame)game).deathCount); 
             }
         }
     }

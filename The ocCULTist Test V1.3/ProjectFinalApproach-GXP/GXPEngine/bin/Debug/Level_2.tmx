@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="24" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="81">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="24" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="84">
  <tileset firstgid="1" name="button_pause" tilewidth="65" tileheight="65" tilecount="2" columns="2">
   <image source="button_pause.png" width="130" height="65"/>
  </tileset>
@@ -36,6 +36,9 @@
  <tileset firstgid="75" name="spr_obstacles" tilewidth="100" tileheight="100" tilecount="4" columns="4">
   <image source="spr_obstacles.png" width="400" height="100"/>
  </tileset>
+ <tileset firstgid="79" name="spr_goats_emblems" tilewidth="170" tileheight="170" tilecount="3" columns="3">
+  <image source="spr_goats_emblems.png" width="510" height="170"/>
+ </tileset>
  <imagelayer id="7" name="Afbeelding Laag 1">
   <image source="bg_1.png" width="768" height="1024"/>
  </imagelayer>
@@ -46,7 +49,7 @@
     <property name="PivitY" type="float" value="-1000"/>
     <property name="RotClampMax" type="float" value="95"/>
     <property name="RotClampMin" type="float" value="85"/>
-    <property name="gravityStrength" type="float" value="0.045"/>
+    <property name="gravityStrength" type="float" value="0.025"/>
    </properties>
   </object>
   <object id="72" type="Gravity" gid="73" x="548" y="346.667" width="160" height="160">
@@ -69,9 +72,6 @@
   </object>
  </objectgroup>
  <objectgroup id="2" name="Objects">
-  <object id="22" name="emblem" type="Reload" gid="24" x="544" y="960" width="88" height="76.3333"/>
-  <object id="23" name="emblem" type="Reload" gid="24" x="619" y="960" width="88" height="76.3333"/>
-  <object id="24" name="emblem" type="Reload" gid="24" x="692" y="960" width="88" height="76.3333"/>
   <object id="28" name="Planet" type="Planet" gid="28" x="335.333" y="160" width="65" height="65">
    <properties>
     <property name="PivitX" type="float" value="320"/>
@@ -115,6 +115,9 @@
   <object id="77" type="ColSquare" gid="78" x="223.833" y="382.5" width="63" height="63"/>
   <object id="79" type="ColSquare" gid="77" x="321.833" y="351.167" width="63" height="63"/>
   <object id="80" type="ColSquare" gid="75" x="161.583" y="321.708" width="63.5" height="63.25"/>
+  <object id="81" type="Reload" gid="79" x="544" y="976" width="100" height="100"/>
+  <object id="82" type="Reload" gid="79" x="604" y="976" width="100" height="100"/>
+  <object id="83" type="Reload" gid="79" x="664" y="976" width="100" height="100"/>
  </objectgroup>
  <objectgroup id="8" name="Objectlaag 5"/>
 </map>
