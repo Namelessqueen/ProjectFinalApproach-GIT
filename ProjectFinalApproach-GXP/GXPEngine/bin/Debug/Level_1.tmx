@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="24" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="13" nextobjectid="124">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="24" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="13" nextobjectid="129">
  <tileset firstgid="1" name="planet1" tilewidth="130" tileheight="130" tilecount="21" columns="7">
   <image source="planet1.png" width="910" height="390"/>
  </tileset>
@@ -45,6 +45,12 @@
  <tileset firstgid="102" name="spr_obstacles" tilewidth="100" tileheight="100" tilecount="4" columns="4">
   <image source="spr_obstacles.png" width="400" height="100"/>
  </tileset>
+ <tileset firstgid="106" name="button_test" tilewidth="129" tileheight="49" tilecount="2" columns="2">
+  <image source="button_test.png" width="258" height="49"/>
+ </tileset>
+ <tileset firstgid="108" name="button_launch" tilewidth="150" tileheight="65" tilecount="2" columns="2">
+  <image source="button_launch.png" width="300" height="65"/>
+ </tileset>
  <imagelayer id="12" name="Afbeelding Laag 1" offsetx="0.33333" offsety="0.16667">
   <image source="bg_1.png" width="768" height="1024"/>
  </imagelayer>
@@ -79,6 +85,16 @@
   <object id="115" type="God" gid="101" x="548.182" y="798.364" width="147" height="193.5">
    <properties>
     <property name="nextLevel" value="Level_2"/>
+   </properties>
+  </object>
+  <object id="127" name="Launch" type="Button" gid="106" x="32" y="992" width="96.75" height="36.75">
+   <properties>
+    <property name="action" value="Test"/>
+   </properties>
+  </object>
+  <object id="128" name="Launch" type="Button" gid="108" x="32" y="947" width="112.5" height="48.75">
+   <properties>
+    <property name="action" value="Launch"/>
    </properties>
   </object>
  </objectgroup>

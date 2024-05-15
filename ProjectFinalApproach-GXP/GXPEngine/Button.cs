@@ -12,6 +12,7 @@ internal class Button : AnimationSprite
     public string action;
     string CurrentScene;
     Vec2 Position;
+    Player _player;
     public Button(string imageFile = "Square.png") : base(imageFile, 2, 1, -1)
     {
         Initialize();
@@ -26,7 +27,7 @@ internal class Button : AnimationSprite
         SetOrigin(width / 2, height / 2);
         action = obj.GetStringProperty("action", "Start");
         CurrentScene = obj.GetStringProperty("CurrentScene", "Level_1");//gets the string named action from tiled
-
+       
         if (action == "FailRetry")
         {
             alpha = 0;
@@ -41,6 +42,8 @@ internal class Button : AnimationSprite
 
     void Update()
     {
+        _player = FindObjectOfType<Player>();
+
         Position = new Vec2(x, y);
         ButtonCollision();
         FailButtons();
@@ -75,7 +78,8 @@ internal class Button : AnimationSprite
             {
                 alpha = 0;
             }
-        }       
+        }
+       
     }
     
 
@@ -127,6 +131,14 @@ internal class Button : AnimationSprite
                 ((MyGame)game).success = false;
                 ((MyGame)game).currentLevel++;
                 ((MyGame)game).LoadScene("Level_" + ((MyGame)game).currentLevel + ".tmx");
+            }
+            if (action == "Launch")
+            {
+               //_player.SpawnLaunchBall();
+            }
+            if (action == "Test ")
+            {
+
             }
         }
 

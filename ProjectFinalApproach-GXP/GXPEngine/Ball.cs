@@ -19,7 +19,7 @@ internal class Ball : AnimationSprite
     int ballRad = 20; //This is because the goat sprite uses a lot of free space around the sphere. for calc use this as raduis
 
     //tweak the speed of the ball here!!
-    public int speed = 12;
+    public int speed = 1;
 
     public Ball(float pAngle, Vec2 pPlayerPos, bool pTester = false) : base("spr_goat1.png", 3, 3, -1, false, false)
     {
@@ -54,15 +54,16 @@ internal class Ball : AnimationSprite
 
     void Update()
     {
+       
         x = Position.x;
         y = Position.y;
 
-        Position += Velocity;
+        Position += Velocity * Time.deltaTime;
         BoundaryWrap();
         CheckPlanetCollision();
 
         //Change the transparity off the test ball object
-        if (tester) alpha -= 0.01f;
+        if (tester) alpha -= 0.002f * Time.deltaTime;
         if (alpha <= 0) alpha = 0;
 
         if(((MyGame)game).success == true)

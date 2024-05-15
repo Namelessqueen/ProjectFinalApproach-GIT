@@ -18,6 +18,8 @@ internal class Player : AnimationSprite
     public Player(string imageFile, int cols, int rows, TiledObject obj = null) : base(imageFile, cols, rows)
     {
         target = new Vec2(0, -1);
+        x = -100;
+        y = -100;
     }
 
     void Update()
@@ -37,6 +39,7 @@ internal class Player : AnimationSprite
         BallSpawn();
     }
 
+    bool isRotating;
     void Rotation()
     {
         if (Input.GetMouseButtonDown(0)) target = new Vec2(Input.mouseX - playerPos.x, Input.mouseY - playerPos.y);
@@ -44,15 +47,19 @@ internal class Player : AnimationSprite
 
         if (targetAngle > rotation + 0.5f)
         {
-            rotation += 0.5f;
+            isRotating = true;
+            rotation += 0.08f * Time.deltaTime;
         }
         else if (targetAngle < rotation - 0.5f)
         {
-            rotation -= 0.5f;
+            isRotating = true;
+            rotation -= 0.08f * Time.deltaTime;
         }
+        else isRotating = false;
     }
 
     List<Reload> goats;
+    float timer;
     void BallSpawn()
     {
         //Add balls the the game by pressing left mouse (normal ball) and T (test ball)
@@ -60,10 +67,29 @@ internal class Player : AnimationSprite
         {
             game.AddChild(new Ball(rotation, playerPos));    // Not correctly added! needs fixing
         }
-        if (Input.GetKeyDown(Key.T))
+        if (!isRotating)
         {
-            game.AddChild(new Ball(rotation, playerPos, true));    // Not correctly added! needs fixing
+            timer += 0.001f * Time.deltaTime;
+            Console.WriteLine(timer);
+            if (timer > 1)
+            {
+                timer = 0;
+                game.AddChild(new Ball(rotation, playerPos, true));
+
+            }
         }
+    
+    }
+    public void SpawnLaunchBall()
+    {
+        if (goats.Count != 0 && ((MyGame)game).success == false)
+        {
+            game.AddChild(new Ball(rotation, playerPos));    // Not correctly added! needs fixing
+        }
+    }
+    public void SpawnTestBall()
+    {
+
     }
 
     void Reloader()

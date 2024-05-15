@@ -64,8 +64,8 @@ internal class Planet : AnimationSprite
     void Animation()
     {
         //Animate the planets with different ammout of frames
-        SetCycle(0, _cols * _rows, 4);
-        Animate();
+        SetCycle(0, _cols * _rows, 25);
+        Animate(Time.deltaTime);
     }
 }
 
