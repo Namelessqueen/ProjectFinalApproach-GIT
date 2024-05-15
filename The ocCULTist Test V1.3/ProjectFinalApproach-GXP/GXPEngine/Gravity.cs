@@ -126,24 +126,24 @@ internal class Gravity : AnimationSprite
 
         if (moveLeft)
         {
-            ballObjects[I].Velocity.x -= gravityStrength * ballObjects[I].Velocity.Length();
+            ballObjects[I].Velocity.x -= gravityStrength * ballObjects[I].Velocity.Length() * 0.11f * Time.deltaTime;
 
         }
 
         if (moveRight)
         {
-            ballObjects[I].Velocity.x += gravityStrength * ballObjects[I].Velocity.Length(); 
+            ballObjects[I].Velocity.x += gravityStrength * ballObjects[I].Velocity.Length() * 0.11f * Time.deltaTime; 
            
         }
 
         if (moveUp)
         {
-            ballObjects[I].Velocity.y -= gravityStrength * ballObjects[I].Velocity.Length();
+            ballObjects[I].Velocity.y -= gravityStrength * ballObjects[I].Velocity.Length() * 0.11f * Time.deltaTime;
         }
 
         if (moveDown)
         {
-            ballObjects[I].Velocity.y += gravityStrength * ballObjects[I].Velocity.Length();
+            ballObjects[I].Velocity.y += gravityStrength * ballObjects[I].Velocity.Length() * 0.11f * Time.deltaTime;
         }
 
         ballObjects[I].Velocity = ballObjects[I].Velocity.Normalized() * ballObjects[I].speed;

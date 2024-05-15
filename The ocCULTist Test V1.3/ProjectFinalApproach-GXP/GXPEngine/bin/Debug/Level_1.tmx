@@ -67,7 +67,7 @@
     <property name="PivitY" type="float" value="-550"/>
     <property name="RotClampMax" type="float" value="50"/>
     <property name="RotClampMin" type="float" value="40"/>
-    <property name="gravityStrength" type="float" value="0.025"/>
+    <property name="gravityStrength" type="float" value="0.03"/>
    </properties>
   </object>
  </objectgroup>

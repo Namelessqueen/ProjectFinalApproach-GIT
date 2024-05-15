@@ -75,7 +75,7 @@ internal class Ball : AnimationSprite
         CheckPlanetCollision();
 
         //Change the transparity off the test ball object
-        if (tester) alpha -= 0.01f;
+        if (tester) alpha -= 0.002f * Time.deltaTime;
         if (alpha <= 0) alpha = 0;
 
         if(((MyGame)game).success == true)

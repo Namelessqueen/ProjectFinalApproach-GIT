@@ -49,7 +49,7 @@
     <property name="PivitY" type="float" value="-1000"/>
     <property name="RotClampMax" type="float" value="95"/>
     <property name="RotClampMin" type="float" value="85"/>
-    <property name="gravityStrength" type="float" value="0.025"/>
+    <property name="gravityStrength" type="float" value="0.035"/>
    </properties>
   </object>
   <object id="72" type="Gravity" gid="73" x="548" y="346.667" width="160" height="160">
@@ -58,7 +58,7 @@
     <property name="PivitY" type="float" value="340"/>
     <property name="RotClampMax" type="float" value="5"/>
     <property name="RotClampMin" type="float" value="-10"/>
-    <property name="gravityStrength" type="float" value="0.025"/>
+    <property name="gravityStrength" type="float" value="0.03"/>
    </properties>
   </object>
   <object id="73" type="Gravity" gid="73" x="511" y="684" width="136" height="136">
