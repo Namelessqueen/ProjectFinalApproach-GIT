@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="24" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="84">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="24" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="85">
  <tileset firstgid="1" name="button_pause" tilewidth="65" tileheight="65" tilecount="2" columns="2">
   <image source="button_pause.png" width="130" height="65"/>
  </tileset>
@@ -38,6 +38,9 @@
  </tileset>
  <tileset firstgid="79" name="spr_goats_emblems" tilewidth="170" tileheight="170" tilecount="3" columns="3">
   <image source="spr_goats_emblems.png" width="510" height="170"/>
+ </tileset>
+ <tileset firstgid="82" name="actual_cannon_spiteSheet" tilewidth="190" tileheight="175" tilecount="10" columns="5">
+  <image source="actual_cannon_spiteSheet.png" width="950" height="350"/>
  </tileset>
  <imagelayer id="7" name="Afbeelding Laag 1">
   <image source="bg_1.png" width="768" height="1024"/>
@@ -89,13 +92,13 @@
     <property name="RotClampMin" type="float" value="-15"/>
    </properties>
   </object>
-  <object id="62" name="Cannon" type="Player" gid="72" x="416" y="1056" width="172" height="71" rotation="-90"/>
   <object id="74" type="God" gid="74" x="3.66667" y="308" width="140.667" height="191">
    <properties>
     <property name="nextLevel" value="Level_3"/>
    </properties>
   </object>
   <object id="75" type="ColSquare" gid="76" x="81.1667" y="386.5" width="63" height="63"/>
+  <object id="84" type="Player" gid="82" x="476.867" y="1063.65" width="216" height="188" rotation="-90"/>
  </objectgroup>
  <objectgroup id="5" name="Hud">
   <object id="52" name="Retry" type="Button" gid="54" x="672" y="96" width="64" height="64">

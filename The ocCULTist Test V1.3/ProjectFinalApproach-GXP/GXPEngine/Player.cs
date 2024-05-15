@@ -19,6 +19,8 @@ internal class Player : AnimationSprite
     public Player(string imageFile, int cols, int rows, TiledObject obj = null) : base(imageFile, cols, rows)
     {
         target = new Vec2(0, -1);
+        SetCycle(0, 1);
+        
     }
 
     void Update()
@@ -36,6 +38,8 @@ internal class Player : AnimationSprite
 
         Reloader();
         BallSpawn();
+        ShootNormal();
+        Animate(0.03f * Time.deltaTime);
     }
 
     void Rotation()
@@ -54,16 +58,35 @@ internal class Player : AnimationSprite
     }
 
     List<Reload> goats;
+
+    int cannonTimer = 0;
+    bool normalShoot = false;
     void BallSpawn()
     {
         //Add balls the the game by pressing left mouse (normal ball) and T (test ball)
         if (Input.GetKeyDown(Key.SPACE) && goats.Count != 0 && ((MyGame)game).success == false)
         {
-            game.AddChild(new Ball(goatType, 7, 4, rotation, playerPos));    // Not correctly added! needs fixing
+            normalShoot = true; // Not correctly added! needs fixing
         }
         if (Input.GetKeyDown(Key.T))
         {
             game.AddChild(new Ball("spr_rat_01.png", 1, 1, rotation, playerPos, true));    // Not correctly added! needs fixing
+        }
+    }
+
+    void ShootNormal()
+    {
+        if (normalShoot)
+        {
+            cannonTimer += Time.deltaTime;
+            SetCycle(0, 10);
+            if (cannonTimer > 280)
+            {             
+                game.AddChild(new Ball(goatType, 7, 4, rotation, playerPos));
+                SetCycle(0, 1);
+                cannonTimer = 0;
+                normalShoot = false;               
+            }
         }
     }
 

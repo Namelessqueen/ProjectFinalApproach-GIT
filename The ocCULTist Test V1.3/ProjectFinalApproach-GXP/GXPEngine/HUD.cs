@@ -12,7 +12,9 @@ internal class HUD : GameObject
     EasyDraw levelFail;
     EasyDraw levelPassed;
     EasyDraw levelNumber;
-    EasyDraw stars;
+    EasyDraw starOne;
+    EasyDraw starTwo;
+    EasyDraw starThree;
     Button _continue;
     Button retry;
     Button menu;
@@ -37,13 +39,21 @@ internal class HUD : GameObject
         levelNumber.TextSize(21);
         AddChild(levelNumber);
 
-        stars = new EasyDraw(100, 100, false);
-        stars.TextFont(gameFont);
-        stars.TextSize(40);
-        stars.TextAlign(CenterMode.Center, CenterMode.Center);
-        stars.SetXY(game.width / 2 - 55, game.height / 2 + 75);
-        stars.alpha = 0;
-        AddChild(stars);
+        starOne = new EasyDraw("star_goat1.png", false);
+        starOne.SetXY(game.width / 2 - 140, game.height / 2 + 85);
+        starOne.alpha = 0;
+        AddChild(starOne);
+
+        starTwo = new EasyDraw("star_goat2.png", false);
+        starTwo.SetXY(game.width / 2 - 40, game.height / 2 + 85);
+        starTwo.alpha = 0;
+        AddChild(starTwo);
+
+        starThree = new EasyDraw("star_goat3.png", false);
+        starThree.SetXY(game.width / 2 + 60, game.height / 2 + 85);
+        starThree.alpha = 0;
+        AddChild(starThree);
+
 
 
         retry = new Button("button_retry.png");
@@ -71,7 +81,17 @@ internal class HUD : GameObject
             levelNumber.SetXY(game.width / 2 + 45, game.height / 2 - 94);
             levelPassed.alpha = 1;
             levelNumber.alpha = 1;
-            stars.alpha = 1;
+            starOne.alpha = 1;
+
+            if (((MyGame)game).deathCount >= 2)
+            {
+                starTwo.alpha = 1;
+            }
+
+            if (((MyGame)game).deathCount == 3)
+            {
+                starThree.alpha = 1;
+            }
 
             retry.width = 70;
             retry.height = 70;
@@ -80,14 +100,14 @@ internal class HUD : GameObject
             menu.SetXY(game.width / 2 - 50, game.height - 235);
             menu.width = 70;
             menu.height = 70;
-
-            stars.ClearTransparent();
-            stars.Text(((MyGame)game).deathCount.ToString());
         }
         else
         {
             levelPassed.alpha = 0;
-            stars.alpha = 0;
+            starOne.alpha = 0;
+            starTwo.alpha = 0;
+            starThree.alpha = 0;
+
             if (((MyGame)game).deathCount != 0)
             {
                 levelNumber.alpha = 0;
