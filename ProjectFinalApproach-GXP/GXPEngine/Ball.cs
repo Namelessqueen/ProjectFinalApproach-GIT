@@ -16,7 +16,7 @@ internal class Ball : AnimationSprite
     float Angle;
     bool DestroyObject = true;
     public bool tester;
-    int ballRad = 45; //This is because the goat sprite uses a lot of free space around the sphere. for calc use this as raduis
+    int ballRad = 20; //This is because the goat sprite uses a lot of free space around the sphere. for calc use this as raduis
 
     //tweak the speed of the ball here!!
     public int speed = 10;
@@ -128,7 +128,7 @@ internal class Ball : AnimationSprite
 
         //find planet GameObjects
         planetObjects = game.FindObjectsOfType<Planet>().ToList();
-        Console.WriteLine(planetObjects.Count());
+
         for (int i = 0; i < planetObjects.Count; i++)
         {
             //if there is a planet in the scene....

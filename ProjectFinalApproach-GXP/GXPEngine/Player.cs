@@ -60,7 +60,7 @@ internal class Player : AnimationSprite
         {   
             game.AddChild(new Ball(rotation, playerPos));    // Not correctly added! needs fixing
         }
-        if (Input.GetKeyDown(Key.T) && ((MyGame)game).success == false)
+        if (Input.GetKeyDown(Key.T))
         {
             game.AddChild(new Ball(rotation, playerPos, true));    // Not correctly added! needs fixing
         }
@@ -68,22 +68,20 @@ internal class Player : AnimationSprite
 
     void Reloader()
     {
-        if (!((MyGame)game).success)
-        {
-            goats = game.FindObjectsOfType<Reload>().ToList();
+       goats = game.FindObjectsOfType<Reload>().ToList();
 
-            for (int i = 0; i < goats.Count; i++)
+        for(int i = 0; i < goats.Count; i++)
+        {
+            //if there are attempts left...
+            if(goats.Count != 0)
             {
                 //destroy the most left emblem (also depleting one attempt)
                 if (Input.GetKeyDown(Key.SPACE))
                 {
-                    //destroy the most left emblem (also depleting one attempt)
-                    if (Input.GetKeyDown(Key.SPACE))
-                    {
-                        goats[0].Destroy();
-                    }
+                    goats[0].Destroy();
                 }
             }
+        }
 
             if (Input.GetKeyDown(Key.SPACE))
             {
@@ -96,7 +94,6 @@ internal class Player : AnimationSprite
                 }
             }
         }
-
     }
 
 }

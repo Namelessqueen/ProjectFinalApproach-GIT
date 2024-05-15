@@ -39,8 +39,9 @@ internal class God : AnimationSprite
         BallObjects = game.FindObjectsOfType<Ball>().ToList();
         for (int i = 0; i < BallObjects.Count; i++)
         {
-            //Get the distance between the ball and the god. In absolute so it is always a positive number which means less methods
-            float distX = Mathf.Abs(Position.x - BallObjects[i].Position.x);
+            if (BallObjects[i].tester) return;
+                //Get the distance between the ball and the god. In absolute so it is always a positive number which means less methods
+                float distX = Mathf.Abs(Position.x - BallObjects[i].Position.x);
             float distY = Mathf.Abs(Position.y - BallObjects[i].Position.y);
 
             //checks when that distance is less than the radius of the ball and the size of the god
