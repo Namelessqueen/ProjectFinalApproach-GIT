@@ -62,11 +62,11 @@ internal class Player : AnimationSprite
 
             if (targetAngle > rotation + 0.5f)
             {   
-                rotation += 0.5f;
+                rotation += 0.07f * Time.deltaTime;
             }
             else if (targetAngle < rotation - 0.5f)
             {
-                rotation -= 0.5f;
+                rotation -= 0.07f * Time.deltaTime;
             }
         }
     }
@@ -86,7 +86,7 @@ internal class Player : AnimationSprite
             }
             if (Input.GetKeyDown(Key.T))
             {
-                rat.Play().Volume = 0.2f;
+                rat.Play().Volume = 0.1f;
                 game.AddChild(new Ball("spr_rat_01.png", 1, 1, rotation, playerPos, true));    // Not correctly added! needs fixing
             }
         }

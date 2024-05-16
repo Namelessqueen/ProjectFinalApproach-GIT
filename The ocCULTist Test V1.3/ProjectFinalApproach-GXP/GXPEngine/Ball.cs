@@ -95,7 +95,7 @@ internal class Ball : AnimationSprite
     {
         timer += 1 * Time.deltaTime;
         alpha = 0;
-        alphaT -= 0.002f * Time.deltaTime;
+        alphaT -= 0.0015f * Time.deltaTime;
         if (timer > 125)
         {
             if (!tester)
@@ -198,7 +198,7 @@ internal class Ball : AnimationSprite
         if (!godPlayed)
         {
             Console.WriteLine("playing god");
-            god.Play().Volume = 0.4f;
+            god.Play().Volume = 0.2f;
             godPlayed = true;
         }
     }
