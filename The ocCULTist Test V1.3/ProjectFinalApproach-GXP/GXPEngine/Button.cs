@@ -127,12 +127,12 @@ internal class Button : AnimationSprite
                 ((MyGame)game).success = false;
                 ((MyGame)game).currentLevel++;
 
-                if (((MyGame)game).currentLevel < 3)
+                if (((MyGame)game).currentLevel < 4)
                 {
                     ((MyGame)game).LoadScene("Level_" + ((MyGame)game).currentLevel + ".tmx");
                 }
 
-                if (((MyGame)game).currentLevel == 3)
+                if (((MyGame)game).currentLevel == 4)
                 {
                     ((MyGame)game).LoadScene("StartScene.tmx");
                 }

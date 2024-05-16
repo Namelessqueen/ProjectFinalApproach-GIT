@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="24" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="85">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="24" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="10" nextobjectid="187">
  <tileset firstgid="1" name="button_pause" tilewidth="65" tileheight="65" tilecount="2" columns="2">
   <image source="button_pause.png" width="130" height="65"/>
  </tileset>
@@ -42,9 +42,62 @@
  <tileset firstgid="82" name="actual_cannon_spiteSheet" tilewidth="190" tileheight="175" tilecount="10" columns="5">
   <image source="actual_cannon_spiteSheet.png" width="950" height="350"/>
  </tileset>
+ <tileset firstgid="92" name="smolstar" tilewidth="64" tileheight="64" tilecount="1" columns="1">
+  <image source="smolstar.png" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="93" name="smolstar2" tilewidth="64" tileheight="64" tilecount="1" columns="1">
+  <image source="smolstar2.png" width="64" height="64"/>
+ </tileset>
  <imagelayer id="7" name="Afbeelding Laag 1">
   <image source="bg_1.png" width="768" height="1024"/>
  </imagelayer>
+ <objectgroup id="9" name="Stars">
+  <object id="86" gid="93" x="287.621" y="678.5" width="18.0909" height="21"/>
+  <object id="87" gid="93" x="668" y="631.333" width="18.6667" height="28"/>
+  <object id="88" gid="93" x="546" y="628" width="20" height="26"/>
+  <object id="89" gid="93" x="433.066" y="640.373" width="14" height="21.5" rotation="354.484"/>
+  <object id="90" gid="92" x="346.842" y="668.58" width="14.7861" height="16.8984"/>
+  <object id="91" gid="92" x="357.167" y="652.25" width="14" height="17.0172"/>
+  <object id="93" gid="93" x="329.842" y="673.247" width="7.12011" height="9.12976" rotation="11.1478"/>
+  <object id="94" gid="93" x="379.366" y="658.03" width="15.4825" height="21.2029" rotation="357.882"/>
+  <object id="95" gid="93" x="312.057" y="665.028" width="10.6693" height="17.3566" rotation="357.882"/>
+  <object id="99" gid="93" x="455.031" y="623.235" width="13.2713" height="15.5307" rotation="357.882"/>
+  <object id="100" gid="92" x="407.333" y="633.908" width="14" height="13.5172"/>
+  <object id="101" gid="93" x="465.38" y="636.072" width="13.2713" height="15.5307" rotation="357.882"/>
+  <object id="102" gid="92" x="505.827" y="612.758" width="14" height="13.5172" rotation="350.987"/>
+  <object id="104" gid="93" x="558.698" y="632.901" width="13.2713" height="15.5307" rotation="357.882"/>
+  <object id="105" gid="92" x="526.356" y="627.657" width="14" height="13.5172"/>
+  <object id="106" gid="93" x="585.622" y="620.313" width="13.2713" height="15.5307" rotation="357.882"/>
+  <object id="107" gid="93" x="609.614" y="626.985" width="13.2713" height="15.5307" rotation="357.882"/>
+  <object id="108" gid="92" x="641" y="613.241" width="14" height="19.5172"/>
+  <object id="109" gid="93" x="610.87" y="450.023" width="16.2223" height="20.3333" rotation="356.14"/>
+  <object id="110" gid="93" x="607.889" y="154.667" width="15.222" height="25.333"/>
+  <object id="115" gid="93" x="411.207" y="137" width="14.8665" height="25.333"/>
+  <object id="116" gid="93" x="214.915" y="139.333" width="19.503" height="28.6663"/>
+  <object id="117" gid="93" x="318.748" y="136.167" width="14.503" height="23.6663"/>
+  <object id="118" gid="93" x="272.582" y="141.819" width="14" height="21.5" rotation="354.484"/>
+  <object id="119" gid="93" x="294.547" y="124.681" width="13.2713" height="15.5307" rotation="357.882"/>
+  <object id="120" gid="92" x="249.349" y="132.354" width="10.5" height="13.5172"/>
+  <object id="122" gid="92" x="303.727" y="127.575" width="9.33333" height="8.85053"/>
+  <object id="154" gid="93" x="367.486" y="143.724" width="14" height="21.5" rotation="354.484"/>
+  <object id="155" gid="93" x="389.451" y="126.586" width="13.2713" height="15.5307" rotation="357.882"/>
+  <object id="156" gid="92" x="347.253" y="133.214" width="9.27273" height="14.2445"/>
+  <object id="157" gid="93" x="399.8" y="139.423" width="13.2713" height="15.5307" rotation="357.882"/>
+  <object id="171" gid="93" x="613.056" y="385.5" width="16.2223" height="20.3333" rotation="356.14"/>
+  <object id="172" gid="92" x="628.333" y="406.241" width="14" height="19.5172"/>
+  <object id="173" gid="93" x="620.682" y="201.667" width="20" height="26"/>
+  <object id="174" gid="93" x="633.38" y="206.568" width="13.2713" height="15.5307" rotation="357.882"/>
+  <object id="176" gid="92" x="613.75" y="418.741" width="14" height="13.5172" rotation="350.987"/>
+  <object id="177" gid="92" x="636" y="332.908" width="14" height="13.5172" rotation="350.987"/>
+  <object id="178" gid="93" x="621.167" y="329" width="20" height="26"/>
+  <object id="179" gid="92" x="614.997" y="259.716" width="14.7861" height="16.8984"/>
+  <object id="180" gid="92" x="629.822" y="240.886" width="14" height="17.0172"/>
+  <object id="181" gid="93" x="622.521" y="291.166" width="15.4825" height="21.2029" rotation="357.882"/>
+  <object id="182" gid="92" x="609" y="178.491" width="11" height="10.0172"/>
+  <object id="183" gid="92" x="635" y="273.991" width="12" height="11.0172"/>
+  <object id="184" gid="92" x="629.5" y="357.491" width="12" height="11.0172"/>
+  <object id="186" gid="93" x="614.364" y="223.235" width="12.1611" height="12.5697" rotation="357.882"/>
+ </objectgroup>
  <objectgroup id="6" name="Force">
   <object id="70" type="Gravity" gid="73" x="287.75" y="207.5" width="160" height="160">
    <properties>
@@ -68,7 +121,7 @@
    <properties>
     <property name="PivitX" type="float" value="600"/>
     <property name="PivitY" type="float" value="1500"/>
-    <property name="RotClampMax" type="float" value="-75"/>
+    <property name="RotClampMax" type="float" value="-85"/>
     <property name="RotClampMin" type="float" value="-110"/>
     <property name="gravityStrength" type="float" value="0.025"/>
    </properties>
@@ -98,7 +151,7 @@
    </properties>
   </object>
   <object id="75" type="ColSquare" gid="76" x="81.1667" y="386.5" width="63" height="63"/>
-  <object id="84" type="Player" gid="82" x="476.867" y="1063.65" width="216" height="188" rotation="-90"/>
+  <object id="84" type="Player" gid="82" x="476.867" y="1120" width="216" height="188" rotation="-90"/>
  </objectgroup>
  <objectgroup id="5" name="Hud">
   <object id="52" name="Retry" type="Button" gid="54" x="672" y="96" width="64" height="64">

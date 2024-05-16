@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="24" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="13" nextobjectid="128">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="24" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="14" nextobjectid="208">
  <tileset firstgid="1" name="planet1" tilewidth="130" tileheight="130" tilecount="21" columns="7">
   <image source="planet1.png" width="910" height="390"/>
  </tileset>
@@ -51,9 +51,57 @@
  <tileset firstgid="128" name="actual_cannon_spiteSheet" tilewidth="190" tileheight="175" tilecount="10" columns="5">
   <image source="actual_cannon_spiteSheet.png" width="950" height="350"/>
  </tileset>
+ <tileset firstgid="138" name="smolstar2" tilewidth="64" tileheight="64" tilecount="1" columns="1">
+  <image source="smolstar2.png" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="139" name="smolstar" tilewidth="64" tileheight="64" tilecount="1" columns="1">
+  <image source="smolstar.png" width="64" height="64"/>
+ </tileset>
  <imagelayer id="12" name="Afbeelding Laag 1" offsetx="0.33333" offsety="0.16667">
   <image source="bg_1.png" width="768" height="1024"/>
  </imagelayer>
+ <objectgroup id="13" name="Stars">
+  <object id="132" gid="138" x="427.349" y="631.779" width="12.6974" height="21.6925"/>
+  <object id="133" gid="138" x="599.438" y="442.679" width="18.4247" height="21.7379" rotation="357.665"/>
+  <object id="134" gid="138" x="262.288" y="133.881" width="23.0914" height="42.2379"/>
+  <object id="135" gid="138" x="399.288" y="275.381" width="19.425" height="29.738"/>
+  <object id="159" gid="138" x="378.298" y="260.388" width="15.0375" height="18.2873"/>
+  <object id="160" gid="139" x="394.786" y="257.574" width="9.66667" height="11.2643"/>
+  <object id="161" gid="139" x="356.667" y="226.118" width="12.4167" height="16.5143"/>
+  <object id="162" gid="139" x="257.792" y="107.743" width="12.4167" height="16.5143"/>
+  <object id="167" gid="138" x="293.722" y="178.859" width="21.5706" height="30.3947"/>
+  <object id="168" gid="139" x="288.041" y="158.212" width="11.4754" height="13.6265"/>
+  <object id="169" gid="138" x="331.942" y="215.257" width="19.207" height="26.1447"/>
+  <object id="170" gid="139" x="320.155" y="200.106" width="9.32579" height="8.87794"/>
+  <object id="171" gid="139" x="344.292" y="226.743" width="6.9167" height="11.0143"/>
+  <object id="172" gid="138" x="357.538" y="248.881" width="12.175" height="18.988"/>
+  <object id="173" gid="138" x="371.673" y="236.013" width="6.5375" height="10.2873"/>
+  <object id="174" gid="139" x="389.411" y="266.449" width="6.41667" height="9.2643"/>
+  <object id="175" gid="139" x="315.512" y="177.562" width="8.97542" height="13.1265"/>
+  <object id="176" gid="138" x="305.647" y="191.803" width="10.457" height="10.8947"/>
+  <object id="177" gid="138" x="280.851" y="132.939" width="11.4797" height="13.8265"/>
+  <object id="178" gid="139" x="274.262" y="143.687" width="8.97542" height="13.1265"/>
+  <object id="180" gid="139" x="485.483" y="577.749" width="9.66667" height="11.2643"/>
+  <object id="181" gid="138" x="518.968" y="553.883" width="21.7875" height="24.2873" rotation="6.28249"/>
+  <object id="183" gid="138" x="555.434" y="513.38" width="15.0375" height="21.5373"/>
+  <object id="184" gid="139" x="536.899" y="534.582" width="9.66667" height="11.2643"/>
+  <object id="187" gid="139" x="512.667" y="562.368" width="11.5176" height="15.508"/>
+  <object id="188" gid="138" x="452.5" y="614.625" width="13.7875" height="18.0852"/>
+  <object id="189" gid="139" x="438.167" y="612.701" width="9.66667" height="11.2643"/>
+  <object id="190" gid="139" x="475.492" y="598.788" width="15.3333" height="19.5976"/>
+  <object id="191" gid="138" x="502.481" y="580.265" width="9.7875" height="16.4123"/>
+  <object id="192" gid="139" x="463.25" y="595" width="7.5208" height="10.8476"/>
+  <object id="193" gid="139" x="422.455" y="617.909" width="6.85812" height="7.99157"/>
+  <object id="194" gid="3221225610" x="582.689" y="472.546" width="21.7875" height="24.2873" rotation="3.63544"/>
+  <object id="195" gid="3221225611" x="582.022" y="480.305" width="9.66667" height="11.2643" rotation="355.07"/>
+  <object id="197" gid="138" x="595.24" y="447.454" width="6.30991" height="9.0373" rotation="357.665"/>
+  <object id="198" gid="139" x="553.5" y="522.375" width="7.41667" height="9.6393"/>
+  <object id="199" gid="138" x="540.481" y="520.231" width="9.4125" height="15.0373"/>
+  <object id="201" gid="139" x="612.573" y="445.612" width="7.41667" height="9.6393" rotation="357.665"/>
+  <object id="202" gid="138" x="603.189" y="457.286" width="9.22847" height="10.2873" rotation="357.665"/>
+  <object id="206" gid="138" x="571.356" y="505.856" width="5.75231" height="6.4123"/>
+  <object id="207" gid="3221225611" x="562.375" y="493.75" width="16.5417" height="19.2755"/>
+ </objectgroup>
  <objectgroup id="6" name="Force">
   <object id="114" type="Gravity" gid="119" x="245" y="265.667" width="160" height="160">
    <properties>
@@ -77,13 +125,12 @@
  <objectgroup id="3" name="planet+ other objects">
   <object id="89" name="Planet" type="Planet" gid="1" x="448" y="608" width="32" height="32"/>
   <object id="93" name="Planet" type="Planet" gid="80" x="285.5" y="225.5" width="80" height="80"/>
-  <object id="94" name="Planet" type="Planet" gid="104" x="189" y="653" width="90" height="90"/>
   <object id="115" type="God" gid="120" x="494.182" y="200.364" width="147" height="193.5">
    <properties>
     <property name="nextLevel" value="Level_2"/>
    </properties>
   </object>
-  <object id="127" type="Player" gid="128" x="492" y="1054.33" width="216" height="188" rotation="-90"/>
+  <object id="127" type="Player" gid="128" x="492" y="1120" width="216" height="188" rotation="-90"/>
  </objectgroup>
  <objectgroup id="7" name="Hud">
   <object id="36" type="Button" gid="39" x="672" y="96" width="64" height="64">
