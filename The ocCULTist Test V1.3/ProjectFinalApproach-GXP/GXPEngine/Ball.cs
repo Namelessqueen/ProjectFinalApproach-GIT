@@ -76,8 +76,6 @@ internal class Ball : AnimationSprite
         AlphaChangeg();
 
         //Change the transparity off the test ball object
-        if (tester) alpha -= 0.002f * Time.deltaTime;
-        if (alpha <= 0) alpha = 0;
 
         if(((MyGame)game).success == true)
         {
@@ -90,10 +88,10 @@ internal class Ball : AnimationSprite
     float alphaT = 1;
     void AlphaChangeg()
     {
-        timer += 1;
+        timer += 1 * Time.deltaTime;
         alpha = 0;
         alphaT -= 0.002f * Time.deltaTime;
-        if (timer > 25)
+        if (timer > 125)
         {
             if (!tester)
             {
