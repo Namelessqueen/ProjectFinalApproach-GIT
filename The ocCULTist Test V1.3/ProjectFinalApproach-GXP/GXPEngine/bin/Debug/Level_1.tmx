@@ -86,13 +86,7 @@
   <object id="127" type="Player" gid="128" x="492" y="1054.33" width="216" height="188" rotation="-90"/>
  </objectgroup>
  <objectgroup id="7" name="Hud">
-  <object id="36" type="Button" gid="39" x="672" y="96" width="64" height="64">
-   <properties>
-    <property name="CurrentScene" value="Level_1"/>
-    <property name="action" value="Retry"/>
-   </properties>
-  </object>
-  <object id="83" name="button" type="Button" gid="49" x="32" y="96" width="64" height="64">
+  <object id="83" name="button" type="Button" gid="49" x="672" y="96" width="64" height="64">
    <properties>
     <property name="action" value="Pause"/>
    </properties>

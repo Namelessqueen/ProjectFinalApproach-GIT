@@ -9,6 +9,8 @@ using TiledMapParser;
 internal class Ball : AnimationSprite
 {
     Sound boom = new Sound("Boom.wav");
+    Sound crash = new Sound("crash.mp3");
+    Sound god = new Sound("god.mp3");
     public Vec2 Position;
     public Vec2 Velocity;
     public int radius;
@@ -16,6 +18,7 @@ internal class Ball : AnimationSprite
     float Angle;
     bool DestroyObject = true;
     public bool tester;
+    public bool crashing = false;
     string imageFile;
     int cols;
     int rows;
@@ -58,10 +61,10 @@ internal class Ball : AnimationSprite
         SetOrigin(width / 2, height / 2);
         scale = 0.75f;
         Position = PlayerPos;
-        Velocity = new Vec2(0, -speed*1.5f);
+        Velocity = new Vec2(0, -speed * 1.5f);
         Velocity.SetAngleDegrees(Angle);
 
-        
+
     }
 
 
@@ -69,16 +72,18 @@ internal class Ball : AnimationSprite
     {
         x = Position.x;
         y = Position.y;
+     
 
         Position += Velocity * Time.deltaTime;
         BoundaryWrap();
         CheckPlanetCollision();
+        Crash();
 
         //Change the transparity off the test ball object
         if (tester) alpha -= 0.002f * Time.deltaTime;
         if (alpha <= 0) alpha = 0;
 
-        if(((MyGame)game).success == true)
+        if (((MyGame)game).success == true)
         {
             Destroy();
         }
@@ -141,28 +146,49 @@ internal class Ball : AnimationSprite
     int crashTimer = 0;
     public void Crash()
     {
-        crashTimer += Time.deltaTime;
-        Velocity = new Vec2 (0, 0);
-        SetCycle(0, 9);
-        if (crashTimer > 200)
-        { 
-            Console.WriteLine();
-             if (!tester)
+        if (crashing)
+        {
+            if (crashTimer > 0 && crashTimer < 15)
             {
-                Console.WriteLine("Attempts left: {0}", ((MyGame)game).deathCount);
-              
-                ((MyGame)game).deathCount--;
+                crash.Play().Volume = 0.1f;
             }
-            crashTimer = 0;
-            Destroy();
+
+            crashTimer += Time.deltaTime;
+            Velocity = new Vec2(0, 0);
+            SetCycle(0, 9);
+            if (crashTimer > 200)
+            {
+                Console.WriteLine();
+                if (!tester)
+                {
+                    Console.WriteLine("Attempts left: {0}", ((MyGame)game).deathCount);
+
+                    ((MyGame)game).deathCount--;
+                }
+                crashTimer = 0;
+                Destroy();
+                crashing = false;
+            }
         }
-        
+
+    }
+
+    bool godPlayed = false;
+    void SuccesPlay()
+    {
+        if (!godPlayed)
+        {
+            Console.WriteLine("playing god");
+            god.Play().Volume = 0.4f;
+            godPlayed = true;
+        }
     }
 
 
     int passTimer = 0;
     public void Pass()
     {
+        SuccesPlay();
         passTimer += Time.deltaTime;
         Velocity = new Vec2(0, 0);
         SetCycle(10, 19);
@@ -196,7 +222,7 @@ internal class Ball : AnimationSprite
                 if (planetDistance.Length() <= radius + planetObjects[i].radius)
                 {
                     //The attempt has been used up
-                    Crash();             
+                    crashing = true;
                 }
             }
         }

@@ -12,16 +12,28 @@ internal class HUD : GameObject
     EasyDraw levelFail;
     EasyDraw levelPassed;
     EasyDraw levelNumber;
+    EasyDraw pauseScreen;
     EasyDraw starOne;
     EasyDraw starTwo;
     EasyDraw starThree;
     Button _continue;
     Button retry;
     Button menu;
+    Button resume;
+
+    Sound fail = new Sound("fail.mp3");
+  
+
     public static Font gameFont = new Font("Calamity Regular", 200);
 
     public HUD()
     {
+        pauseScreen = new EasyDraw("Pause_Screen.png", false);
+        pauseScreen.width = game.width;
+        pauseScreen.height = game.height;
+        pauseScreen.alpha = 0;
+        AddChild(pauseScreen);
+
         levelFail = new EasyDraw("level_failed.png", false);
         levelFail.width = game.width;
         levelFail.height = game.height;
@@ -54,8 +66,6 @@ internal class HUD : GameObject
         starThree.alpha = 0;
         AddChild(starThree);
 
-
-
         retry = new Button("button_retry.png");
         retry.action = "FailRetry";
         retry.alpha = 0;
@@ -66,6 +76,14 @@ internal class HUD : GameObject
         menu.alpha = 0;
         AddChild(menu);
 
+        resume = new Button("button_resume.png");
+        resume.action = "Resume";
+        resume.width = 190;
+        resume.height = 80;
+        resume.alpha = 0;
+        resume.SetXY(game.width/2 + 90, game.height/2 + 50);
+        AddChild(resume);
+
         _continue = new Button("button_continue.png");
         _continue.action = "Continue";
         _continue.SetXY(game.width/2 + 100, game.height - 235);
@@ -73,6 +91,7 @@ internal class HUD : GameObject
         AddChild(_continue);
     }
 
+  
 
     void LevelPassed()
     {
@@ -115,10 +134,43 @@ internal class HUD : GameObject
         }
     }
 
+    void LevelPaused()
+    {
+        if (((MyGame)game).paused)
+        {
+            
+            pauseScreen.alpha = 1;
+            resume.alpha = 1;
+            menu.SetXY(game.width/2 - 165, game.height/2 + 50);
+            menu.width = 80;
+            menu.height = 80;
+            retry.width = 80;
+            retry.height = 80;
+            retry.SetXY(game.width/2 - 65, game.height/2 + 50);
+        }
+        else
+        {
+            pauseScreen.alpha = 0;
+            resume.alpha = 0;
+        }
+    }
+
+    bool failPlayed = false;
+
+    void PlayFail()
+    {
+        if (!failPlayed)
+        {
+            fail.Play().Volume = 0.5f;
+            failPlayed = true;
+        }
+    }
+
     void LevelFailed()
     {
         if (((MyGame)game).deathCount == 0)
         {
+            PlayFail();
             levelNumber.SetXY(game.width / 2 + 50, game.height / 2 - 81);
             levelFail.alpha = 1;
             levelNumber.alpha = 1;
@@ -156,10 +208,13 @@ internal class HUD : GameObject
 
     void Update()
     {
-        LevelFailed();
-        LevelPassed();
+        if (((MyGame)game).deathCount == 0)
+        {
+            LevelFailed();
+        }
 
-        
+        LevelPassed();
+        LevelPaused();      
     }
 
 }

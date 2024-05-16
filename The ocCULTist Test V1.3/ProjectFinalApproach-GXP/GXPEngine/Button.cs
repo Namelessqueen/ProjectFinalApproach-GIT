@@ -12,6 +12,8 @@ internal class Button : AnimationSprite
     public string action;
     string CurrentScene;
     Vec2 Position;
+    Sound press = new Sound("button_press.mp3");
+
     public Button(string imageFile = "Square.png") : base(imageFile, 2, 1, -1)
     {
         Initialize();
@@ -56,7 +58,7 @@ internal class Button : AnimationSprite
     {
         if (action == "FailRetry" || action == "Menu")
         {
-            if (((MyGame)game).deathCount == 0 || ((MyGame)game).success)
+            if (((MyGame)game).deathCount == 0 || ((MyGame)game).success || ((MyGame)game).paused)
             {
                 alpha = 1;
             } else
@@ -75,7 +77,19 @@ internal class Button : AnimationSprite
             {
                 alpha = 0;
             }
-        }       
+        }
+
+        if (action == "Retry" || action == "Pause")
+        {
+            if (((MyGame)game).paused)
+            {
+                alpha = 0;
+            }
+            else
+            {
+                alpha = 1;
+            }
+        }
     }
     
 
@@ -98,32 +112,40 @@ internal class Button : AnimationSprite
     {
         if (Input.GetMouseButtonUp(0))
         {
+            
             if (action == "Start")
             {
+                press.Play().Volume = 0.1f;
                 ((MyGame)game).LoadScene("Level_1.tmx");
                 ((MyGame)game).currentLevel = 1;
                 CurrentScene = "Level_1";
             }
 
-            if (action == "Retry")
+            if (action == "Retry" && !((MyGame)game).paused)
             {
+                press.Play().Volume = 0.1f;
                 ((MyGame)game).LoadScene(CurrentScene + ".tmx");
             }
 
-            if (action == "FailRetry" && ((MyGame)game).deathCount == 0 || action == "FailRetry" && ((MyGame)game).success)
+            if (action == "FailRetry" && ((MyGame)game).deathCount == 0 || action == "FailRetry" && ((MyGame)game).success || action == "FailRetry" && ((MyGame)game).paused)
             {
+                press.Play().Volume = 0.1f;
                 ((MyGame)game).success = false;
+                ((MyGame)game).paused = false;
                 ((MyGame)game).LoadScene("Level_" + ((MyGame)game).currentLevel + ".tmx");
             }
 
-            if (action == "Menu" && ((MyGame)game).deathCount == 0 || action == "Menu" && ((MyGame)game).success)
+            if (action == "Menu" && ((MyGame)game).deathCount == 0 || action == "Menu" && ((MyGame)game).success || action == "Menu" && ((MyGame)game).paused)
             {
+                press.Play().Volume = 0.1f;
                 ((MyGame)game).success = false;
+                ((MyGame)game).paused = false;
                 ((MyGame)game).LoadScene("StartScene.tmx");
             }
 
             if (action == "Continue" && ((MyGame)game).success)
             {
+                press.Play().Volume = 0.1f;
                 ((MyGame)game).success = false;
                 ((MyGame)game).currentLevel++;
 
@@ -137,6 +159,19 @@ internal class Button : AnimationSprite
                     ((MyGame)game).LoadScene("StartScene.tmx");
                 }
             }
+
+            if (action == "Pause" && !((MyGame)game).paused)
+            {
+                press.Play().Volume = 0.1f;
+                ((MyGame)game).paused = true;
+            }
+
+            if (action == "Resume" &&  (((MyGame)game).paused))
+            {
+                press.Play().Volume = 0.1f;
+                ((MyGame)game).paused = false;
+            }
+
         }
 
 

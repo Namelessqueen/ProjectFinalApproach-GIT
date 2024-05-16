@@ -12,11 +12,14 @@ public class MyGame : Game {
 	public int deathCount = 3;
 	public int currentLevel = 0;
 	public bool success = false;
+	public bool paused = false;
+	Sound music = new Sound("music.mp3");
 
 	public MyGame() : base(768, 1024, false)    
 	{
 	    OnAfterStep += CheckLoadScene;
 		LoadScene("StartScene.tmx");
+	
 	}
 	void DestroyAll()
 	{
@@ -32,7 +35,27 @@ public class MyGame : Game {
 		nextScene = filename;
 	}
 
-	void CheckLoadScene()
+	int time = 0;
+	bool musicPlaying = false;
+
+	void PlayMusic()
+	{
+		time += Time.deltaTime;
+
+		if (deathCount != 0 && !musicPlaying)
+		{
+            musicPlaying = true;
+            music.Play().Volume = 0.1f;
+		} 
+
+		if (time/1000 > 33)
+		{
+			musicPlaying = false;
+			time = 0;
+		}
+    }
+
+    void CheckLoadScene()
 	{
 		if (nextScene != null)
 		{
@@ -51,7 +74,7 @@ public class MyGame : Game {
 
 	void Update()
 	{
-		
+		PlayMusic();
 	}
 
 	static void Main()                          

@@ -46,7 +46,7 @@ internal class ColSquare : AnimationSprite
             {
                 if (!BallObjects[i].tester)
                 {
-                    BallObjects[i].Crash();
+                    BallObjects[i].crashing = true;
                 }
 
             }

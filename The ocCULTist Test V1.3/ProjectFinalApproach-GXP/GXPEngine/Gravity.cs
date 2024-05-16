@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 using TiledMapParser;
 using GXPEngine;
 using System.Runtime.CompilerServices;
-using System.IO.Ports;
+using System.IO.Ports; 
 
 
 internal class Gravity : AnimationSprite
 {
     public Vec2 Position;
-    public Vec2 Velocity;
     Vec2 mousePos;
     Vec2 PivitPoint;
     int radius;
@@ -152,21 +151,24 @@ internal class Gravity : AnimationSprite
 
     void MovingPlanet()
     {
-        //track mouse movement
-        mousePos = new Vec2(Input.mouseX, Input.mouseY);
-
-        Vec2 rotationMouse = PivitPoint - mousePos;
-        float rotation = Mathf.Clamp(rotationMouse.GetAngleDegrees(), RotClampMin, RotClampMax);
-        Vec2 dist = Position - mousePos;
-
-        //if (Input.GetKeyDown(Key.P)) Console.WriteLine(rotation);
-
-
-        //Pressing the right mouse button to change the gravity position
-        if (Input.GetMouseButton(1) && dist.Length() < radius)
+        if (!((MyGame)game).paused && !((MyGame)game).success && ((MyGame)game).deathCount != 0)
         {
-            //RotateAroundSetDegrees is a new Vec2 void that rotates around a point to a set angle. Using this to match the gravity angle with the one of the mouse
-            Position.RotateAroundSetDegrees(PivitPoint, rotation);
+            //track mouse movement
+            mousePos = new Vec2(Input.mouseX, Input.mouseY);
+
+            Vec2 rotationMouse = PivitPoint - mousePos;
+            float rotation = Mathf.Clamp(rotationMouse.GetAngleDegrees(), RotClampMin, RotClampMax);
+            Vec2 dist = Position - mousePos;
+
+            //if (Input.GetKeyDown(Key.P)) Console.WriteLine(rotation);
+
+
+            //Pressing the right mouse button to change the gravity position
+            if (Input.GetMouseButton(1) && dist.Length() < radius)
+            {
+                //RotateAroundSetDegrees is a new Vec2 void that rotates around a point to a set angle. Using this to match the gravity angle with the one of the mouse
+                Position.RotateAroundSetDegrees(PivitPoint, rotation);
+            }
         }
     }
 
