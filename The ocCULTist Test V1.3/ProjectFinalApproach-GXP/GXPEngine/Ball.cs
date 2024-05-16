@@ -78,10 +78,9 @@ internal class Ball : AnimationSprite
         BoundaryWrap();
         CheckPlanetCollision();
         Crash();
+        AlphaChangeg();
 
         //Change the transparity off the test ball object
-        if (tester) alpha -= 0.002f * Time.deltaTime;
-        if (alpha <= 0) alpha = 0;
 
         if (((MyGame)game).success == true)
         {
@@ -89,6 +88,26 @@ internal class Ball : AnimationSprite
         }
 
         Animate(0.04f * Time.deltaTime);
+    }
+    float timer;
+    float alphaT = 1;
+    void AlphaChangeg()
+    {
+        timer += 1 * Time.deltaTime;
+        alpha = 0;
+        alphaT -= 0.002f * Time.deltaTime;
+        if (timer > 125)
+        {
+            if (!tester)
+            {
+                alpha = 1;
+            }
+            if(tester)
+            {
+                alpha = alphaT;
+                if (alpha <= 0) alpha = 0;
+            }
+        }
     }
 
     //Method to keep the projectile inside the game scene

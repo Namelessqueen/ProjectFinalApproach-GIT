@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="24" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="270">
+ <tileset firstgid="1" name="button_pause" tilewidth="65" tileheight="65" tilecount="2" columns="2">
+  <image source="button_pause.png" width="130" height="65"/>
+ </tileset>
+ <tileset firstgid="3" name="planet1" tilewidth="130" tileheight="130" tilecount="21" columns="7">
+  <image source="planet1.png" width="910" height="390"/>
+ </tileset>
+ <tileset firstgid="24" name="ReloadTest" tilewidth="32" tileheight="32" tilecount="4" columns="4">
+  <image source="ReloadTest.png" width="128" height="32"/>
+ </tileset>
+ <tileset firstgid="28" name="planet3" tilewidth="145" tileheight="145" tilecount="24" columns="6">
+  <image source="planet3.png" width="870" height="580"/>
+ </tileset>
+ <tileset firstgid="52" name="Ball" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+  <image source="Ball.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="53" name="Square2" tilewidth="64" tileheight="64" tilecount="1" columns="1">
+  <image source="Square2.png" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="54" name="button_retry" tilewidth="115" tileheight="115" tilecount="2" columns="2">
+  <image source="button_retry.png" width="230" height="115"/>
+ </tileset>
+ <tileset firstgid="56" name="planet2" tilewidth="100" tileheight="100" tilecount="16" columns="4">
+  <image source="planet2.png" width="400" height="400"/>
+ </tileset>
+ <tileset firstgid="72" name="Cannon" tilewidth="172" tileheight="71" tilecount="1" columns="1">
+  <image source="Cannon.png" width="172" height="71"/>
+ </tileset>
+ <tileset firstgid="73" name="force_field" tilewidth="160" tileheight="160" tilecount="1" columns="1">
+  <image source="force_field.png" width="160" height="160"/>
+ </tileset>
+ <tileset firstgid="74" name="baphomet" tilewidth="190" tileheight="255" tilecount="1" columns="1">
+  <image source="baphomet.png" width="190" height="255"/>
+ </tileset>
+ <tileset firstgid="75" name="spr_obstacles" tilewidth="100" tileheight="100" tilecount="4" columns="4">
+  <image source="spr_obstacles.png" width="400" height="100"/>
+ </tileset>
+ <tileset firstgid="79" name="spr_goats_emblems" tilewidth="170" tileheight="170" tilecount="3" columns="3">
+  <image source="spr_goats_emblems.png" width="510" height="170"/>
+ </tileset>
+ <tileset firstgid="82" name="actual_cannon_spiteSheet" tilewidth="190" tileheight="175" tilecount="10" columns="5">
+  <image source="actual_cannon_spiteSheet.png" width="950" height="350"/>
+ </tileset>
+ <tileset firstgid="92" name="smolstar2" tilewidth="64" tileheight="64" tilecount="1" columns="1">
+  <image source="smolstar2.png" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="93" name="smolstar" tilewidth="64" tileheight="64" tilecount="1" columns="1">
+  <image source="smolstar.png" width="64" height="64"/>
+ </tileset>
+ <imagelayer id="7" name="Afbeelding Laag 1">
+  <image source="bg_1.png" width="768" height="1024"/>
+ </imagelayer>
+ <objectgroup id="8" name="Stars">
+  <object id="89" type="Player" gid="82" x="480" y="1120" width="216" height="188" rotation="-90"/>
+  <object id="90" gid="92" x="602.76" y="347.403" width="14.5648" height="18.7873"/>
+  <object id="91" gid="93" x="175.24" y="347.144" width="12" height="13.5976"/>
+  <object id="92" gid="92" x="153.384" y="347.599" width="12.4542" height="19.1055"/>
+  <object id="93" gid="92" x="48.1896" y="723.606" width="21.7875" height="24.2873"/>
+  <object id="95" gid="92" x="647.106" y="527.393" width="17.7042" height="34.0266"/>
+  <object id="96" gid="92" x="103.773" y="518.275" width="17.7875" height="16.6021"/>
+  <object id="98" gid="92" x="191.106" y="358.69" width="13.7875" height="16.6206"/>
+  <object id="99" gid="92" x="207.523" y="355.356" width="14.5038" height="21.2039"/>
+  <object id="100" gid="93" x="225.667" y="363.035" width="12" height="13.5976"/>
+  <object id="101" gid="93" x="255.375" y="361.451" width="8.25" height="12.0976"/>
+  <object id="102" gid="92" x="262.773" y="371.69" width="19.1208" height="18.2872"/>
+  <object id="103" gid="93" x="295.833" y="360.701" width="12" height="13.5976"/>
+  <object id="104" gid="92" x="316.19" y="367.773" width="10.6208" height="11.9539"/>
+  <object id="106" gid="92" x="350.44" y="371.356" width="10.6208" height="14.9539"/>
+  <object id="107" gid="93" x="357.667" y="381.535" width="12" height="13.5976"/>
+  <object id="108" gid="92" x="392.687" y="368.675" width="9.12537" height="10.4237"/>
+  <object id="113" gid="92" x="411.719" y="377.946" width="13.7875" height="16.6206"/>
+  <object id="114" gid="92" x="428.636" y="361.93" width="14.5038" height="8.84026"/>
+  <object id="115" gid="93" x="452.28" y="376.291" width="12" height="13.5976"/>
+  <object id="116" gid="93" x="471.083" y="357.487" width="12" height="13.5976"/>
+  <object id="117" gid="92" x="487.19" y="372.559" width="19.1208" height="19.9539"/>
+  <object id="118" gid="92" x="527.69" y="364.809" width="10.6208" height="14.9539"/>
+  <object id="119" gid="93" x="517.584" y="352.988" width="12" height="13.5976"/>
+  <object id="120" gid="92" x="545.356" y="350.523" width="13.2041" height="19.1206"/>
+  <object id="121" gid="93" x="579" y="350.535" width="12" height="13.5976"/>
+  <object id="122" gid="92" x="162.993" y="543.531" width="19.503" height="28.6663" rotation="3.32123"/>
+  <object id="123" gid="92" x="266.835" y="546.386" width="14.503" height="23.6663" rotation="3.32123"/>
+  <object id="124" gid="92" x="220.419" y="549.354" width="14" height="21.5" rotation="357.805"/>
+  <object id="125" gid="92" x="242.09" y="537.517" width="13.2713" height="15.5307" rotation="1.20323"/>
+  <object id="126" gid="93" x="197.774" y="538.558" width="10.5" height="13.5172" rotation="3.32123"/>
+  <object id="127" gid="93" x="252.087" y="543.938" width="9.33333" height="8.85053" rotation="3.32123"/>
+  <object id="128" gid="92" x="315.053" y="556.754" width="14" height="21.5" rotation="357.805"/>
+  <object id="129" gid="92" x="337.974" y="540.917" width="13.2713" height="15.5307" rotation="1.20323"/>
+  <object id="130" gid="93" x="295.463" y="545.089" width="9.27273" height="14.2445" rotation="3.32123"/>
+  <object id="131" gid="92" x="149.953" y="522.553" width="13.5643" height="18.8057" rotation="3.32123"/>
+  <object id="132" gid="93" x="131.159" y="527.332" width="10.5" height="13.5172" rotation="3.32123"/>
+  <object id="133" gid="93" x="309" y="534.241" width="9.33333" height="8.85053" rotation="3.32123"/>
+  <object id="134" gid="93" x="353.333" y="553.241" width="9.33333" height="8.85053" rotation="3.32123"/>
+  <object id="135" gid="92" x="373.667" y="548.917" width="14" height="21.5" rotation="357.805"/>
+  <object id="136" gid="92" x="565.315" y="540.208" width="19.1208" height="19.9539"/>
+  <object id="137" gid="92" x="604.156" y="542.95" width="11.8935" height="16.9539"/>
+  <object id="138" gid="93" x="599.959" y="527.47" width="12" height="13.5976"/>
+  <object id="139" gid="92" x="624.981" y="525.505" width="13.2041" height="19.1206"/>
+  <object id="148" gid="92" x="390.287" y="561.153" width="19.503" height="28.6663" rotation="3.32123"/>
+  <object id="149" gid="92" x="451.213" y="550.476" width="14" height="21.5" rotation="357.805"/>
+  <object id="150" gid="93" x="422.235" y="555.347" width="10.5" height="13.5172" rotation="3.32123"/>
+  <object id="151" gid="92" x="549.727" y="547.761" width="19.1208" height="19.9539" rotation="356.99"/>
+  <object id="152" gid="92" x="526.152" y="536.263" width="11.8935" height="16.9539"/>
+  <object id="153" gid="93" x="517.705" y="549.783" width="12" height="13.5976"/>
+  <object id="154" gid="92" x="480.648" y="559.987" width="17.7042" height="34.0266"/>
+  <object id="155" gid="93" x="441.523" y="555.565" width="8.5" height="10.0976"/>
+  <object id="156" gid="92" x="470.727" y="539.159" width="8.13163" height="10.8078" rotation="357.805"/>
+  <object id="157" gid="93" x="501.364" y="537.656" width="8.36364" height="8.50669"/>
+  <object id="167" gid="92" x="661.487" y="736.637" width="10.6208" height="11.9539"/>
+  <object id="190" gid="93" x="70.9276" y="716.042" width="9.66667" height="11.2643"/>
+  <object id="211" gid="92" x="103.785" y="746.445" width="13.8462" height="22.5784" rotation="3.32123"/>
+  <object id="212" gid="92" x="202.836" y="758.134" width="5.67071" height="11.8848" rotation="3.32123"/>
+  <object id="213" gid="92" x="144.045" y="752.727" width="11.9492" height="16.9502" rotation="357.805"/>
+  <object id="214" gid="92" x="182.174" y="751.515" width="13.2713" height="20.1963" rotation="1.20323"/>
+  <object id="215" gid="93" x="122.775" y="741.014" width="9.21421" height="11.9401" rotation="3.32123"/>
+  <object id="216" gid="93" x="166.088" y="754.686" width="9.33333" height="8.85053" rotation="3.32123"/>
+  <object id="217" gid="92" x="248.971" y="764.502" width="10.8131" height="16.6058" rotation="357.805"/>
+  <object id="218" gid="92" x="268.225" y="761.332" width="13.2713" height="15.5307" rotation="1.20323"/>
+  <object id="219" gid="93" x="223.714" y="758.837" width="9.27273" height="14.2445" rotation="3.32123"/>
+  <object id="220" gid="92" x="84.7488" y="731.998" width="13.5643" height="18.8057" rotation="3.32123"/>
+  <object id="221" gid="93" x="238.917" y="745.989" width="9.33333" height="8.85053" rotation="3.32123"/>
+  <object id="222" gid="93" x="288.917" y="767.989" width="9.33333" height="8.85053" rotation="3.32123"/>
+  <object id="223" gid="92" x="307.918" y="765.998" width="14" height="21.5" rotation="357.805"/>
+  <object id="226" gid="93" x="63.9383" y="732.939" width="10.8348" height="9.12016" rotation="3.32123"/>
+  <object id="227" gid="93" x="671.379" y="727.149" width="9.33333" height="8.85053" rotation="3.32123"/>
+  <object id="228" gid="92" x="690.5" y="729.583" width="14" height="21.5" rotation="357.805"/>
+  <object id="231" gid="92" x="702.636" y="716.159" width="8.59883" height="17.5226" rotation="357.805"/>
+  <object id="232" gid="93" x="715.333" y="710.302" width="10.2223" height="12.3625" rotation="3.32123"/>
+  <object id="233" gid="92" x="454.221" y="765.933" width="10.6208" height="11.9539"/>
+  <object id="234" gid="93" x="463.613" y="751.946" width="9.33333" height="8.85053" rotation="3.32123"/>
+  <object id="238" gid="92" x="431.667" y="766.417" width="14" height="21.5" rotation="357.805"/>
+  <object id="239" gid="93" x="479.788" y="761.094" width="9.33333" height="8.85053" rotation="3.32123"/>
+  <object id="240" gid="92" x="504.409" y="758.028" width="14" height="21.5" rotation="357.805"/>
+  <object id="249" gid="93" x="535.777" y="761.606" width="12" height="13.5976"/>
+  <object id="250" gid="93" x="553.33" y="748.052" width="12" height="13.5976"/>
+  <object id="251" gid="92" x="570.687" y="757.874" width="19.1208" height="19.9539"/>
+  <object id="252" gid="92" x="620.732" y="749.427" width="10.6208" height="14.9539"/>
+  <object id="253" gid="93" x="604.414" y="746.425" width="12" height="13.5976"/>
+  <object id="254" gid="92" x="637.883" y="737.202" width="13.2041" height="19.1206"/>
+  <object id="255" gid="93" x="519.479" y="757.083" width="9.125" height="8.1601"/>
+  <object id="256" gid="92" x="588.989" y="745.515" width="8.1208" height="15.2872"/>
+  <object id="262" gid="2147483740" x="378.226" y="760.501" width="10.6208" height="11.9539"/>
+  <object id="263" gid="2147483741" x="341.137" y="758.055" width="9.33333" height="8.85053" rotation="-3.32123"/>
+  <object id="264" gid="2147483740" x="350.411" y="772.449" width="14" height="21.5" rotation="-357.805"/>
+  <object id="265" gid="2147483741" x="324.962" y="767.203" width="9.33333" height="8.85053" rotation="-3.32123"/>
+  <object id="266" gid="2147483741" x="391.333" y="767.075" width="9.33333" height="8.85053" rotation="-3.32123"/>
+  <object id="267" gid="92" x="416" y="768" width="18.3626" height="17.8302" rotation="357.805"/>
+  <object id="269" gid="92" x="124.652" y="514.426" width="8.15114" height="9.6021"/>
+ </objectgroup>
+ <objectgroup id="6" name="Force">
+  <object id="72" name="Force" type="Gravity" gid="73" x="300" y="626.667" width="160" height="160">
+   <properties>
+    <property name="PivitX" type="float" value="384"/>
+    <property name="PivitY" type="float" value="-500"/>
+    <property name="RotClampMax" type="float" value="105"/>
+    <property name="RotClampMin" type="float" value="75"/>
+    <property name="gravityStrength" type="float" value="0.03"/>
+   </properties>
+  </object>
+  <object id="73" name="Force" type="Gravity" gid="73" x="313" y="824" width="136" height="136">
+   <properties>
+    <property name="PivitX" type="float" value="384"/>
+    <property name="PivitY" type="float" value="-500"/>
+    <property name="RotClampMax" type="float" value="105"/>
+    <property name="RotClampMin" type="float" value="75"/>
+    <property name="gravityStrength" type="float" value="0.025"/>
+   </properties>
+  </object>
+  <object id="84" name="Force" type="Gravity" gid="73" x="314" y="437.333" width="136" height="136">
+   <properties>
+    <property name="PivitX" type="float" value="384"/>
+    <property name="PivitY" type="float" value="-500"/>
+    <property name="RotClampMax" type="float" value="105"/>
+    <property name="RotClampMin" type="float" value="75"/>
+    <property name="gravityStrength" type="float" value="0.025"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="2" name="Objects">
+  <object id="29" name="Planet" type="Planet" gid="3" x="367.333" y="773.333" width="32" height="32"/>
+  <object id="58" name="Planet" type="Planet" gid="56" x="353" y="577.667" width="60" height="60">
+   <properties>
+    <property name="PivitX" type="float" value="323.67"/>
+    <property name="PivitY" type="float" value="345"/>
+    <property name="RotClampMax" type="float" value="15"/>
+    <property name="RotClampMin" type="float" value="-15"/>
+   </properties>
+  </object>
+  <object id="74" name="God" type="God" gid="74" x="314" y="192" width="140.667" height="191">
+   <properties>
+    <property name="nextLevel" value="Level_4"/>
+   </properties>
+  </object>
+  <object id="97" name="Planet" type="Planet" gid="3" x="369.939" y="376.97" width="32" height="32"/>
+ </objectgroup>
+ <objectgroup id="5" name="Hud">
+  <object id="52" name="Retry" type="Button" gid="54" x="672" y="96" width="64" height="64">
+   <properties>
+    <property name="CurrentScene" value="Level_3"/>
+    <property name="action" value="Retry"/>
+   </properties>
+  </object>
+  <object id="53" name="button" type="Button" gid="1" x="32" y="96" width="64" height="64">
+   <properties>
+    <property name="action" value="pauze"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="3" name="Wall">
+  <object id="77" type="ColSquare" gid="78" x="359.833" y="259.5" width="63" height="63"/>
+  <object id="79" type="ColSquare" gid="77" x="416.833" y="233.167" width="63" height="63"/>
+  <object id="80" type="ColSquare" gid="75" x="288.583" y="230.708" width="63.5" height="63.25"/>
+  <object id="81" type="Reload" gid="79" x="544" y="976" width="100" height="100"/>
+  <object id="82" type="Reload" gid="79" x="604" y="976" width="100" height="100"/>
+  <object id="83" type="Reload" gid="79" x="664" y="976" width="100" height="100"/>
+ </objectgroup>
+</map>
